@@ -8,7 +8,6 @@ package bank;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,11 +22,9 @@ public class AddExpense extends javax.swing.JFrame {
    PreparedStatement pst = null;
     ResultSet rs = null;
     DBConnection conn;
-    public ArrayList<String> listOfEmployees = new ArrayList<String>();
     public AddExpense() {
         initComponents();
         conn = new DBConnection();
-        getEmployees();
     }
 
     /**
@@ -42,19 +39,20 @@ public class AddExpense extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         add = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        description = new javax.swing.JTextField();
         amount = new javax.swing.JTextField();
         specific_date = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
-        employees = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        description = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "Add an Expense"));
         jPanel1.setEnabled(false);
 
+        add.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/add-icon.png"))); // NOI18N
         add.setText("ADD");
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,11 +64,11 @@ public class AddExpense extends javax.swing.JFrame {
 
         jLabel4.setText("Amount (*):");
 
-        employees.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Employee" }));
-
         jLabel1.setText("Description (*):");
 
-        jLabel3.setText("Employee (*):");
+        description.setColumns(20);
+        description.setRows(5);
+        jScrollPane1.setViewportView(description);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,35 +77,27 @@ public class AddExpense extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(employees, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(specific_date, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(add)
-                        .addGap(129, 129, 129))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(specific_date, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(add)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(specific_date, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -115,11 +105,7 @@ public class AddExpense extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
                     .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(employees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                .addGap(35, 35, 35)
                 .addComponent(add)
                 .addContainerGap())
         );
@@ -131,14 +117,14 @@ public class AddExpense extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(450, Short.MAX_VALUE))
+                .addContainerGap(287, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,52 +135,30 @@ public class AddExpense extends javax.swing.JFrame {
         java.util.Date expenseDate = specific_date.getDate();
         java.sql.Date sqlExpenseDate = new java.sql.Date(expenseDate.getTime());
         
-        String sql = "INSERT into expense (description,amount,employee_name, expense_date) values (?,?,?,?)";
+        String sql = "INSERT into expense (description,amount, expense_date) values (?,?,?)";
         try{
             pst = conn.connection.prepareStatement(sql);
             pst.setString(1, description.getText());
             pst.setFloat(2, Float.parseFloat(amount.getText()));
-            pst.setString(3, employees.getSelectedItem().toString());
-            pst.setString(4, sqlExpenseDate.toString());;
+            pst.setString(3, sqlExpenseDate.toString());;
             pst.execute();
             JOptionPane.showMessageDialog(null, "The Expense has been Created");
             this.dispose();
         }catch (SQLException e1) {
                 // TODO Auto-generated catch block
-                e1.printStackTrace();
+                JOptionPane.showMessageDialog(null, e1);
         }
     }
     
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
-        String selectedEmployee = (String) employees.getSelectedItem();
-        if (!description.getText().isEmpty() && specific_date.getDate()!= null && !amount.getText().isEmpty() && !selectedEmployee.equalsIgnoreCase("Select Employee")){
+        if (!description.getText().isEmpty() && specific_date.getDate()!= null && !amount.getText().isEmpty()){
             addExpense();
         }else{
             JOptionPane.showMessageDialog(null, "All fields are required", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_addActionPerformed
 
-    private void getEmployees() {
-        String sql = "SELECT firstname,lastname FROM employees";
-        listOfEmployees.clear();
-        //System.out.println(province.getSelectedItem().toString());
-        try {
-            pst = conn.connection.prepareStatement(sql);
-            rs = pst.executeQuery(sql);
-            while (rs.next()) {
-                    listOfEmployees.add(rs.getString("firstname") +" "+ rs.getString("lastname"));
-            }
-        } catch (SQLException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-        }
-
-        for(int i = 0; i < listOfEmployees.size(); i++){
-            //charges.addItem(listOfcharges.get(i));
-            employees.addItem(listOfEmployees.get(i));
-        }  
-    }
     /**
      * @param args the command line arguments
      */
@@ -233,13 +197,12 @@ public class AddExpense extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
     private javax.swing.JTextField amount;
-    private javax.swing.JTextField description;
-    private javax.swing.JComboBox<String> employees;
+    private javax.swing.JTextArea description;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private com.toedter.calendar.JDateChooser specific_date;
     // End of variables declaration//GEN-END:variables
 }

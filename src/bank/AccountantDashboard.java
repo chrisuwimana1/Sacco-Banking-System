@@ -99,6 +99,8 @@ public class AccountantDashboard extends javax.swing.JFrame {
         new_accounts = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JToolBar.Separator();
         jLabel7 = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JToolBar.Separator();
+        add_expense = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -485,6 +487,17 @@ public class AccountantDashboard extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/Places-folder-templates-icon.png"))); // NOI18N
         jLabel7.setText("TEMPLATES");
         jToolBar2.add(jLabel7);
+        jToolBar2.add(jSeparator9);
+
+        add_expense.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        add_expense.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/payment-icon.png"))); // NOI18N
+        add_expense.setText("ADD AN EXPENSE");
+        add_expense.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add_expenseMouseClicked(evt);
+            }
+        });
+        jToolBar2.add(add_expense);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -654,6 +667,11 @@ public class AccountantDashboard extends javax.swing.JFrame {
         new Template_Financial_Transactions().setVisible(true);
     }//GEN-LAST:event_finanancial_transactionActionPerformed
 
+    private void add_expenseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_expenseMouseClicked
+        // TODO add your handling code here:
+        new AddExpense().setVisible(true);
+    }//GEN-LAST:event_add_expenseMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -693,6 +711,7 @@ public class AccountantDashboard extends javax.swing.JFrame {
     private javax.swing.JButton account_information_template;
     private javax.swing.JTextField account_number;
     private javax.swing.JLabel add_a_charge;
+    private javax.swing.JLabel add_expense;
     private javax.swing.JLabel all_transactions;
     private javax.swing.JButton collaterals_template;
     private javax.swing.JButton contract_information_template;
@@ -725,6 +744,7 @@ public class AccountantDashboard extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
+    private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JButton loan_application_analysis;

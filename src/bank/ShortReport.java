@@ -5,9 +5,10 @@
  */
 package bank;
 
-
+import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -134,6 +135,8 @@ public class ShortReport extends javax.swing.JFrame {
 
         jLabel7.setText("Sum of Parts Sociales:");
 
+        sum_of_parts_socials.setText("0");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -149,7 +152,7 @@ public class ShortReport extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel7)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(sum_of_parts_socials))
+                            .addComponent(sum_of_parts_socials, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4)
@@ -213,12 +216,11 @@ public class ShortReport extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void filterDatabyDate() {
-                    java.util.Date specificDate = specific_date.getDate();
-            java.sql.Date sqlSpecificDate = new java.sql.Date(specificDate.getTime());
-            String stringsqlSpecificDate = sqlSpecificDate.toString();
-            getSumOfDeposits(stringsqlSpecificDate);
+        java.util.Date specificDate = specific_date.getDate();
+        java.sql.Date sqlSpecificDate = new java.sql.Date(specificDate.getTime());
+        String stringsqlSpecificDate = sqlSpecificDate.toString();
+        getSumOfDeposits(stringsqlSpecificDate);
         getSumOfWithdrawals(stringsqlSpecificDate);
-        
         getSumOfExpenses(stringsqlSpecificDate);
         getSumOfProducts(stringsqlSpecificDate);
         getSumOfInitialDeposits(stringsqlSpecificDate);
@@ -231,11 +233,9 @@ public class ShortReport extends javax.swing.JFrame {
             pst = conn.connection.prepareStatement(sql);
             pst.setString(1, currentDate);
             rs = pst.executeQuery();
-            //System.out.println(rs.next());
             if (rs.next() == true) {
-                //System.out.println(rs.next());
-                
-                if (rs.getString("total")== null) {
+
+                if (rs.getString("total") == null) {
                     sum_of_deposits.setText("0");
                 } else {
                     sum_of_deposits.setText(rs.getString("total"));
@@ -243,13 +243,13 @@ public class ShortReport extends javax.swing.JFrame {
             } else {
                 System.out.println("Failed");
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         } finally {
             try {
                 rs.close();
                 pst.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
 
             }
         }
@@ -260,11 +260,10 @@ public class ShortReport extends javax.swing.JFrame {
 
             String sql = "SELECT SUM(transaction_amount) AS 'total' FROM transactions WHERE transaction_type = 'Withdraw' AND transaction_date = ?";
             pst = conn.connection.prepareStatement(sql);
-            pst.setString(1,currentDate);
+            pst.setString(1, currentDate);
             rs = pst.executeQuery();
-            //System.out.println(rs.next());
             if (rs.next()) {
-                if (rs.getString("total")== null) {
+                if (rs.getString("total") == null) {
                     sum_of_withdrawals.setText("0");
                 } else {
                     sum_of_withdrawals.setText(rs.getString("total"));
@@ -272,7 +271,7 @@ public class ShortReport extends javax.swing.JFrame {
             } else {
                 System.out.println("Failed");
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
@@ -284,7 +283,6 @@ public class ShortReport extends javax.swing.JFrame {
             pst = conn.connection.prepareStatement(sql);
             pst.setString(1, currentDate);
             rs = pst.executeQuery();
-            //System.out.println(rs.next());
             if (rs.next()) {
                 System.out.println(rs.getString("total"));
                 if (rs.getString("total") == null) {
@@ -295,7 +293,7 @@ public class ShortReport extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Can't run this query right now!", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (Exception e) {
+        } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
@@ -317,7 +315,7 @@ public class ShortReport extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Can't run this query right now!!", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (Exception e) {
+        } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
@@ -330,10 +328,9 @@ public class ShortReport extends javax.swing.JFrame {
             pst = conn.connection.prepareStatement(sql);
             pst.setString(1, currentDate);
             rs = pst.executeQuery();
-            //System.out.println(rs.next());
+
             if (rs.next() == true) {
-                //System.out.println(rs.next());
-                if (rs.getString("total").isEmpty()) {
+                if (rs.getString("total") == null) {
                     sum_of_parts_socials.setText("0");
                 } else {
                     sum_of_parts_socials.setText(rs.getString("total"));
@@ -341,21 +338,22 @@ public class ShortReport extends javax.swing.JFrame {
             } else {
                 System.out.println("Failed");
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         } finally {
             try {
                 rs.close();
                 pst.close();
-            } catch (Exception e) {
-
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
             }
         }
     }
 
     private void filterData() {
         java.sql.Date currentDate = new java.sql.Date(new java.util.Date().getTime());
-        String sqlCurrentDate = currentDate.toString();      getSumOfWithdrawals(sqlCurrentDate);
+        String sqlCurrentDate = currentDate.toString();
+        getSumOfWithdrawals(sqlCurrentDate);
         getSumOfDeposits(sqlCurrentDate);
         getSumOfExpenses(sqlCurrentDate);
         getSumOfProducts(sqlCurrentDate);

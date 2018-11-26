@@ -5,24 +5,11 @@
  */
 package bank;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.prefs.Preferences;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -156,13 +143,13 @@ public class ViewExpenses extends javax.swing.JFrame {
 
         list_of_expenses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Expense Description", "Amount", "Employee", "Date"
+                "Expense Description", "Amount", "Date"
             }
         ));
         jScrollPane2.setViewportView(list_of_expenses);
@@ -173,7 +160,8 @@ public class ViewExpenses extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1059, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +210,7 @@ public class ViewExpenses extends javax.swing.JFrame {
                 dtm.setRowCount(0);
                 dtm.setColumnCount(0);
 
-                String sql = "SELECT `description`, `amount`, `employee_name`, `expense_date` FROM `expense` WHERE expense_date = ?";
+                String sql = "SELECT `description`, `amount`, `expense_date` FROM `expense` WHERE expense_date = ?";
                 pst = conn.connection.prepareStatement(sql);
                 pst.setString(1, transactionDate);
                 rs = pst.executeQuery();
@@ -230,17 +218,15 @@ public class ViewExpenses extends javax.swing.JFrame {
                 list_of_expenses.setModel(model);
                 model.addColumn("Expense Description");
                 model.addColumn("Amount");
-                model.addColumn("Employee");
                 model.addColumn("Date");
 
                 while (rs.next()) {
                     //count++;
                     model.addRow(new Object[]{rs.getString("description"), rs.getString("amount"),
-                        rs.getString("employee_name"), rs.getString("expense_date")
+                        rs.getString("expense_date")
                     });
                 }
-
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
@@ -262,7 +248,7 @@ public class ViewExpenses extends javax.swing.JFrame {
                 dtm.setRowCount(0);
                 dtm.setColumnCount(0);
 
-                String sql = "SELECT `description`, `amount`, `employee_name`, `expense_date` FROM `expense` WHERE expense_date BETWEEN ? and ?";
+                String sql = "SELECT `description`, `amount`, `expense_date` FROM `expense` WHERE expense_date BETWEEN ? and ?";
                 pst = conn.connection.prepareStatement(sql);
                 pst.setString(1, sqlFromDate.toString());
                 pst.setString(2, sqlToDate.toString());
@@ -271,17 +257,16 @@ public class ViewExpenses extends javax.swing.JFrame {
                 list_of_expenses.setModel(model);
                 model.addColumn("Expense Description");
                 model.addColumn("Amount");
-                model.addColumn("Employee");
                 model.addColumn("Date");
 
                 while (rs.next()) {
                     //count++;
                     model.addRow(new Object[]{rs.getString("description"), rs.getString("amount"),
-                        rs.getString("employee_name"), rs.getString("expense_date")
+                        rs.getString("expense_date")
                     });
                 }
 
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
@@ -298,7 +283,7 @@ public class ViewExpenses extends javax.swing.JFrame {
 
             try {
                 filterData();
-            } catch (Exception e) {
+            } catch (ParseException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         } else if (dateChoice.equalsIgnoreCase("Date Range")) {
@@ -306,7 +291,7 @@ public class ViewExpenses extends javax.swing.JFrame {
 
             try {
                 filterDataByDate();
-            } catch (Exception e) {
+            } catch (ParseException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         } else {
