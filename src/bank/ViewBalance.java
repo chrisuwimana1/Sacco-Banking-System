@@ -184,7 +184,6 @@ public class ViewBalance extends javax.swing.JFrame {
             model.addColumn("Last Update");
 
             while (rs.next()) {
-                System.out.println("Balanceee");
                 model.addRow(new Object[]{rs.getString("Account_Number"), rs.getString("Customer_Name"), 
                     formatFloat(rs.getString("current_balance")), rs.getString("date_changed")});
             }

@@ -257,6 +257,8 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         view_transactions = new javax.swing.JButton();
         view_part_social = new javax.swing.JButton();
         epargne_obligatoire = new javax.swing.JButton();
+        new_savings = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1606,6 +1608,23 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             }
         });
 
+        new_savings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/savings.png"))); // NOI18N
+        new_savings.setText("NEW SAVINGS");
+        new_savings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                new_savingsActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/transfer-icon.png"))); // NOI18N
+        jButton1.setText("Transfer");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -1620,26 +1639,29 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(saveupdate)
                         .addGap(33, 33, 33)
-                        .addComponent(delete)))
+                        .addComponent(delete))
+                    .addComponent(new_savings))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addComponent(view_balance)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(view_transactions)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(view_part_social)
-                        .addGap(18, 18, 18)
+                        .addGap(34, 34, 34)
                         .addComponent(epargne_obligatoire))
-                    .addComponent(jScrollPane1))
-                .addContainerGap(64, Short.MAX_VALUE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(48, 48, 48)
+                        .addComponent(view_part_social))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1647,18 +1669,22 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(edit)
                             .addComponent(saveupdate)
-                            .addComponent(delete)))
+                            .addComponent(delete))
+                        .addGap(29, 29, 29)
+                        .addComponent(new_savings)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(epargne_obligatoire, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(view_balance)
-                        .addComponent(view_transactions)
-                        .addComponent(view_part_social, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(15, 15, 15))
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(view_part_social, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(view_balance)
+                    .addComponent(view_transactions)
+                    .addComponent(epargne_obligatoire, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1965,7 +1991,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             java.sql.Date sqlOpeningDate = new java.sql.Date(openingDate.getTime());
 
             int nextOfKinIdType = helper.getNationalIdTypeCode(next_of_kin_id_type.getSelectedItem().toString());
-         
+
             String sql = "UPDATE `customer_information` SET `Customer_ID` = ?,"
                     + "`Salutation` = ?, "
                     + "`Customer_Name`= ?, "
@@ -2212,7 +2238,6 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             pst.setString(32, "200080");
             pst.setString(33, "RWF");
             pst.setString(34, account_number.getText());
-           
 
             int update = pst.executeUpdate();
             System.out.println(update);
@@ -2654,6 +2679,24 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_epargne_obligatoireActionPerformed
 
+    private void new_savingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_savingsActionPerformed
+        // TODO add your handling code here:
+        if (!account_number.getText().isEmpty()) {
+            new CreateSavingsAccount(account_number.getText()).setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter account number", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_new_savingsActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (!account_number.getText().isEmpty()) {
+            new Transfer(account_number.getText()).setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter account number", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2742,6 +2785,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField interest_rate_credit;
     private javax.swing.JTextField interest_rate_debit;
     private javax.swing.JComboBox<String> internet_banking_subscription;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2855,6 +2899,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> nationality;
     private javax.swing.JLabel new_account;
     private javax.swing.JLabel new_deposit;
+    private javax.swing.JButton new_savings;
     private javax.swing.JLabel new_withdrawal;
     private javax.swing.JTextField next_of_kin_email;
     private javax.swing.JTextField next_of_kin_id_no;

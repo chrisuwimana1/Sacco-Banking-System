@@ -442,7 +442,7 @@ public class Transaction extends javax.swing.JFrame {
                         });
                     }
                 }
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
@@ -465,7 +465,7 @@ public class Transaction extends javax.swing.JFrame {
             //populateTransactions(accountNumber);
             try {
                 filterDatabyDate();
-            } catch (Exception e) {
+            } catch (ParseException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         } else {
