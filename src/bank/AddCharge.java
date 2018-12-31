@@ -5,6 +5,7 @@
  */
 package bank;
 
+import java.awt.HeadlessException;
 import javax.swing.*;
 import java.sql.*;
 
@@ -170,7 +171,7 @@ public class AddCharge extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(create_charge, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -204,7 +205,7 @@ public class AddCharge extends javax.swing.JFrame {
             pst.execute();
             JOptionPane.showMessageDialog(null, "Charge has been Created");
 
-        }catch (Exception e) {
+        }catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null,e);
         }
     }//GEN-LAST:event_create_chargeActionPerformed

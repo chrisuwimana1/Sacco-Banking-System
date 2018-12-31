@@ -101,6 +101,8 @@ public class AccountantDashboard extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jSeparator9 = new javax.swing.JToolBar.Separator();
         add_expense = new javax.swing.JLabel();
+        jSeparator10 = new javax.swing.JToolBar.Separator();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -498,6 +500,12 @@ public class AccountantDashboard extends javax.swing.JFrame {
             }
         });
         jToolBar2.add(add_expense);
+        jToolBar2.add(jSeparator10);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/Cash-icon.png"))); // NOI18N
+        jLabel8.setText("ADD EXPENSE TYPE");
+        jToolBar2.add(jLabel8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -732,11 +740,13 @@ public class AccountantDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator10;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;

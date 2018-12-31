@@ -57,6 +57,10 @@ public class ShortReport extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         sum_of_parts_socials = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        sum_of_term_deposits = new javax.swing.JTextField();
+        sum_of_security_savings = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -137,32 +141,47 @@ public class ShortReport extends javax.swing.JFrame {
 
         sum_of_parts_socials.setText("0");
 
+        jLabel8.setText("Sum Of Term Deposits:");
+
+        jLabel9.setText("Sum Of Security Savings:");
+
+        sum_of_term_deposits.setText("0");
+
+        sum_of_security_savings.setText("0");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(33, 33, 33)
                         .addComponent(sum_of_deposits, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(sum_of_products, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addComponent(sum_of_withdrawals, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sum_of_expenses)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(sum_of_parts_socials, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6))
-                            .addGap(10, 10, 10)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(sum_of_products, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                .addComponent(sum_of_withdrawals, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(sum_of_expenses)))))
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sum_of_parts_socials, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                            .addComponent(sum_of_term_deposits)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sum_of_security_savings)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -184,11 +203,19 @@ public class ShortReport extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(sum_of_expenses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(sum_of_parts_socials, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(sum_of_term_deposits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(sum_of_security_savings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -205,11 +232,11 @@ public class ShortReport extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
+                .addGap(33, 33, 33)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104))
+                .addGap(118, 118, 118))
         );
 
         pack();
@@ -219,11 +246,14 @@ public class ShortReport extends javax.swing.JFrame {
         java.util.Date specificDate = specific_date.getDate();
         java.sql.Date sqlSpecificDate = new java.sql.Date(specificDate.getTime());
         String stringsqlSpecificDate = sqlSpecificDate.toString();
+        System.out.println(stringsqlSpecificDate);
         getSumOfDeposits(stringsqlSpecificDate);
         getSumOfWithdrawals(stringsqlSpecificDate);
         getSumOfExpenses(stringsqlSpecificDate);
         getSumOfProducts(stringsqlSpecificDate);
         getSumOfInitialDeposits(stringsqlSpecificDate);
+        getSumOfTermDeposits(stringsqlSpecificDate);
+        getSumOfSecuritySavings(stringsqlSpecificDate);
     }
 
     private void getSumOfDeposits(String currentDate) {
@@ -350,6 +380,64 @@ public class ShortReport extends javax.swing.JFrame {
         }
     }
 
+    private void getSumOfSecuritySavings(String currentDate) {
+        try {
+
+            String sql = "SELECT SUM(Savings_Amount) AS 'total' FROM security_savings WHERE date_created LIKE ?";
+            pst = conn.connection.prepareStatement(sql);
+            pst.setString(1, currentDate);
+            rs = pst.executeQuery();
+
+            if (rs.next() == true) {
+                if (rs.getString("total") == null) {
+                    sum_of_security_savings.setText("0");
+                } else {
+                    sum_of_security_savings.setText(rs.getString("total"));
+                }
+            } else {
+                System.out.println("Failed");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }
+
+    private void getSumOfTermDeposits(String currentDate) {
+        try {
+
+            String sql = "SELECT SUM(Amount) AS 'total' FROM term_deposit WHERE date_created LIKE ?";
+            pst = conn.connection.prepareStatement(sql);
+            pst.setString(1, currentDate);
+            rs = pst.executeQuery();
+
+            if (rs.next() == true) {
+                if (rs.getString("total") == null) {
+                    sum_of_term_deposits.setText("0");
+                } else {
+                    sum_of_term_deposits.setText(rs.getString("total"));
+                }
+            } else {
+                System.out.println("Failed");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }
+
     private void filterData() {
         java.sql.Date currentDate = new java.sql.Date(new java.util.Date().getTime());
         String sqlCurrentDate = currentDate.toString();
@@ -358,6 +446,8 @@ public class ShortReport extends javax.swing.JFrame {
         getSumOfExpenses(sqlCurrentDate);
         getSumOfProducts(sqlCurrentDate);
         getSumOfInitialDeposits(sqlCurrentDate);
+        getSumOfTermDeposits(sqlCurrentDate);
+        getSumOfSecuritySavings(sqlCurrentDate);
 
     }
 
@@ -437,6 +527,8 @@ public class ShortReport extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private com.toedter.calendar.JDateChooser specific_date;
@@ -444,6 +536,8 @@ public class ShortReport extends javax.swing.JFrame {
     private javax.swing.JTextField sum_of_expenses;
     private javax.swing.JTextField sum_of_parts_socials;
     private javax.swing.JTextField sum_of_products;
+    private javax.swing.JTextField sum_of_security_savings;
+    private javax.swing.JTextField sum_of_term_deposits;
     private javax.swing.JTextField sum_of_withdrawals;
     // End of variables declaration//GEN-END:variables
 

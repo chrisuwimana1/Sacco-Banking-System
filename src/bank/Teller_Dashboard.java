@@ -259,6 +259,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         epargne_obligatoire = new javax.swing.JButton();
         new_savings = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        new_term_deposit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1625,6 +1626,14 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             }
         });
 
+        new_term_deposit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/savings.png"))); // NOI18N
+        new_term_deposit.setText("NEW TERM DEPOSIT");
+        new_term_deposit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                new_term_depositActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -1640,8 +1649,11 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                         .addComponent(saveupdate)
                         .addGap(33, 33, 33)
                         .addComponent(delete))
-                    .addComponent(new_savings))
-                .addGap(51, 51, 51)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(new_savings)
+                        .addGap(18, 18, 18)
+                        .addComponent(new_term_deposit)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addComponent(view_balance)
@@ -1671,7 +1683,9 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                             .addComponent(saveupdate)
                             .addComponent(delete))
                         .addGap(29, 29, 29)
-                        .addComponent(new_savings)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(new_savings)
+                            .addComponent(new_term_deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1696,7 +1710,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2178,7 +2192,6 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             int update = pst.executeUpdate();
             if (update > 0) {
                 updateAccountInformationTable(accountNumber);
-                //JOptionPane.showMessageDialog(null, "Customer Info has been Updated!");
             }
 
         } catch (NumberFormatException | SQLException e) {
@@ -2697,6 +2710,15 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void new_term_depositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_term_depositActionPerformed
+        // TODO add your handling code here:
+        if (!account_number.getText().isEmpty()) {
+            new CreateTermDeposit(account_number.getText()).setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter account number", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_new_term_depositActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2900,6 +2922,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel new_account;
     private javax.swing.JLabel new_deposit;
     private javax.swing.JButton new_savings;
+    private javax.swing.JButton new_term_deposit;
     private javax.swing.JLabel new_withdrawal;
     private javax.swing.JTextField next_of_kin_email;
     private javax.swing.JTextField next_of_kin_id_no;

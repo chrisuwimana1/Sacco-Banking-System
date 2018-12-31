@@ -52,6 +52,8 @@ public class CreateSavingsAccount extends javax.swing.JFrame {
         create_savings_account = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        date_created = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -72,6 +74,8 @@ public class CreateSavingsAccount extends javax.swing.JFrame {
 
         jLabel1.setText("Account Number:");
 
+        jLabel4.setText("Date:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -80,19 +84,21 @@ public class CreateSavingsAccount extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(create_savings_account))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(date_created, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(account_number)
                                 .addComponent(savings_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(interest_rate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(create_savings_account)))
+                            .addComponent(interest_rate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -110,7 +116,11 @@ public class CreateSavingsAccount extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(interest_rate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(date_created, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(create_savings_account, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -129,7 +139,7 @@ public class CreateSavingsAccount extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(117, 117, 117)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,10 +152,32 @@ public class CreateSavingsAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Empty savings Amount!", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (interest_rate.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Empty interest rate field!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (date_created.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "No date specified!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             saveSavingsAccount(account_number.getText());
         }
     }//GEN-LAST:event_create_savings_accountActionPerformed
+
+    private void saveSavingsAccount(String accountNumber) {
+        java.util.Date openingDate = date_created.getDate();
+        java.sql.Date sqlOpeningDate = new java.sql.Date(openingDate.getTime());
+        try {
+            String sql = "INSERT INTO security_savings (Account_Number,Savings_Amount, Interest_rate, date_created)"
+                    + "values (?,?,?,?)";
+
+            pst = conn.connection.prepareStatement(sql);
+            pst.setString(1, accountNumber);
+            pst.setFloat(2, Float.parseFloat(savings_amount.getText()));
+            pst.setFloat(3, Float.parseFloat(interest_rate.getText()));
+            pst.setString(4, sqlOpeningDate.toString());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "The savings account has been Created");
+            this.dispose();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -185,29 +217,14 @@ public class CreateSavingsAccount extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField account_number;
     private javax.swing.JButton create_savings_account;
+    private com.toedter.calendar.JDateChooser date_created;
     private javax.swing.JTextField interest_rate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField savings_amount;
     // End of variables declaration//GEN-END:variables
 
-    private void saveSavingsAccount(String accountNumber) {
-
-        try {
-            String sql = "INSERT INTO security_savings (Account_Number,Savings_Amount, Interest_rate)"
-                    + "values (?,?,?)";
-
-            pst = conn.connection.prepareStatement(sql);
-            pst.setString(1, accountNumber);
-            pst.setFloat(2, Float.parseFloat(savings_amount.getText()));
-            pst.setFloat(3, Float.parseFloat(interest_rate.getText()));
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "The savings account has been Created");
-            this.dispose();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
 }
