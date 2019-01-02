@@ -87,14 +87,15 @@ public class AccountantDashboard extends javax.swing.JFrame {
         account_number = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         view_balance = new javax.swing.JButton();
-        customer_information_template = new javax.swing.JButton();
-        account_information_template = new javax.swing.JButton();
-        collaterals_template = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
         contract_information_template = new javax.swing.JButton();
-        contract_loans = new javax.swing.JButton();
-        loan_application_analysis = new javax.swing.JButton();
-        financial_monthly = new javax.swing.JButton();
+        customer_information_template = new javax.swing.JButton();
         finanancial_transaction = new javax.swing.JButton();
+        collaterals_template = new javax.swing.JButton();
+        financial_monthly = new javax.swing.JButton();
+        contract_loans = new javax.swing.JButton();
+        account_information_template = new javax.swing.JButton();
+        loan_application_analysis = new javax.swing.JButton();
         jToolBar2 = new javax.swing.JToolBar();
         new_accounts = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JToolBar.Separator();
@@ -103,6 +104,9 @@ public class AccountantDashboard extends javax.swing.JFrame {
         add_expense = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JToolBar.Separator();
         jLabel8 = new javax.swing.JLabel();
+        jSeparator11 = new javax.swing.JToolBar.Separator();
+        teller_reports = new javax.swing.JLabel();
+        jSeparator12 = new javax.swing.JToolBar.Separator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -351,6 +355,15 @@ public class AccountantDashboard extends javax.swing.JFrame {
             }
         });
 
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "BNR Templates"));
+
+        contract_information_template.setText("CONTRACT INFORMATION");
+        contract_information_template.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contract_information_templateActionPerformed(evt);
+            }
+        });
+
         customer_information_template.setText("CUSTOMER INFORMATION");
         customer_information_template.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -358,10 +371,10 @@ public class AccountantDashboard extends javax.swing.JFrame {
             }
         });
 
-        account_information_template.setText("ACCOUNT INFORMATION");
-        account_information_template.addActionListener(new java.awt.event.ActionListener() {
+        finanancial_transaction.setText("FINANCIAL TRANSACTION");
+        finanancial_transaction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                account_information_templateActionPerformed(evt);
+                finanancial_transactionActionPerformed(evt);
             }
         });
 
@@ -372,10 +385,10 @@ public class AccountantDashboard extends javax.swing.JFrame {
             }
         });
 
-        contract_information_template.setText("CONTRACT INFORMATION");
-        contract_information_template.addActionListener(new java.awt.event.ActionListener() {
+        financial_monthly.setText("FINANCIAL MONTHLY");
+        financial_monthly.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contract_information_templateActionPerformed(evt);
+                financial_monthlyActionPerformed(evt);
             }
         });
 
@@ -386,6 +399,13 @@ public class AccountantDashboard extends javax.swing.JFrame {
             }
         });
 
+        account_information_template.setText("ACCOUNT INFORMATION");
+        account_information_template.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                account_information_templateActionPerformed(evt);
+            }
+        });
+
         loan_application_analysis.setText("LOAN APPLICATION ANALYSIS");
         loan_application_analysis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -393,19 +413,45 @@ public class AccountantDashboard extends javax.swing.JFrame {
             }
         });
 
-        financial_monthly.setText("FINANCIAL MONTHLY");
-        financial_monthly.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                financial_monthlyActionPerformed(evt);
-            }
-        });
-
-        finanancial_transaction.setText("FINANCIAL TRANSACTION");
-        finanancial_transaction.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finanancial_transactionActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(customer_information_template, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(account_information_template, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(collaterals_template)
+                    .addComponent(contract_information_template)
+                    .addComponent(contract_loans)
+                    .addComponent(loan_application_analysis)
+                    .addComponent(financial_monthly)
+                    .addComponent(finanancial_transaction))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(customer_information_template)
+                .addGap(18, 18, 18)
+                .addComponent(account_information_template)
+                .addGap(18, 18, 18)
+                .addComponent(collaterals_template)
+                .addGap(18, 18, 18)
+                .addComponent(contract_information_template)
+                .addGap(18, 18, 18)
+                .addComponent(contract_loans)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(loan_application_analysis)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(financial_monthly)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(finanancial_transaction)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -423,52 +469,27 @@ public class AccountantDashboard extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addComponent(view_transactions))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(145, 145, 145)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(customer_information_template, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(account_information_template, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(collaterals_template)
-                    .addComponent(contract_information_template)
-                    .addComponent(contract_loans)
-                    .addComponent(loan_application_analysis)
-                    .addComponent(financial_monthly)
-                    .addComponent(finanancial_transaction))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(view_balance)
-                            .addComponent(view_transactions)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(customer_information_template)
-                        .addGap(18, 18, 18)
-                        .addComponent(account_information_template)
-                        .addGap(18, 18, 18)
-                        .addComponent(collaterals_template)
-                        .addGap(18, 18, 18)
-                        .addComponent(contract_information_template)
-                        .addGap(18, 18, 18)
-                        .addComponent(contract_loans)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(loan_application_analysis)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(financial_monthly)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(finanancial_transaction)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(60, 60, 60)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(view_balance)
+                    .addComponent(view_transactions))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jToolBar2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -487,7 +508,12 @@ public class AccountantDashboard extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/Places-folder-templates-icon.png"))); // NOI18N
-        jLabel7.setText("TEMPLATES");
+        jLabel7.setText("ADD A SACCO CASH ACCOUNT");
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
         jToolBar2.add(jLabel7);
         jToolBar2.add(jSeparator9);
 
@@ -506,6 +532,18 @@ public class AccountantDashboard extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/Cash-icon.png"))); // NOI18N
         jLabel8.setText("ADD EXPENSE TYPE");
         jToolBar2.add(jLabel8);
+        jToolBar2.add(jSeparator11);
+
+        teller_reports.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        teller_reports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/Sales-report-icon.png"))); // NOI18N
+        teller_reports.setText("TELLER REPORTS");
+        teller_reports.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                teller_reportsMouseClicked(evt);
+            }
+        });
+        jToolBar2.add(teller_reports);
+        jToolBar2.add(jSeparator12);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -517,7 +555,7 @@ public class AccountantDashboard extends javax.swing.JFrame {
                     .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -680,6 +718,16 @@ public class AccountantDashboard extends javax.swing.JFrame {
         new AddExpense().setVisible(true);
     }//GEN-LAST:event_add_expenseMouseClicked
 
+    private void teller_reportsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teller_reportsMouseClicked
+        // TODO add your handling code here:
+        new TellerReports().setVisible(true);
+    }//GEN-LAST:event_teller_reportsMouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+        new CreateSaccoAccount().setVisible(true);
+    }//GEN-LAST:event_jLabel7MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -745,8 +793,11 @@ public class AccountantDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator10;
+    private javax.swing.JToolBar.Separator jSeparator11;
+    private javax.swing.JToolBar.Separator jSeparator12;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
@@ -766,6 +817,7 @@ public class AccountantDashboard extends javax.swing.JFrame {
     private javax.swing.JTextField search_field;
     private javax.swing.JComboBox<String> search_field_choice;
     private javax.swing.JLabel short_report;
+    private javax.swing.JLabel teller_reports;
     private javax.swing.JButton view_balance;
     private javax.swing.JLabel view_products;
     private javax.swing.JButton view_transactions;
