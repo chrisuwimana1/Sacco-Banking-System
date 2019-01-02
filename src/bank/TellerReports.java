@@ -17,29 +17,21 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author chris
  */
-public class Transaction extends javax.swing.JFrame {
+public class TellerReports extends javax.swing.JFrame {
 
     /**
-     * Creates new form Transaction
+     * Creates new form TellerReports
      */
-    String acc_no;
     PreparedStatement pst = null;
     ResultSet rs = null;
     DBConnection conn;
     DefaultTableModel model = new DefaultTableModel();
     DecimalFormat formatter = new DecimalFormat("#,###.00");
 
-    public Transaction(String accountNumber) {
+    public TellerReports() {
         initComponents();
         conn = new DBConnection();
-        acc_no = accountNumber;
-        account_number.setText(accountNumber);
-        populateTransactions(accountNumber);
-
-    }
-
-    private Transaction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getAllTellers();
     }
 
     /**
@@ -51,15 +43,12 @@ public class Transaction extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        list_of_transactions = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         to_label = new javax.swing.JLabel();
         go = new javax.swing.JButton();
         transaction_type = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         transaction_date = new com.toedter.calendar.JDateChooser();
-        account_number = new javax.swing.JTextField();
         date_choice = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -67,27 +56,11 @@ public class Transaction extends javax.swing.JFrame {
         date_label = new javax.swing.JLabel();
         from_transaction_date = new com.toedter.calendar.JDateChooser();
         to_transaction_date = new com.toedter.calendar.JDateChooser();
-        jToolBar1 = new javax.swing.JToolBar();
-        jLabel3 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JToolBar.Separator();
-        jLabel4 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JToolBar.Separator();
-        jLabel5 = new javax.swing.JLabel();
+        teller = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        list_of_transactions = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        list_of_transactions.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Account Number", "Gross Amount", "Charges", "Net Amount", "Previous Balance", "Current Balance", "Transaction Type", "Description", "Transaction Date", "Teller"
-            }
-        ));
-        jScrollPane1.setViewportView(list_of_transactions);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "Transaction Filter"));
 
@@ -108,16 +81,14 @@ public class Transaction extends javax.swing.JFrame {
 
         transaction_date.setEnabled(false);
 
-        account_number.setEditable(false);
-
-        date_choice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select One", "Specific Date", "Date Range" }));
+        date_choice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Specific Date", "Date Range" }));
         date_choice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 date_choiceActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Account Number:");
+        jLabel1.setText("Teller");
 
         jLabel6.setText("Transaction Type:");
 
@@ -144,7 +115,6 @@ public class Transaction extends javax.swing.JFrame {
                             .addComponent(date_range_label))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(account_number, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(from_transaction_date, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -152,12 +122,13 @@ public class Transaction extends javax.swing.JFrame {
                                 .addGap(16, 16, 16)
                                 .addComponent(to_transaction_date, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(teller, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(date_choice, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(transaction_date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)))
                         .addGap(221, 221, 221))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(transaction_type, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(go, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,14 +138,13 @@ public class Transaction extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(account_number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(date_choice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(teller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(date_choice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(date_label, javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,60 +156,48 @@ public class Transaction extends javax.swing.JFrame {
                     .addComponent(to_label, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(from_transaction_date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(transaction_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(go))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(go)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(transaction_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
-        jToolBar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jToolBar1.setRollover(true);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/print-icon.png"))); // NOI18N
-        jLabel3.setText("PRINT");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+        list_of_transactions.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Account Number", "Gross Amount", "Charges", "Net Amount", "Previous Balance", "Current Balance", "Transaction Type", "Description", "Transaction Date", "Teller"
             }
-        });
-        jToolBar1.add(jLabel3);
-        jToolBar1.add(jSeparator1);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/wizard-icon.png"))); // NOI18N
-        jLabel4.setText("DEPOSIT");
-        jToolBar1.add(jLabel4);
-        jToolBar1.add(jSeparator2);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/web-icon.png"))); // NOI18N
-        jLabel5.setText("WITHDRAW");
-        jToolBar1.add(jLabel5);
+        ));
+        jScrollPane1.setViewportView(list_of_transactions);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 996, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(57, 57, 57)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGap(206, 206, 206))
         );
 
         pack();
@@ -250,42 +208,42 @@ public class Transaction extends javax.swing.JFrame {
         return String.valueOf(formatter.format(stringToDouble));
     }
 
-    //retrive all transaction
-    private void populateTransactions(String acc) {
-        String sql = "SELECT  `transaction_amount`, `transaction_charge`,`transaction_net_amount`, `previous_balance`, `current_balance`, `transaction_date`, `transaction_type`, `transaction_description`, `Account_Number`, e.firstname, e.lastname FROM `transactions`  INNER JOIN employees e on e.employee_key = transactions.employee_key WHERE Account_Number = ? ORDER BY transaction_date DESC";
+    private void getAllTellers() {
+        String sql = "Select firstname,lastname from employees where title = 'Teller'";
+        String employeeName = "";
         try {
             pst = conn.connection.prepareStatement(sql);
-            pst.setString(1, acc);
             rs = pst.executeQuery();
-            //int count = 0;
-            list_of_transactions.setModel(model);
-            model.addColumn("Account Number");
-            model.addColumn("Gross Amount");
-            model.addColumn("Charges");
-            model.addColumn("Net Amount");
-            model.addColumn("Previous Balance");
-            model.addColumn("Current Balance");
-            model.addColumn("Transaction Type");
-            model.addColumn("Description");
-            model.addColumn("Transaction Date");
-            model.addColumn("Teller");
-            int i = 0;
             while (rs.next()) {
-                model.addRow(new Object[]{rs.getString("Account_Number"), formatFloat(rs.getString("transaction_amount")),
-                    formatFloat(rs.getString("transaction_charge")), formatFloat(rs.getString("transaction_net_amount")),
-                    formatFloat(rs.getString("previous_balance")),
-                    formatFloat(rs.getString("current_balance")), rs.getString("transaction_type"),
-                    rs.getString("transaction_description"), rs.getString("transaction_date"),
-                    rs.getString("firstname") + " " + rs.getString("lastname")
-                });
-                i++;
+                employeeName = rs.getString("firstname") + " " + rs.getString("lastname");
+                teller.addItem(employeeName);
             }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
+        } catch (SQLException e1) {
+            JOptionPane.showMessageDialog(null, e1);
         }
     }
 
-    private void filterData(String accountNumber, String transactionType) throws ParseException {
+    private String getEmployeeKey(String lastName, String firstName) {
+
+        String sql = "Select employee_key from employees where lastname = ? and firstname = ?";
+        String employeeKey = "";
+        try {
+            pst = conn.connection.prepareStatement(sql);
+            pst.setString(1, lastName);
+            pst.setString(2, firstName);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                employeeKey = rs.getString("employee_key");
+            } else {
+                JOptionPane.showMessageDialog(null, "No Teller Found!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException e1) {
+            JOptionPane.showMessageDialog(null, e1);
+        }
+        return employeeKey;
+    }
+
+    private void filterData(String employeeKey, String transactionType) throws ParseException {
 
         if (transaction_date.getDate() == null) {
             JOptionPane.showMessageDialog(null, "The specific date is required for this filter!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -298,16 +256,15 @@ public class Transaction extends javax.swing.JFrame {
                 DefaultTableModel dtm = (DefaultTableModel) list_of_transactions.getModel();
                 dtm.setRowCount(0);
                 dtm.setColumnCount(0);
-                String sql = null;                  ///transaction_charge
+                String sql = null;
 
                 if (transactionType.equalsIgnoreCase("All")) {
 
-                    sql = "SELECT `transaction_amount`, `transaction_charge`,`transaction_net_amount`, `previous_balance`, `current_balance`, `transaction_date`, `transaction_type`, `transaction_description`, `Account_Number`, e.firstname, e.lastname FROM `transactions` INNER JOIN employees e on e.employee_key = transactions.employee_key WHERE Account_Number = ? and transaction_date LIKE ? ORDER BY transaction_date DESC";
+                    sql = "SELECT `transaction_amount`, `transaction_charge`,`transaction_net_amount`, `previous_balance`, `current_balance`, `transaction_date`, `transaction_type`, `transaction_description`, `Account_Number`, e.firstname, e.lastname FROM `transactions` INNER JOIN employees e on e.employee_key = transactions.employee_key WHERE transactions.employee_key = ? and transaction_date LIKE  ? ORDER BY transaction_date DESC";
                     pst = conn.connection.prepareStatement(sql);
-                    pst.setString(1, accountNumber);
+                    pst.setString(1, employeeKey);
                     pst.setString(2, transactionDate);
                     rs = pst.executeQuery();
-                    //int count = 0;
                     list_of_transactions.setModel(model);
                     model.addColumn("Account Number");
                     model.addColumn("Gross Amount");
@@ -321,7 +278,6 @@ public class Transaction extends javax.swing.JFrame {
                     model.addColumn("Teller");
 
                     while (rs.next()) {
-                        //count++;
                         model.addRow(new Object[]{rs.getString("Account_Number"), formatFloat(rs.getString("transaction_amount")),
                             formatFloat(rs.getString("transaction_charge")), formatFloat(rs.getString("transaction_net_amount")),
                             formatFloat(rs.getString("previous_balance")),
@@ -332,9 +288,9 @@ public class Transaction extends javax.swing.JFrame {
                     }
                 } else {
 
-                    sql = "SELECT `transaction_amount`, `transaction_charge`, `transaction_net_amount`,`previous_balance`, `current_balance`, `transaction_date`, `transaction_type`, `transaction_description`, `Account_Number`, e.firstname, e.lastname FROM `transactions` INNER JOIN employees e on e.employee_key = transactions.employee_key WHERE Account_Number = ? and transaction_date LIKE ? AND transaction_type = ? ORDER BY transaction_date DESC";
+                    sql = "SELECT `transaction_amount`, `transaction_charge`, `transaction_net_amount`,`previous_balance`, `current_balance`, `transaction_date`, `transaction_type`, `transaction_description`, `Account_Number`, e.firstname, e.lastname FROM `transactions` INNER JOIN employees e on e.employee_key = transactions.employee_key WHERE transactions.employee_key = ? and transaction_date LIKE ? AND transaction_type = ? ORDER BY transaction_date DESC";
                     pst = conn.connection.prepareStatement(sql);
-                    pst.setString(1, accountNumber);
+                    pst.setString(1, employeeKey);
                     pst.setString(2, transactionDate);
                     pst.setString(3, transactionType);
                     rs = pst.executeQuery();
@@ -367,8 +323,7 @@ public class Transaction extends javax.swing.JFrame {
         }
     }
 
-    private void filterDatabyDate() throws ParseException {
-        String accountNumber = account_number.getText();
+    private void filterDatabyDate(String employeeKey) throws ParseException {
         String transactionType = transaction_type.getSelectedItem().toString();
         if (from_transaction_date.getDate() == null || to_transaction_date.getDate() == null) {
             JOptionPane.showMessageDialog(null, "The start and end dates are required for this filter!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -386,9 +341,9 @@ public class Transaction extends javax.swing.JFrame {
                 dtm.setColumnCount(0);
                 if (transactionType.equalsIgnoreCase("All")) {
                     System.out.println("All");
-                    sql = "SELECT `transaction_amount`, `transaction_charge`, `transaction_net_amount`,`previous_balance`, `current_balance`, `transaction_date`, `transaction_type`, `transaction_description`, `Account_Number`, e.firstname, e.lastname FROM `transactions` INNER JOIN employees e on e.employee_key = transactions.employee_key WHERE Account_Number = ? and transaction_date BETWEEN '" + sqlFromDate.toString() + "%' AND '" + sqlToDate.toString() + "%' ORDER BY transaction_date DESC";
+                    sql = "SELECT `transaction_amount`, `transaction_charge`, `transaction_net_amount`,`previous_balance`, `current_balance`, `transaction_date`, `transaction_type`, `transaction_description`, `Account_Number`, e.firstname, e.lastname FROM `transactions` INNER JOIN employees e on e.employee_key = transactions.employee_key WHERE transactions.employee_key = ? and transaction_date BETWEEN '" + sqlFromDate.toString() + "%' AND '" + sqlToDate.toString() + "%' ORDER BY transaction_date DESC";
                     pst = conn.connection.prepareStatement(sql);
-                    pst.setString(1, accountNumber);
+                    pst.setString(1, employeeKey);
                     rs = pst.executeQuery();
                     //int count = 0;
                     list_of_transactions.setModel(model);
@@ -414,9 +369,9 @@ public class Transaction extends javax.swing.JFrame {
                         });
                     }
                 } else {
-                    sql = "SELECT `transaction_amount`, `transaction_charge`, `transaction_net_amount`,`previous_balance`, `current_balance`, `transaction_date`, `transaction_type`, `transaction_description`, `Account_Number`, e.firstname, e.lastname FROM `transactions` INNER JOIN employees e on e.employee_key = transactions.employee_key WHERE Account_Number = ? and transaction_type = ? and transaction_date BETWEEN '" + sqlFromDate.toString() + "%' AND '" + sqlToDate.toString() + "%' ORDER BY transaction_date DESC";
+                    sql = "SELECT `transaction_amount`, `transaction_charge`, `transaction_net_amount`,`previous_balance`, `current_balance`, `transaction_date`, `transaction_type`, `transaction_description`, `Account_Number`, e.firstname, e.lastname FROM `transactions` INNER JOIN employees e on e.employee_key = transactions.employee_key WHERE transactions.employee_key = ? and transaction_type = ? and transaction_date BETWEEN '" + sqlFromDate.toString() + "%' AND '" + sqlToDate.toString() + "%' ORDER BY transaction_date DESC";
                     pst = conn.connection.prepareStatement(sql);
-                    pst.setString(1, accountNumber);
+                    pst.setString(1, employeeKey);
                     pst.setString(2, transactionType);
                     rs = pst.executeQuery();
                     //int count = 0;
@@ -450,22 +405,31 @@ public class Transaction extends javax.swing.JFrame {
 
     private void goActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goActionPerformed
         // TODO add your handling code here:
-        String accountNumber = account_number.getText();
+
+        String employeeName = teller.getSelectedItem().toString();
+        String arr[] = employeeName.split(" ", 2);
+        String employeeLastName = arr[1];   //the
+        String employeeFirstName = arr[0];
+
+        System.out.println(employeeLastName + " " + employeeFirstName);
+
+        String employeeKey = getEmployeeKey(employeeLastName, employeeFirstName);
+
         String transactionType = (String) transaction_type.getSelectedItem();
         String dateChoice = (String) date_choice.getSelectedItem();
         java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
 
         if (dateChoice.equalsIgnoreCase("Specific Date")) {
             try {
-                filterData(accountNumber, transactionType);
-            } catch (ParseException e) {
+                filterData(employeeKey, transactionType);
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         } else if (dateChoice.equalsIgnoreCase("Date Range")) {
             //populateTransactions(accountNumber);
             try {
-                filterDatabyDate();
-            } catch (ParseException e) {
+                filterDatabyDate(employeeKey);
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         } else {
@@ -493,24 +457,6 @@ public class Transaction extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_date_choiceActionPerformed
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        // TODO add your handling code here:
-//        int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to print this document");
-//        if(dialogResult == JOptionPane.YES_OPTION){
-//          try {
-//            String fileName = "Sacco/";
-//            String directoryName = FileSystemView.getFileSystemView().getDefaultDirectory().getPath()+"/Documents/".concat(fileName);
-//            File dir = new File(directoryName);
-//             if (!dir.exists()) dir.mkdirs();
-//            
-//            ExcelExporter exp = new ExcelExporter();
-//            exp.exportTable(listretransactions, new File(directoryName+acc_no+"Transactions.xls"));
-//          } catch (IOException ex) {
-//                Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-    }//GEN-LAST:event_jLabel3MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -528,27 +474,25 @@ public class Transaction extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Transaction.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TellerReports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Transaction.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TellerReports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Transaction.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TellerReports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Transaction.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TellerReports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Transaction().setVisible(true);
+                new TellerReports().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField account_number;
     private javax.swing.JComboBox<String> date_choice;
     private javax.swing.JLabel date_label;
     private javax.swing.JLabel date_range_label;
@@ -556,16 +500,11 @@ public class Transaction extends javax.swing.JFrame {
     private javax.swing.JButton go;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToolBar.Separator jSeparator1;
-    private javax.swing.JToolBar.Separator jSeparator2;
-    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTable list_of_transactions;
+    private javax.swing.JComboBox<String> teller;
     private javax.swing.JLabel to_label;
     private com.toedter.calendar.JDateChooser to_transaction_date;
     private com.toedter.calendar.JDateChooser transaction_date;

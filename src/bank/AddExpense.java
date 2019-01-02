@@ -81,6 +81,12 @@ public class AddExpense extends javax.swing.JFrame {
 
         jLabel5.setText("Expense Type(*):");
 
+        expense_types.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                expense_typesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -165,8 +171,8 @@ public class AddExpense extends javax.swing.JFrame {
         String sql = "INSERT into expense (type,requestee, description,amount, expense_date) values (?,?,?,?,?)";
         try {
             pst = conn.connection.prepareStatement(sql);
-            pst.setString(1, description.getText());
-            pst.setString(2, description.getText());
+            pst.setString(1, expense_types.getSelectedItem().toString());
+            pst.setString(2, requestees.getSelectedItem().toString());
             pst.setString(3, description.getText());
             pst.setFloat(4, Float.parseFloat(amount.getText()));
             pst.setString(5, sqlExpenseDate.toString());
@@ -217,6 +223,10 @@ public class AddExpense extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "All fields are required", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_addActionPerformed
+
+    private void expense_typesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expense_typesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_expense_typesActionPerformed
 
     /**
      * @param args the command line arguments
