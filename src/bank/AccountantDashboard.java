@@ -37,7 +37,11 @@ public class AccountantDashboard extends javax.swing.JFrame {
         int xsize = (int) tk.getScreenSize().getWidth();
         int ysize = (int) tk.getScreenSize().getHeight();
         this.setSize(xsize, ysize);
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(AccountantDashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
         myinfo.setText(prefs.get("title", "") + ": " + prefs.get("firstname", "") + " " + prefs.get("lastname", "").charAt(0) + ".");
     }
 
@@ -658,12 +662,12 @@ public class AccountantDashboard extends javax.swing.JFrame {
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-            prefs.clear();
-        } catch (BackingStoreException ex) {
-            Logger.getLogger(Teller_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        prefs.remove("employee_key");
+        prefs.remove("firstname");
+        prefs.remove("lastname");
+        prefs.remove("username");
+        prefs.remove("email");
+        prefs.remove("title");
         this.dispose();
         new Login().setVisible(true);
     }//GEN-LAST:event_exitMouseClicked
@@ -679,8 +683,12 @@ public class AccountantDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_contract_information_templateActionPerformed
 
     private void customer_information_templateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customer_information_templateActionPerformed
-        // TODO add your handling code here:
-        new Template_Customer_Information().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new Template_Customer_Information().setVisible(true);
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(AccountantDashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_customer_information_templateActionPerformed
 
     private void account_information_templateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_account_information_templateActionPerformed

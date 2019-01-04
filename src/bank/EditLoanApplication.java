@@ -9,6 +9,9 @@ import com.placeholder.PlaceHolder;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,7 +30,11 @@ public class EditLoanApplication extends javax.swing.JFrame {
 
     public EditLoanApplication(String loanApplicationId) {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(EditLoanApplication.class.getName()).log(Level.SEVERE, null, ex);
+        }
         getLoanApplicationFields(loanApplicationId);
 
     }

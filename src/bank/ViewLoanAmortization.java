@@ -15,6 +15,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -63,7 +66,11 @@ public class ViewLoanAmortization extends javax.swing.JFrame {
 
     public ViewLoanAmortization(String contractId) {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(ViewLoanAmortization.class.getName()).log(Level.SEVERE, null, ex);
+        }
         holder = new PlaceHolder(charges, "0");
         //this.setVisible(true);
         contract_id = contractId;

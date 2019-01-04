@@ -36,8 +36,12 @@ public class LoanRecoveryDashboard extends javax.swing.JFrame {
 
     public LoanRecoveryDashboard() {
         initComponents();
-        conn = new DBConnection();
-        //myinfo.setText(prefs.get("title", "") + ": " + prefs.get("firstname", "") + " " + prefs.get("lastname", "").charAt(0) + ".");
+        try {
+            conn = new DBConnection();
+            //myinfo.setText(prefs.get("title", "") + ": " + prefs.get("firstname", "") + " " + prefs.get("lastname", "").charAt(0) + ".");
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(LoanRecoveryDashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

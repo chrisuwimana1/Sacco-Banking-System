@@ -5,12 +5,21 @@
  */
 package bank;
 
+import java.awt.print.PageFormat;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import java.io.File;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -31,7 +40,11 @@ public class Transaction extends javax.swing.JFrame {
 
     public Transaction(String accountNumber) {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
+        }
         acc_no = accountNumber;
         account_number.setText(accountNumber);
         populateTransactions(accountNumber);
@@ -153,7 +166,7 @@ public class Transaction extends javax.swing.JFrame {
                                 .addComponent(to_transaction_date, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(date_choice, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(transaction_date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)))
+                                .addComponent(transaction_date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(221, 221, 221))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -210,12 +223,22 @@ public class Transaction extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/wizard-icon.png"))); // NOI18N
         jLabel4.setText("DEPOSIT");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
         jToolBar1.add(jLabel4);
         jToolBar1.add(jSeparator2);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/web-icon.png"))); // NOI18N
         jLabel5.setText("WITHDRAW");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         jToolBar1.add(jLabel5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -492,24 +515,34 @@ public class Transaction extends javax.swing.JFrame {
             to_label.setEnabled(true);
         }
     }//GEN-LAST:event_date_choiceActionPerformed
-
+    
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-//        int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to print this document");
-//        if(dialogResult == JOptionPane.YES_OPTION){
-//          try {
-//            String fileName = "Sacco/";
-//            String directoryName = FileSystemView.getFileSystemView().getDefaultDirectory().getPath()+"/Documents/".concat(fileName);
-//            File dir = new File(directoryName);
-//             if (!dir.exists()) dir.mkdirs();
-//            
-//            ExcelExporter exp = new ExcelExporter();
-//            exp.exportTable(listretransactions, new File(directoryName+acc_no+"Transactions.xls"));
-//          } catch (IOException ex) {
-//                Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to print this document");
+        if(dialogResult == JOptionPane.YES_OPTION){
+          try {
+            String fileName = "Sacco/";
+            String directoryName = FileSystemView.getFileSystemView().getDefaultDirectory().getPath()+"/Documents/".concat(fileName);
+            File dir = new File(directoryName);
+             if (!dir.exists()) dir.mkdirs();
+            
+            ExcelExporter exp = new ExcelExporter();
+            exp.exportTable(list_of_transactions, new File(directoryName+acc_no+"Transactions.xls"));
+          } catch (IOException ex) {
+                Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        new Deposit().setVisible(true);
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+        new Withdraw().setVisible(true);
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments

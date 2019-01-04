@@ -16,6 +16,9 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
 
 public class CreateContractInformation extends javax.swing.JFrame {
@@ -37,10 +40,14 @@ public class CreateContractInformation extends javax.swing.JFrame {
        
     
     //loan_epargne_obligatoire
-    public CreateContractInformation(String loanApplicationId) {
+    public CreateContractInformation(String loanApplicationId)  {
 
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(CreateContractInformation.class.getName()).log(Level.SEVERE, null, ex);
+        }
         helper = new Helper();
         loan_application_id =loanApplicationId;
         save_contract.setEnabled(false);

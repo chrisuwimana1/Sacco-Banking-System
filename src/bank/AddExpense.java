@@ -8,6 +8,9 @@ package bank;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,7 +28,11 @@ public class AddExpense extends javax.swing.JFrame {
 
     public AddExpense() {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(AddExpense.class.getName()).log(Level.SEVERE, null, ex);
+        }
         getListOfEmployees();
         getExpenseTypes();
     }

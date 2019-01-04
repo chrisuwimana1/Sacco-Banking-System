@@ -9,6 +9,9 @@ import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,7 +27,7 @@ public class CreateExpenseType extends javax.swing.JFrame {
     ResultSet rs = null;
     DBConnection conn;
 
-    public CreateExpenseType() {
+    public CreateExpenseType() throws BackingStoreException {
         conn = new DBConnection();
         initComponents();
     }
@@ -133,7 +136,11 @@ public class CreateExpenseType extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateExpenseType().setVisible(true);
+                try {
+                    new CreateExpenseType().setVisible(true);
+                } catch (BackingStoreException ex) {
+                    Logger.getLogger(CreateExpenseType.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

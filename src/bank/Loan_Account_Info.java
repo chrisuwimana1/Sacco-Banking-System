@@ -12,6 +12,9 @@ package bank;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
 
 public class Loan_Account_Info extends javax.swing.JFrame {
@@ -55,7 +58,11 @@ public class Loan_Account_Info extends javax.swing.JFrame {
             String visionSBU, String contractID, float emiAmount, int loanPeriod, String startDate,
             float principalAmount, float interestAmount, String settlementDate) {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(Loan_Account_Info.class.getName()).log(Level.SEVERE, null, ex);
+        }
         helper = new Helper();
         countryString = country;
         customerIDString = customerID;

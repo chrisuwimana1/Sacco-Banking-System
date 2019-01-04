@@ -13,6 +13,9 @@ package bank;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -35,7 +38,11 @@ public class ViewEpargneObligatoire extends javax.swing.JFrame {
 
     public ViewEpargneObligatoire(String accountNumber) {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(ViewEpargneObligatoire.class.getName()).log(Level.SEVERE, null, ex);
+        }
         myEpargneObligatoire(accountNumber);
         account_number = accountNumber;
         //customer_name = prefs.get("customer_name", "");  

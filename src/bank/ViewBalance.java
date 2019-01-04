@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
@@ -39,7 +40,11 @@ public class ViewBalance extends javax.swing.JFrame {
 
     public ViewBalance(String accountNumber) {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(ViewBalance.class.getName()).log(Level.SEVERE, null, ex);
+        }
         account_number = accountNumber;
         MyBalance(account_number);
         //customer_name = prefs.get("customer_name", "");  

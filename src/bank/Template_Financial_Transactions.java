@@ -27,6 +27,7 @@ import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import java.text.DecimalFormat;
 import bank.Helper;
+import java.util.prefs.BackingStoreException;
 
 public class Template_Financial_Transactions extends javax.swing.JFrame {
 
@@ -43,7 +44,11 @@ public class Template_Financial_Transactions extends javax.swing.JFrame {
 
     public Template_Financial_Transactions() {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(Template_Financial_Transactions.class.getName()).log(Level.SEVERE, null, ex);
+        }
         helper = new Helper();
     }
 
@@ -265,7 +270,7 @@ public class Template_Financial_Transactions extends javax.swing.JFrame {
     public void exportTable() {
 
         SXSSFWorkbook wb = new SXSSFWorkbook(-1);
-        SXSSFSheet sh = wb.createSheet("Report");
+        SXSSFSheet sh = (SXSSFSheet) wb.createSheet("Report");
         Row row = sh.createRow(0);
         for (int i = 0; i < model.getColumnCount(); i++) {
             Cell cell = row.createCell(i);

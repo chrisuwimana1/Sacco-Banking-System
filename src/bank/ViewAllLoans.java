@@ -45,7 +45,11 @@ public class ViewAllLoans extends javax.swing.JFrame {
 
     public ViewAllLoans() {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(ViewAllLoans.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
