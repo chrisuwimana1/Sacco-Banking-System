@@ -43,7 +43,11 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         int ysize = (int) tk.getScreenSize().getHeight();
         this.setSize(xsize, ysize);
 
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(Teller_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
         helper = new Helper();
         myinfo.setText(prefs.get("title", "") + ": " + prefs.get("firstname", "") + " " + prefs.get("lastname", "").charAt(0) + ".");
         saveupdate.setVisible(false);
@@ -1706,11 +1710,11 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2516,12 +2520,12 @@ public class Teller_Dashboard extends javax.swing.JFrame {
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-            prefs.clear();
-        } catch (BackingStoreException ex) {
-            Logger.getLogger(Teller_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        prefs.remove("employee_key");
+        prefs.remove("firstname");
+        prefs.remove("lastname");
+        prefs.remove("username");
+        prefs.remove("email");
+        prefs.remove("title");
         this.dispose();
         new Login().setVisible(true);
     }//GEN-LAST:event_exitMouseClicked

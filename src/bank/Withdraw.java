@@ -13,6 +13,7 @@ import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 /**
@@ -49,7 +50,11 @@ public class Withdraw extends javax.swing.JFrame {
 
     public Withdraw() {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(Withdraw.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //listCharges();
         getCountTransactionDebit();
         getCountTransactionCredit();

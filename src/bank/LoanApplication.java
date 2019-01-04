@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 import javax.swing.JOptionPane;
 
@@ -39,7 +40,11 @@ public class LoanApplication extends javax.swing.JFrame {
 
     public LoanApplication() {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(LoanApplication.class.getName()).log(Level.SEVERE, null, ex);
+        }
         helper = new Helper();
     }
 

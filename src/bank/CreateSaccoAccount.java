@@ -8,6 +8,9 @@ package bank;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,7 +28,11 @@ public class CreateSaccoAccount extends javax.swing.JFrame {
 
     public CreateSaccoAccount() {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(CreateSaccoAccount.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

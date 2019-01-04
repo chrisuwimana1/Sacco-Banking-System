@@ -99,7 +99,7 @@ public class WithdrawSuccess extends javax.swing.JFrame {
         jLabel9.setText("Teller:");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel1.setText("Sacco Kacyiru Reciept");
+        jLabel1.setText("Sacco Kacyiru Receipt");
 
         total_b.setText("0.0");
 

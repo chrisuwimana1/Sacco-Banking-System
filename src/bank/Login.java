@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 import javax.swing.JOptionPane;
 
@@ -48,7 +49,7 @@ public class Login extends javax.swing.JFrame {
 
             if (set.next()) {
                 boolean passwordMatch = PasswordUtils.verifyUserPassword(pass, set.getString("password"), set.getString("salt"));
-                System.out.println(passwordMatch);
+                
                 //for tellers
                 if (empl_title.toString().equalsIgnoreCase("Teller") && set.getString("title").equalsIgnoreCase(empl_title.toString())) {
                     if (passwordMatch) {
@@ -210,7 +211,11 @@ public class Login extends javax.swing.JFrame {
         int ysize = (int) tk.getScreenSize().getHeight();
         this.setSize(xsize, ysize);
 
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         holder = new PlaceHolder(username, "Enter Username");
         holder = new PlaceHolder(password, "Password");
@@ -255,7 +260,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("WELCOME TO SACCO KACYIRU");
 
-        bg.setBackground(new java.awt.Color(34, 162, 86));
+        bg.setBackground(new java.awt.Color(0, 153, 153));
         bg.setForeground(new java.awt.Color(51, 51, 51));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "Log In"));
@@ -356,8 +361,6 @@ public class Login extends javax.swing.JFrame {
         if (username.getText().isEmpty() || password.getPassword().length == 0) {
             JOptionPane.showMessageDialog(null, "All fields are required", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            System.out.println(empl_title.getSelectedItem());
-            System.out.println(username.getText());
             //System.out.println();
             authenticateData(empl_title.getSelectedItem().toString(), username.getText(), password.getText().toString());
         }

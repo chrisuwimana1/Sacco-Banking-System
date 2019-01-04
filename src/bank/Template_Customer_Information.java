@@ -18,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.DefaultTableModel;
@@ -38,7 +39,7 @@ public class Template_Customer_Information extends javax.swing.JFrame {
     DefaultTableModel model = new DefaultTableModel();
     String input_date;
 
-    public Template_Customer_Information() {
+    public Template_Customer_Information() throws BackingStoreException {
         initComponents();
         conn = new DBConnection();
     }
@@ -506,7 +507,7 @@ public class Template_Customer_Information extends javax.swing.JFrame {
     public void exportTable() {
 
         SXSSFWorkbook wb = new SXSSFWorkbook(-1);
-        SXSSFSheet sh = wb.createSheet("Report");
+        SXSSFSheet sh = (SXSSFSheet) wb.createSheet("Report");
         Row row = sh.createRow(0);
         for (int i = 0; i < model.getColumnCount(); i++) {
             Cell cell = row.createCell(i);
@@ -615,7 +616,11 @@ public class Template_Customer_Information extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Template_Customer_Information().setVisible(true);
+                try {
+                    new Template_Customer_Information().setVisible(true);
+                } catch (BackingStoreException ex) {
+                    Logger.getLogger(Template_Customer_Information.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

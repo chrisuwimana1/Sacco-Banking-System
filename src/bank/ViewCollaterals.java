@@ -4,6 +4,9 @@ package bank;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 
 import java.util.prefs.Preferences;
 import javax.swing.JOptionPane;
@@ -35,7 +38,11 @@ public class ViewCollaterals extends javax.swing.JFrame {
     public ViewCollaterals(String contractId) {
         initComponents();
         contract_id = contractId;
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(ViewCollaterals.class.getName()).log(Level.SEVERE, null, ex);
+        }
         myCollaterals(contract_id);
         //customer_name = prefs.get("customer_name", "");  
     }

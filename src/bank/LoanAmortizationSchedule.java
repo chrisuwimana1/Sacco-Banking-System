@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.DefaultTableModel;
@@ -54,7 +55,11 @@ public class LoanAmortizationSchedule extends javax.swing.JFrame {
 
     public LoanAmortizationSchedule(String contractID, float loanAmount, int loanPeriod, int numberOfPayments, float annualInterestRate, Date startDate, String interestRateMethod) {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(LoanAmortizationSchedule.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setVisible(true);
         loanAmountFloat = loanAmount;
         loanPeriodInt = loanPeriod;
@@ -383,7 +388,7 @@ public class LoanAmortizationSchedule extends javax.swing.JFrame {
     public void exportTable() {
 
         SXSSFWorkbook wb = new SXSSFWorkbook(-1);
-        SXSSFSheet sh = wb.createSheet("Report");
+        SXSSFSheet sh = (SXSSFSheet) wb.createSheet("Report");
         Row row = sh.createRow(0);
         for (int i = 0; i < model.getColumnCount(); i++) {
             Cell cell = row.createCell(i);

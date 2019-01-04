@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 import javax.swing.*;
 
@@ -53,7 +54,11 @@ public class Deposit extends javax.swing.JFrame {
 
     public Deposit() {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(Deposit.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         //deposit.setEnabled(false);
         holder = new PlaceHolder(credited_amount, "0");

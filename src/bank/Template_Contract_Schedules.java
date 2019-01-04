@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.DefaultTableModel;
@@ -34,7 +35,11 @@ public class Template_Contract_Schedules extends javax.swing.JFrame {
 
     public Template_Contract_Schedules() {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(Template_Contract_Schedules.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

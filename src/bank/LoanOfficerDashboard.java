@@ -35,7 +35,11 @@ public class LoanOfficerDashboard extends javax.swing.JFrame {
 
     public LoanOfficerDashboard() {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(LoanOfficerDashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
         helper = new Helper();
         holder = new PlaceHolder(contract_id, "contract ID");
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -1097,12 +1101,12 @@ public class LoanOfficerDashboard extends javax.swing.JFrame {
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-            prefs.clear();
-        } catch (BackingStoreException ex) {
-            Logger.getLogger(Teller_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        prefs.remove("employee_key");
+        prefs.remove("firstname");
+        prefs.remove("lastname");
+        prefs.remove("username");
+        prefs.remove("email");
+        prefs.remove("title");
         this.dispose();
         new Login().setVisible(true);
     }//GEN-LAST:event_exitMouseClicked

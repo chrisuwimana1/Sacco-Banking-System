@@ -18,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.DefaultTableModel;
@@ -40,7 +41,11 @@ public class Template_Loan_Application_Analysis extends javax.swing.JFrame {
 
     public Template_Loan_Application_Analysis() {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(Template_Loan_Application_Analysis.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -212,7 +217,7 @@ public class Template_Loan_Application_Analysis extends javax.swing.JFrame {
     public void exportTable() {
 
         SXSSFWorkbook wb = new SXSSFWorkbook(-1);
-        SXSSFSheet sh = wb.createSheet("Report");
+        SXSSFSheet sh = (SXSSFSheet) wb.createSheet("Report");
         Row row = sh.createRow(0);
         for (int i = 0; i < model.getColumnCount(); i++) {
             Cell cell = row.createCell(i);

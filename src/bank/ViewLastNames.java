@@ -8,6 +8,9 @@ package bank;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,7 +30,11 @@ public class ViewLastNames extends javax.swing.JFrame {
 
     public ViewLastNames(String lastName) {
         initComponents();
-        conn = new DBConnection();
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(ViewLastNames.class.getName()).log(Level.SEVERE, null, ex);
+        }
         listAccountsByLastName(lastName);
         //customer_name = prefs.get("customer_name", "");  
     }
