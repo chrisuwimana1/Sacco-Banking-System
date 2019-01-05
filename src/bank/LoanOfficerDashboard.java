@@ -6,10 +6,12 @@
 package bank;
 
 import com.placeholder.PlaceHolder;
+import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
@@ -32,15 +34,19 @@ public class LoanOfficerDashboard extends javax.swing.JFrame {
     ResultSet rs = null;
     DBConnection conn;
     Helper helper;
+    HashMap<String, Integer> contractStatusCodes;
+    HashMap<String, Integer> interestRateMethodCodes;
 
     public LoanOfficerDashboard() {
         initComponents();
+        helper = new Helper();
+        addAllHashMaps();
         try {
             conn = new DBConnection();
         } catch (BackingStoreException ex) {
             Logger.getLogger(LoanOfficerDashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
-        helper = new Helper();
+        
         holder = new PlaceHolder(contract_id, "contract ID");
         Toolkit tk = Toolkit.getDefaultToolkit();
         int xsize = (int) tk.getScreenSize().getWidth();
@@ -821,6 +827,11 @@ public class LoanOfficerDashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addAllHashMaps() {
+        contractStatusCodes = helper.getContractStatusCodes();
+        interestRateMethodCodes = helper.getInterestRateMethodCodes();
+    }
+
     private boolean validateFields() {
         if (start_date.getDate() == null) {
             JOptionPane.showMessageDialog(null, "The start date is required!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -840,7 +851,7 @@ public class LoanOfficerDashboard extends javax.swing.JFrame {
         } else if (govt_schemes_flag.getSelectedItem().toString().equalsIgnoreCase("Select Y/N")) {
             JOptionPane.showMessageDialog(null, "The deal sub type field is required!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } else if (helper.getInterestRateMethodCode(interest_rate_method.getSelectedItem().toString()) == -1) {
+        } else if (interestRateMethodCodes.get(interest_rate_method.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The interest rate method field is required!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else if (interest_rate_dr.getText().isEmpty()) {
@@ -882,7 +893,7 @@ public class LoanOfficerDashboard extends javax.swing.JFrame {
         } else if (interest_amount.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The interest amount is required!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } else if (helper.getContractStatusCode(contract_status.getSelectedItem().toString()) == -1) {
+        } else if (contractStatusCodes.get(contract_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The contract status is required!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else {
@@ -966,7 +977,7 @@ public class LoanOfficerDashboard extends javax.swing.JFrame {
                 pst.setString(6, govt_schemes_flag.getSelectedItem().toString());
 
                 pst.setString(7, govt_schemes_description.getText());
-                pst.setInt(8, helper.getInterestRateMethodCode(interest_rate_method.getSelectedItem().toString()));
+                pst.setInt(8, interestRateMethodCodes.get(interest_rate_method.getSelectedItem().toString()));
                 pst.setFloat(9, Float.parseFloat(interest_rate_dr.getText()));
                 pst.setFloat(10, Float.parseFloat(interest_rate_cr.getText()));
                 pst.setFloat(11, Float.parseFloat(apr_rate.getText()));
@@ -984,7 +995,7 @@ public class LoanOfficerDashboard extends javax.swing.JFrame {
                 pst.setFloat(23, Float.parseFloat(principal_amount.getText()));
                 pst.setFloat(24, Float.parseFloat(interest_amount.getText()));
                 pst.setFloat(25, Float.parseFloat(interest_amount.getText()));
-                pst.setInt(26, helper.getContractStatusCode(contract_status.getSelectedItem().toString()));
+                pst.setInt(26, contractStatusCodes.get(contract_status.getSelectedItem().toString()));
                 pst.setString(27, loanContractId);
                 int update = pst.executeUpdate();
                 if (update > 0) {
@@ -992,7 +1003,7 @@ public class LoanOfficerDashboard extends javax.swing.JFrame {
                     clearFormFields();
                 }
 
-            } catch (Exception e) {
+            } catch (HeadlessException | NumberFormatException | SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }

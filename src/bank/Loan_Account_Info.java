@@ -12,6 +12,7 @@ package bank;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
@@ -54,6 +55,35 @@ public class Loan_Account_Info extends javax.swing.JFrame {
     String settlementDateString;
     String account_number;
     String customer_name;
+    
+        HashMap<String, String> villages;
+    HashMap<String, String> economicsubsectorISICCodes;
+    HashMap<String, Integer> naicsCodes;
+    HashMap<String, Integer> occupationCodes;
+    HashMap<String, Integer> incomeRangesCodes;
+    HashMap<String, Integer> customerStatusCodes;
+    HashMap<String, Integer> legalStatusCodes;
+    HashMap<String, String> incomeFrequencyCodes;
+    HashMap<String, Integer> relationshipTypeCodes;
+    HashMap<String, Integer> educationCodes;
+    HashMap<String, String> residenceTypeCodes;
+    HashMap<String, Integer> nationalIdTypeCodes;
+    HashMap<String, String> maritalStatusCodes;
+    HashMap<String, String> genderCodes;
+    HashMap<String, String> visionSBUCodes;
+    HashMap<String, Integer> accountStatusCodes;
+    HashMap<String, String> accountTypeCodes;
+    HashMap<String, String> freezeStatusCodes;
+    HashMap<String, String> publicSectorCodes;
+    HashMap<String, String> institutionalSectorCodes;
+    HashMap<String, String> accountOwnerShipCodes;
+    HashMap<String, String> performanceClassCodes;
+    HashMap<String, Integer> creditCategoryCodes;
+    HashMap<String, String> economicSectorCodes;
+    
+    
+    
+    
     public Loan_Account_Info(String country, String leBook, String customerID, String accountNumber, String customerName ,String visionOUC,
             String visionSBU, String contractID, float emiAmount, int loanPeriod, String startDate,
             float principalAmount, float interestAmount, String settlementDate) {
@@ -693,6 +723,33 @@ public class Loan_Account_Info extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+        private void addAllHashMaps() {
+        villages = helper.getVillageCodes();
+        economicsubsectorISICCodes = helper.getEconomicSubSectorISICCodes();
+        naicsCodes = helper.getNaicsCodes();
+        occupationCodes = helper.getOccupationCodes();
+        incomeRangesCodes = helper.getIncomeRangeCodes();
+        customerStatusCodes = helper.getCustomerStatusCodes();
+        legalStatusCodes = helper.getLegalStatusCodes();
+        incomeFrequencyCodes = helper.getIncomeFrequencyCodes();
+        relationshipTypeCodes = helper.getRelationshipTypeCodes();
+        educationCodes = helper.getEducationCodes();
+        residenceTypeCodes = helper.getResidenceTypeCodes();
+        nationalIdTypeCodes = helper.getNationalIdTypeCodes();
+        maritalStatusCodes = helper.getMaritalStatusCodes();
+        genderCodes = helper.getGenderCodes();
+        visionSBUCodes = helper.getVisionSBUCodes();
+        accountStatusCodes = helper.getAccountStatusCodes();
+        accountTypeCodes = helper.getAccountTypeCodes();
+        freezeStatusCodes = helper.getFreezeStatusCodes();
+        publicSectorCodes = helper.getPublicSectorCodes();
+        institutionalSectorCodes = helper.getInstitutionalSectorCodes();
+        accountOwnerShipCodes = helper.getAccountOwnershipCodes();
+        performanceClassCodes = helper.getPerformanceClassCodes();
+        creditCategoryCodes = helper.getCreditCategoryCodes();
+        economicSectorCodes = helper.getEconomicSectorCodes();
+    }
+    
     public int getYearMonthDigits(int yearMonth) {
         int count = 0;
         while (yearMonth != 0) {
@@ -825,10 +882,10 @@ public class Loan_Account_Info extends javax.swing.JFrame {
         } else if (vision_gl.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The vision GL field is required", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } else if (helper.getEconomicSubSectorISICCode(economic_sub_sector_isic.getSelectedItem().toString()).isEmpty()) {
+        } else if (economicsubsectorISICCodes.get(economic_sub_sector_isic.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The economic sub sector field ISIC is required", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } else if (helper.getAccountOwnershipCode(account_ownership.getSelectedItem().toString()).isEmpty()) {
+        } else if (accountOwnerShipCodes.get(account_ownership.getSelectedItem().toString())==null) {
             JOptionPane.showMessageDialog(null, "The Account Ownership field is required", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else {
@@ -938,26 +995,26 @@ public class Loan_Account_Info extends javax.swing.JFrame {
                 pst.setString(5, customer_name);
                 pst.setString(6, visionOUC);
                 pst.setString(7, visionSBU);
-                pst.setInt(8, helper.getAccountStatusCode(account_status.getSelectedItem().toString()));
+                pst.setInt(8, accountStatusCodes.get(account_status.getSelectedItem().toString()));
                 pst.setString(9, accountStatusDate.toString()); //acount status date
                 pst.setString(10, customerID);
                 pst.setString(11, "");
                 pst.setString(12, "RWF");
                 pst.setString(13, vision_gl.getText());
-                pst.setString(14, helper.getAccountTypeCode(account_type.getSelectedItem().toString()));
+                pst.setString(14, accountTypeCodes.get(account_type.getSelectedItem().toString()));
                 pst.setString(15, accountOpeningDate.toString());//account open date
-                pst.setString(16, helper.getFreezeStatusCode(freeze_status.getSelectedItem().toString()));
+                pst.setString(16, freezeStatusCodes.get(freeze_status.getSelectedItem().toString()));
                 pst.setFloat(17, Float.parseFloat(interest_rate_debit.getText()));
                 pst.setFloat(18, Float.parseFloat(interest_rate_credit.getText()));
                 pst.setString(19, economic_sub_sector.getSelectedItem().toString());
-                pst.setString(20, helper.getEconomicSubSectorISICCode(economic_sub_sector_isic.getSelectedItem().toString()));
-                pst.setString(21, helper.getPublicSectorCode(public_sector_code.getSelectedItem().toString()));
-                pst.setString(22, helper.getInstitutionalSectorCode(institutional_sector_code.getSelectedItem().toString()));
-                pst.setString(23, helper.getAccountOwnershipCode(account_ownership.getSelectedItem().toString()));
+                pst.setString(20, economicsubsectorISICCodes.get(economic_sub_sector_isic.getSelectedItem().toString()));
+                pst.setString(21, publicSectorCodes.get(public_sector_code.getSelectedItem().toString()));
+                pst.setString(22, institutionalSectorCodes.get(institutional_sector_code.getSelectedItem().toString()));
+                pst.setString(23, accountOwnerShipCodes.get(account_ownership.getSelectedItem().toString()));
                 pst.setInt(24, Integer.parseInt(joint_participant_count.getText()));
                 pst.setString(25, card_subscription.getSelectedItem().toString());
-                pst.setString(26, helper.getPerformanceClassCode(performance_class.getSelectedItem().toString()));
-                pst.setInt(27, helper.getCreditCategoryCode(credit_category.getSelectedItem().toString()));
+                pst.setString(26, performanceClassCodes.get(performance_class.getSelectedItem().toString()));
+                pst.setInt(27, creditCategoryCodes.get(credit_category.getSelectedItem().toString()));
                 pst.setString(28, "");
                 int saved = pst.executeUpdate();
                 if (saved > 0) {
@@ -1010,7 +1067,7 @@ public class Loan_Account_Info extends javax.swing.JFrame {
                 pst.setString(1, countryString);
                 pst.setString(2, leBookString);
                 pst.setString(3, contractIDString);
-                pst.setString(4, helper.getPerformanceClassCode(performance_class.getSelectedItem().toString()));
+                pst.setString(4, performanceClassCodes.get(performance_class.getSelectedItem().toString()));
                 pst.setFloat(5, Float.parseFloat(disbursed_amount.getText()));
                 pst.setFloat(6, Float.parseFloat(principal_amount.getText()));
                 pst.setFloat(7, Float.parseFloat(principal_amount.getText()));

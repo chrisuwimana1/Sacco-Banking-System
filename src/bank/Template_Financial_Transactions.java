@@ -201,9 +201,7 @@ public class Template_Financial_Transactions extends javax.swing.JFrame {
         if (from_opening_date.getDate() == null || to_opening_date.getDate() == null) {
             JOptionPane.showMessageDialog(null, "The start and end dates are required for this filter!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            String s ="";
-            int a = helper.getNaicsCode(s);
-            System.out.println(a);
+
             java.util.Date fromDate = from_opening_date.getDate();
             java.util.Date toDate = to_opening_date.getDate();
 

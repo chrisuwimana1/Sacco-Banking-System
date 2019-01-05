@@ -23,7 +23,6 @@ import javax.swing.JOptionPane;
 import java.util.Map;
 import java.util.HashMap;
 
-
 public class Teller_Dashboard extends javax.swing.JFrame {
 
     /**
@@ -353,6 +352,8 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "Search Account"));
 
         search_field_choice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Account Number", "Last Name" }));
+
+        search_field.setText("310-0001-10");
 
         search_account.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/search-icon.png"))); // NOI18N
         search_account.setText("Search");
@@ -1767,16 +1768,16 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         }
         return null;
     }
-//
-//    public static <String, Integer> Integer getIntKey(Map<String, Integer> map, Integer value) {
-//        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-//            if (value.equals(entry.getValue())) {
-//                return entry.getKey();
-//            }
-//        }
-//        return null;
-//    }
 
+    public static Object getKeyFromValue(Map hm, Object value) {
+        for (Object o : hm.keySet()) {
+            if (hm.get(o).equals(value)) {
+                return o;
+            }
+        }
+        return null;
+    }
+    
     private void addAllHashMaps() {
         //Get all the HashMaps 
         villages = helper.getVillageCodes();
@@ -1851,18 +1852,20 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                         + "`National_ID_Type`, `National_ID_Number`, `Health_Insurance_Number`, `Occupation`,"
                         + " `Employer_Name`, `Employee_ID`, `Emp_Address_1`, `Emp_Address_2`, `Emp_Village`,"
                         + " `Emp_Country`, `Income`, `Income_Frequency`, `Group_Name`, `Group_Number`, `Legal_Status`,"
-                        + " `Customer_Status`,"
+                        + " `Customer_Status`,ac.Account_Status,ac.Account_Type,ac.Freeze_Status,"
+                        + "ac.Public_Sector_Code,ac.Institutional_Sector_Code,ac.Account_Ownership,"
+                        + "ac.Performance_Class,ac.Credit_Category,"
                         + "ac.Account_Status_Date,ac.Account_Open_Date,"
                         + "ac.Account_Closing_Date,ac.Int_Rate_Dr,ac.Int_Rate_Cr,"
                         + "ac.Economic_Sub_Sector_Code,"
-                        + " ac.Joint_Participant_Count,ac.Card_Subscription,"
+                        + " ac.Joint_Participant_Count,ac.Card_Subscription "
                         + "FROM customer_information cu inner JOIN account_information ac on ac.Account_Number = cu.Account_Number "
                         + "WHERE cu.Account_Number = ?";
                 pst = conn.connection.prepareStatement(sql);
                 pst.setString(1, searchAccountField);
                 rs = pst.executeQuery();
                 if (rs.next()) {
-                    System.out.println(getKey(genderCodes, rs.getString("Customer_Gender")));
+                    
                     saveupdate.setVisible(false);
                     customer_id.setText(rs.getString("Customer_ID"));
                     account_number.setText(rs.getString("Account_Number"));
@@ -1873,10 +1876,16 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                     forename_2.setText(rs.getString("Forename_2"));
                     customer_acronym.setText(rs.getString("Customer_Acronym"));
                     vision_ouc.setText(rs.getString("cu.Vision_OUC"));
+                    if (rs.getDate("Date_of_Birth") == null){
+                        date_of_birth.setCalendar(null);
+                    }else{
+                        date_of_birth.setDate(rs.getDate("Date_of_Birth"));
+                    }
+                    customer_open_date.setDate(rs.getDate("Customer_Open_Date"));
 
                     customer_gender.getModel().setSelectedItem(getKey(genderCodes, rs.getString("Customer_Gender")));
                     place_of_birth.setText(rs.getString("Place_of_Birth"));
-                    vision_sbu.getModel().setSelectedItem(getKey(visionSBUCodes, rs.getString("cu.Vision_SBU_")));
+                    vision_sbu.getModel().setSelectedItem(getKey(visionSBUCodes, rs.getString("cu.Vision_SBU")));
                     marital_status.getModel().setSelectedItem(getKey(maritalStatusCodes, rs.getString("Marital_Status")));
 
                     spouse_name.setText(rs.getString("Spouse_Name"));
@@ -1898,7 +1907,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                     comm_address_2.setText(rs.getString("Comm_Address_2"));
                     comm_village.getModel().setSelectedItem(getKey(villages, rs.getString("Comm_Village")));
                     comm_country.getModel().setSelectedItem(rs.getString("Comm_Country"));
-                    comm_residence_type.getModel().setSelectedItem(rs.getString("Comm_Residence_Type"));
+                    comm_residence_type.getModel().setSelectedItem(getKey(residenceTypeCodes,rs.getString("Comm_Residence_Type")));
                     perm_address_1.setText(rs.getString("Perm_Address_1"));
                     perm_address_2.setText(rs.getString("Perm_Address_2"));
                     perm_village.getModel().setSelectedItem(getKey(villages, rs.getString("Perm_Village")));
@@ -1910,51 +1919,52 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                     fax_number_1.setText(rs.getString("Fax_Number_1"));
                     fax_number_2.setText(rs.getString("Fax_Number_2"));
 
-                    education.getModel().setSelectedItem(getKey(educationCodes, rs.getString("Education")));
+                    education.getModel().setSelectedItem(getKeyFromValue(educationCodes, Integer.parseInt(rs.getString("Education"))));
                     customer_tin.setText(rs.getString("Customer_TIN"));
-                    naics_code.getModel().setSelectedItem(rs.getString("NAICS_Code_Full"));
-                    economic_sub_sector_isic.getModel().setSelectedItem(rs.getString("cu.Economic_Sub_Sector_Code_ISIC_Full"));
+                    naics_code.getModel().setSelectedItem(getKeyFromValue(naicsCodes, Integer.parseInt(rs.getString("NAICS_Code"))));
+                    economic_sub_sector_isic.getModel().setSelectedItem(getKey(economicsubsectorISICCodes, rs.getString("cu.Economic_Sub_Sector_Code_ISIC").trim()));
                     related_party.getModel().setSelectedItem(rs.getString("Related_Party"));
-                    relationship_type.getModel().setSelectedItem(rs.getString("Relationship_Type_Full"));
+                    relationship_type.getModel().setSelectedItem(getKeyFromValue(relationshipTypeCodes, Integer.parseInt(rs.getString("Relationship_Type"))));
                     related_party_name.setText(rs.getString("Related_Party_Name"));
                     local_govt_member.getModel().setSelectedItem(rs.getString("Local_Govt_Member"));
                     internet_banking_subscription.getModel().setSelectedItem(rs.getString("Internet_Banking_Subscription"));
                     mobile_banking_subscription.getModel().setSelectedItem(rs.getString("Mobile_Banking_Subscription"));
                     ssn_number.setText(rs.getString("SSN_Number"));
-                    national_id_type.getModel().setSelectedItem(rs.getString("National_ID_Type_Full"));
+                   
+                    
+                    national_id_type.getModel().setSelectedItem(getKeyFromValue(nationalIdTypeCodes,Integer.parseInt(rs.getString("National_ID_Type"))));
                     national_id_number.setText(rs.getString("National_ID_Number"));
                     health_insurance_number.setText(rs.getString("Health_Insurance_Number"));
 
-                    occupation.getModel().setSelectedItem(rs.getString("Occupation_Full"));
+                    occupation.getModel().setSelectedItem(getKeyFromValue(occupationCodes, Integer.parseInt(rs.getString("Occupation"))));
                     employer_name.setText(rs.getString("Employer_Name"));
                     employee_id.setText(rs.getString("Employee_ID"));
                     emp_address_1.setText(rs.getString("Emp_Address_1"));
                     emp_address_2.setText(rs.getString("Emp_Address_2"));
-                    emp_village.getModel().setSelectedItem(rs.getString("Emp_Village_Full"));
+                    emp_village.getModel().setSelectedItem(getKey(villages, rs.getString("Emp_Village")));
                     emp_country.getModel().setSelectedItem(rs.getString("Emp_Country"));
 
-                    income.getModel().setSelectedItem(rs.getString("Income_Full"));
-                    income_frequency.getModel().setSelectedItem(rs.getString("Income_Frequency_Full"));
+                    income.getModel().setSelectedItem(getKeyFromValue(incomeRangesCodes, Integer.parseInt(rs.getString("Income"))));
+                    income_frequency.getModel().setSelectedItem(getKey(incomeFrequencyCodes,rs.getString("Income_Frequency")));
                     group_name.setText(rs.getString("Group_Name"));
                     group_number.setText(rs.getString("Group_Number"));
-                    legal_status.getModel().setSelectedItem(rs.getString("Legal_Status_Full"));
-                    customer_status.getModel().setSelectedItem(rs.getString("Customer_Status_Full"));
+                    legal_status.getModel().setSelectedItem(getKeyFromValue(legalStatusCodes,Integer.parseInt(rs.getString("Legal_Status"))));
+                    customer_status.getModel().setSelectedItem(getKeyFromValue(customerStatusCodes,Integer.parseInt(rs.getString("Customer_Status"))));
 
-                    account_status.getModel().setSelectedItem(rs.getString("ac.Account_Status_Full"));
-                    account_type.getModel().setSelectedItem(rs.getString("ac.Account_Type_Full"));
-                    freeze_status.getModel().setSelectedItem(rs.getString("ac.Freeze_Status_Full"));
+                    account_status.getModel().setSelectedItem(getKey(accountStatusCodes, Integer.parseInt(rs.getString("ac.Account_Status"))));
+                    account_type.getModel().setSelectedItem(getKey(accountTypeCodes,rs.getString("ac.Account_Type")));
+                    freeze_status.getModel().setSelectedItem(getKey(freezeStatusCodes, rs.getString("ac.Freeze_Status")));
                     interest_rate_credit.setText(rs.getString("ac.Int_Rate_Cr"));
                     interest_rate_debit.setText(rs.getString("ac.Int_Rate_Dr"));
-                    public_sector_code.getModel().setSelectedItem(rs.getString("ac.Public_Sector_Code_Full"));
+                    public_sector_code.getModel().setSelectedItem(getKey(publicSectorCodes, rs.getString("ac.Public_Sector_Code")));
+           
                     economic_sub_sector.getModel().setSelectedItem(rs.getString("ac.Economic_Sub_Sector_Code"));
-                    institutional_sector_code.getModel().setSelectedItem(rs.getString("ac.Institutional_Sector_Code_Full"));
-                    account_ownership.getModel().setSelectedItem(rs.getString("ac.Account_Ownership_Full"));
+                    institutional_sector_code.getModel().setSelectedItem(getKey(institutionalSectorCodes, rs.getString("ac.Institutional_Sector_Code")));
+                    account_ownership.getModel().setSelectedItem(getKey(accountOwnerShipCodes, rs.getString("ac.Account_Ownership")));
                     joint_participation_count.setText(rs.getString("ac.Joint_Participant_Count"));
                     card_subscription.getModel().setSelectedItem(rs.getString("ac.Card_Subscription"));
-                    performance_class.getModel().setSelectedItem(rs.getString("ac.Performance_Class_Full"));
-                    credit_category.getModel().setSelectedItem(rs.getString("ac.Credit_Category_Full"));
-                    date_of_birth.setDate(rs.getDate("Date_of_Birth"));
-                    customer_open_date.setDate(rs.getDate("Customer_Open_Date"));
+                    performance_class.getModel().setSelectedItem(getKey(performanceClassCodes, rs.getString("ac.Performance_Class")));
+                    credit_category.getModel().setSelectedItem(getKey(creditCategoryCodes, Integer.parseInt(rs.getString("ac.Credit_Category"))));
                     account_status_date.setDate(rs.getDate("ac.Account_Status_Date"));
                 } else {
                     JOptionPane.showMessageDialog(null, "Sorry this account does not exist!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1983,9 +1993,9 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The customer acronym field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (forename_1.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The Sacco Branch field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getVision_SBU_Code(vision_sbu.getSelectedItem().toString()).isEmpty()) {
+        } else if (visionSBUCodes.get(vision_sbu.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The business segment field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getGenderCode(customer_gender.getSelectedItem().toString()).isEmpty()) {
+        } else if (genderCodes.get(customer_gender.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The Customer gender field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (number_of_dependants.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The number of dependants field is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2007,27 +2017,27 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The home telephone field is required!", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (home_telephone.getText().length() != 10) {
             JOptionPane.showMessageDialog(null, "The home telephone field has to be 10 digits", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getOccupationCode(occupation.getSelectedItem().toString()) == -1) {
+        } else if (occupationCodes.get(occupation.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The occupation field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getEducationCode(education.getSelectedItem().toString()) == -1) {
+        } else if (educationCodes.get(education.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The education field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getNaicsCode(naics_code.getSelectedItem().toString()) == -1) {
+        } else if (naicsCodes.get(naics_code.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The NAICS Code field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getEconomicSubSectorISICCode(economic_sub_sector_isic.getSelectedItem().toString()).isEmpty()) {
+        } else if (economicsubsectorISICCodes.get(economic_sub_sector_isic.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The economic sub sector field ISIC is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getNationalIdTypeCode(national_id_type.getSelectedItem().toString()) == 2 && national_id_number.getText().length() != 16) {
+        } else if (nationalIdTypeCodes.get(national_id_type.getSelectedItem().toString()) == 2 && national_id_number.getText().length() != 16) {
             JOptionPane.showMessageDialog(null, "The ID Number field should be 16 digits", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getCustomerStatusCode(customer_status.getSelectedItem().toString()) == -1) {
+        } else if (customerStatusCodes.get(customer_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The customer status field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getLegalStatusCode(legal_status.getSelectedItem().toString()) == -1) {
+        } else if (legalStatusCodes.get(legal_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The legal status field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (national_id_number.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The ID number field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getAccountStatusCode(account_status.getSelectedItem().toString()) == -1) {
+        } else if (accountStatusCodes.get(account_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The account status field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getAccountTypeCode(account_type.getSelectedItem().toString()).isEmpty()) {
+        } else if (accountTypeCodes.get(account_type.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The account type field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getFreezeStatusCode(freeze_status.getSelectedItem().toString()).isEmpty()) {
+        } else if (freezeStatusCodes.get(freeze_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The freeze status is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (interest_rate_credit.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The interest rate credit field is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2035,11 +2045,11 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The interest rate debit field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (joint_participation_count.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The joint participation count field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getVillageCode(emp_village.getSelectedItem().toString()).length() > 10) {
+        } else if (villages.get(emp_village.getSelectedItem().toString()).length() > 10) {
             JOptionPane.showMessageDialog(null, "The Emp Village field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getVillageCode(comm_village.getSelectedItem().toString()).length() > 10) {
+        } else if (villages.get(comm_village.getSelectedItem().toString()).length() > 10) {
             JOptionPane.showMessageDialog(null, "The Comm Village field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getVillageCode(perm_village.getSelectedItem().toString()).length() > 10) {
+        } else if (villages.get(perm_village.getSelectedItem().toString()).length() > 10) {
             JOptionPane.showMessageDialog(null, "The perm Village field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (employee_id.getText().length() > 15) {
             JOptionPane.showMessageDialog(null, "The Employee ID field shoud be at most 15 characters", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2061,11 +2071,12 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The Customer ID field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (customer_id.getText().length() != 10) {
             JOptionPane.showMessageDialog(null, "The customer ID field is badly formatted", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getAccountOwnershipCode(account_ownership.getSelectedItem().toString()).isEmpty()) {
-            JOptionPane.showMessageDialog(null, "The Account Ownership field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getIncomeRangeCode(income.getSelectedItem().toString()) == -1) {
-            JOptionPane.showMessageDialog(null, "The Income field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
+        } //        else if (helper.getAccountOwnershipCode(account_ownership.getSelectedItem().toString()).isEmpty()) {
+        //            JOptionPane.showMessageDialog(null, "The Account Ownership field is required", "Error", JOptionPane.ERROR_MESSAGE);
+        //        } else if (helper.getIncomeRangeCode(income.getSelectedItem().toString()) == -1) {
+        //            JOptionPane.showMessageDialog(null, "The Income field is required", "Error", JOptionPane.ERROR_MESSAGE);
+        //        } 
+        else {
             updateCustomerInformationTable(accountNumber);
         }
     }
@@ -2077,7 +2088,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             java.util.Date openingDate = customer_open_date.getDate();
             java.sql.Date sqlOpeningDate = new java.sql.Date(openingDate.getTime());
 
-            int nextOfKinIdType = helper.getNationalIdTypeCode(next_of_kin_id_type.getSelectedItem().toString());
+            int nextOfKinIdType = 2;
 
             String sql = "UPDATE `customer_information` SET `Customer_ID` = ?,"
                     + "`Salutation` = ?, "
@@ -2147,25 +2158,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                     + "`Group_Number`= ?, "
                     + "`Legal_Status`= ?, "
                     + "`Customer_Status`= ?, "
-                    + "`Vision_SBU_Full`= ?, "
-                    + "`Customer_Gender_Full`= ?, "
-                    + "`Marital_Status_Full`= ?, "
-                    + "`Next_of_kin_ID_Type_Full`= ?,"
-                    + "`Account_Mandate_ID_Type_Full`= ?, "
-                    + "`Education_Full`= ?, "
-                    + "`NAICS_Code_Full`= ?, "
-                    + "`Economic_Sub_Sector_Code_ISIC_Full` = ?, "
-                    + "`Relationship_Type_Full`= ?, "
-                    + "`National_ID_Type_Full`= ?, "
-                    + "`Occupation_Full`= ?, "
-                    + "`Income_Full`= ?, "
-                    + "`Income_Frequency_Full`= ?, "
-                    + "`Legal_Status_Full` = ?,"
-                    + "`Customer_Status_Full`= ?, "
-                    + "`Comm_Village_Full`= ?, "
-                    + "`Perm_Village_Full` = ?,"
-                    + "`Date_Last_Modified` = NOW(),"
-                    + "`Emp_Village_Full`= ? WHERE Account_Number = ?";
+                    + "`Date_Last_Modified` = NOW() WHERE Account_Number = ?";
 
             pst = conn.connection.prepareStatement(sql);
             pst.setString(1, customer_id.getText());
@@ -2176,12 +2169,12 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             pst.setString(6, forename_2.getText());
             pst.setString(7, customer_acronym.getText());
             pst.setString(8, vision_ouc.getText());
-            pst.setString(9, helper.getVision_SBU_Code(vision_sbu.getSelectedItem().toString()));
+            pst.setString(9, visionSBUCodes.get(vision_sbu.getSelectedItem().toString()));
             pst.setString(10, sqlOpeningDate.toString());
-            pst.setString(11, helper.getGenderCode(customer_gender.getSelectedItem().toString()));
+            pst.setString(11, genderCodes.get(customer_gender.getSelectedItem().toString()));
             pst.setString(12, sqlBirthDate.toString());
             pst.setString(13, place_of_birth.getText());
-            pst.setString(14, helper.getMaritalStatusCode(marital_status.getSelectedItem().toString()));
+            pst.setString(14, maritalStatusCodes.get(marital_status.getSelectedItem().toString()));
             pst.setString(15, spouse_name.getText());
             pst.setInt(16, Integer.parseInt(social_economic_class.getSelectedItem().toString()));
             pst.setString(17, next_of_kin_name.getText());
@@ -2191,19 +2184,19 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             pst.setString(21, next_of_kin_email.getText());
             pst.setString(22, number_of_dependants.getText());
             pst.setString(23, account_mandate_name.getText());
-            pst.setInt(24, helper.getNationalIdTypeCode(account_mandate_id_type.getSelectedItem().toString()));
+            pst.setInt(24, 2);
             pst.setString(25, account_mandate_id_number.getText());
             pst.setString(26, nationality.getSelectedItem().toString());
             pst.setString(27, residence.getSelectedItem().toString());
             pst.setString(28, comm_address_1.getText());
             pst.setString(29, comm_address_2.getText());
-            pst.setString(30, helper.getVillageCode(comm_village.getSelectedItem().toString()));
+            pst.setString(30, villages.get(comm_village.getSelectedItem().toString()));
 
             pst.setString(31, comm_country.getSelectedItem().toString());
-            pst.setString(32, helper.getResidenceTypeCode(comm_residence_type.getSelectedItem().toString()));
+            pst.setString(32, residenceTypeCodes.get(comm_residence_type.getSelectedItem().toString()));
             pst.setString(33, perm_address_1.getText());
             pst.setString(34, perm_address_2.getText());
-            pst.setString(35, helper.getVillageCode(perm_village.getSelectedItem().toString()));
+            pst.setString(35, villages.get(perm_village.getSelectedItem().toString()));
             pst.setString(36, permanent_country.getSelectedItem().toString());
             pst.setString(37, email.getText());
             pst.setString(38, work_telephone.getText());
@@ -2211,57 +2204,36 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             pst.setString(40, fax_number_1.getText());
 
             pst.setString(41, fax_number_2.getText());
-            pst.setInt(42, helper.getEducationCode(education.getSelectedItem().toString()));
+            pst.setInt(42, educationCodes.get(education.getSelectedItem().toString()));
             pst.setString(43, customer_tin.getText());
-            pst.setInt(44, helper.getNaicsCode(naics_code.getSelectedItem().toString()));
-            pst.setString(45, helper.getEconomicSubSectorISICCode(economic_sub_sector_isic.getSelectedItem().toString()));
+            pst.setInt(44, naicsCodes.get(naics_code.getSelectedItem().toString()));
+            pst.setString(45, economicsubsectorISICCodes.get(economic_sub_sector_isic.getSelectedItem().toString()));
             pst.setString(46, related_party.getSelectedItem().toString());
-            pst.setInt(47, helper.getRelationshipTypeCode(relationship_type.getSelectedItem().toString()));
+            pst.setInt(47, relationshipTypeCodes.get(relationship_type.getSelectedItem().toString()));
             pst.setString(48, related_party_name.getText());
             pst.setString(49, local_govt_member.getSelectedItem().toString());
             pst.setString(50, internet_banking_subscription.getSelectedItem().toString());
 
             pst.setString(51, mobile_banking_subscription.getSelectedItem().toString());
             pst.setString(52, ssn_number.getText());
-            pst.setInt(53, helper.getNationalIdTypeCode(national_id_type.getSelectedItem().toString()));
+            pst.setInt(53, 2);
             pst.setString(54, national_id_number.getText());
             pst.setString(55, health_insurance_number.getText());
-            pst.setInt(56, helper.getOccupationCode(occupation.getSelectedItem().toString()));
+            pst.setInt(56, occupationCodes.get(occupation.getSelectedItem().toString()));
             pst.setString(57, employer_name.getText());
             pst.setString(58, employee_id.getText());
             pst.setString(59, emp_address_1.getText());
             pst.setString(60, emp_address_2.getText());
 
-            pst.setString(61, helper.getVillageCode(emp_village.getSelectedItem().toString()));
+            pst.setString(61, villages.get(emp_village.getSelectedItem().toString()));
             pst.setString(62, emp_country.getSelectedItem().toString());
-            pst.setInt(63, helper.getIncomeRangeCode((String) income.getSelectedItem()));
-            pst.setString(64, helper.getIncomeFrequencyCode((String) income_frequency.getSelectedItem()));
+            pst.setInt(63, incomeRangesCodes.get((String) income.getSelectedItem()));
+            pst.setString(64, incomeFrequencyCodes.get((String) income_frequency.getSelectedItem()));
             pst.setString(65, group_name.getText());
             pst.setString(66, group_number.getText());
-            pst.setInt(67, helper.getLegalStatusCode((String) legal_status.getSelectedItem()));
-            pst.setInt(68, helper.getCustomerStatusCode((String) customer_status.getSelectedItem()));
-            pst.setString(69, (String) vision_sbu.getSelectedItem());
-            pst.setString(70, (String) customer_gender.getSelectedItem());
-
-            pst.setString(71, (String) marital_status.getSelectedItem());
-            pst.setString(72, (String) next_of_kin_id_type.getSelectedItem());
-            pst.setString(73, (String) account_mandate_id_type.getSelectedItem());
-            pst.setString(74, (String) education.getSelectedItem());
-            pst.setString(75, (String) naics_code.getSelectedItem());
-            pst.setString(76, (String) economic_sub_sector_isic.getSelectedItem());
-            pst.setString(77, (String) relationship_type.getSelectedItem());
-            pst.setString(78, (String) national_id_type.getSelectedItem());
-            pst.setString(79, (String) occupation.getSelectedItem());
-            pst.setString(80, (String) income.getSelectedItem());
-
-            pst.setString(81, (String) income_frequency.getSelectedItem());
-            pst.setString(82, (String) legal_status.getSelectedItem());
-
-            pst.setString(83, (String) customer_status.getSelectedItem());
-            pst.setString(84, (String) comm_village.getSelectedItem());
-            pst.setString(85, (String) perm_village.getSelectedItem());
-            pst.setString(86, (String) emp_village.getSelectedItem());
-            pst.setString(87, accountNumber);
+            pst.setInt(67, legalStatusCodes.get((String) legal_status.getSelectedItem()));
+            pst.setInt(68, customerStatusCodes.get((String) customer_status.getSelectedItem()));
+            pst.setString(69, accountNumber);
             int update = pst.executeUpdate();
             if (update > 0) {
                 updateAccountInformationTable(accountNumber);
@@ -2290,21 +2262,21 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                     + "Credit_Category_Full=?,Account_Name=?, Vision_OUC=?, Vision_SBU=?, Customer_ID=?, Country=?, LE_Book=?, Vision_GL=?, Currency=? WHERE Account_Number = ?";
 
             pst = conn.connection.prepareStatement(sql);
-            pst.setInt(1, helper.getAccountStatusCode(account_status.getSelectedItem().toString()));
+            pst.setInt(1, customerStatusCodes.get(account_status.getSelectedItem().toString()));
             pst.setString(2, sqlAccountStatusDate.toString());
-            pst.setString(3, helper.getAccountTypeCode(account_type.getSelectedItem().toString()));
+            pst.setString(3, accountTypeCodes.get(account_type.getSelectedItem().toString()));
             pst.setString(4, sqlOpeningDate.toString());
-            pst.setString(5, helper.getFreezeStatusCode(freeze_status.getSelectedItem().toString()));
+            pst.setString(5, freezeStatusCodes.get(freeze_status.getSelectedItem().toString()));
             pst.setFloat(6, Float.valueOf(interest_rate_debit.getText().trim()));
             pst.setFloat(7, Float.valueOf(interest_rate_credit.getText().trim()));
             pst.setString(8, economic_sub_sector.getSelectedItem().toString());
-            pst.setString(9, helper.getPublicSectorCode(public_sector_code.getSelectedItem().toString()));
-            pst.setString(10, helper.getInstitutionalSectorCode(institutional_sector_code.getSelectedItem().toString()));
-            pst.setString(11, helper.getAccountOwnershipCode(account_ownership.getSelectedItem().toString()));
+            pst.setString(9, publicSectorCodes.get(public_sector_code.getSelectedItem().toString()));
+            pst.setString(10, institutionalSectorCodes.get(institutional_sector_code.getSelectedItem().toString()));
+            pst.setString(11, accountOwnerShipCodes.get(account_ownership.getSelectedItem().toString()));
             pst.setString(12, joint_participation_count.getText());
             pst.setString(13, card_subscription.getSelectedItem().toString());
-            pst.setString(14, helper.getPerformanceClassCode(performance_class.getSelectedItem().toString()));
-            pst.setInt(15, helper.getCreditCategoryCode(credit_category.getSelectedItem().toString()));
+            pst.setString(14, performanceClassCodes.get(performance_class.getSelectedItem().toString()));
+            pst.setInt(15, creditCategoryCodes.get(credit_category.getSelectedItem().toString()));
             pst.setString(16, vision_sbu.getSelectedItem().toString());
             pst.setString(17, account_status.getSelectedItem().toString());
             pst.setString(18, account_type.getSelectedItem().toString());
@@ -2317,7 +2289,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             pst.setString(25, credit_category.getSelectedItem().toString());
             pst.setString(26, customer_name.getText());
             pst.setString(27, vision_ouc.getText());
-            pst.setString(28, helper.getVision_SBU_Code((String) vision_sbu.getSelectedItem()));
+            pst.setString(28, visionSBUCodes.get((String) vision_sbu.getSelectedItem()));
             pst.setString(29, customer_id.getText());
             pst.setString(30, "RW");
             pst.setString(31, "519");

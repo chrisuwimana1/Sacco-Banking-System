@@ -58,7 +58,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="742" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="590" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="50" max="32767" attributes="0"/>
@@ -1005,9 +1005,6 @@
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="perm_address_1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Kicu"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="perm_address_2">
                 </Component>
@@ -1789,9 +1786,6 @@
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="comm_address_1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Kicu"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="comm_address_2">
                   <Events>
@@ -2592,22 +2586,13 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="home_telephone">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="0781049683"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="work_telephone">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="0781049683"/>
-                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="work_telephoneActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="email">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="chrisuwim@gmail.com"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel66">
                   <Properties>
@@ -3420,14 +3405,8 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="forename_1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="laskkasdjk"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="customer_name">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="saldll,"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="customer_gender">
                   <Properties>
@@ -3450,9 +3429,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="place_of_birth">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="asmndm"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>
@@ -3460,9 +3436,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="surname">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jasjdhasld"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
@@ -3831,9 +3804,6 @@
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="national_id_number">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="1234567890123456"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
@@ -3841,9 +3811,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="customer_acronym">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="asd"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="forename_2">
                 </Component>

@@ -15,11 +15,13 @@ import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 import javax.swing.JOptionPane;
+import java.util.Map;
 
 
 public class LoanApplication extends javax.swing.JFrame {
@@ -37,9 +39,16 @@ public class LoanApplication extends javax.swing.JFrame {
     String leBook = "519";
     String country = "RW";
     String currency = "RWF";
+    HashMap<String, String> villages;
+    HashMap<String, String> economicSectorCodes;
+     HashMap<String, String> visionSBUCodes;
+     HashMap<String, Integer> loanApplicationTypeCodes;
+     HashMap<String, String> loanApplicationStatusCodes;
 
     public LoanApplication() {
         initComponents();
+        helper = new Helper();
+        addAllHashMaps();
         try {
             conn = new DBConnection();
         } catch (BackingStoreException ex) {
@@ -481,12 +490,15 @@ public class LoanApplication extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /*
-    public void RandomLoanApplicationId() {
-        Random l = new Random();
-        loan_application_id.setText("" + l.nextInt(100000 + 1));
+    private void addAllHashMaps() {
+         visionSBUCodes = helper.getVisionSBUCodes();
+         villages = helper.getVillageCodes();
+         economicSectorCodes = helper.getEconomicSectorCodes();
+         loanApplicationTypeCodes = helper.getLoanApplicationTypeCodes();
+         loanApplicationStatusCodes = helper.getLoanApplicationStastusCodes();
     }
-     */
+    
+    
     private boolean doesLoanApplicationID(String loanApplicationID) throws SQLException {
         boolean loanApplicationIDExists = false;
         // TODO Auto-generated method stub
@@ -571,18 +583,18 @@ public class LoanApplication extends javax.swing.JFrame {
             pst.setString(1, country);
             pst.setString(2, leBook);
             pst.setString(3, loan_application_id.getText());
-            pst.setInt(4, helper.getLoanApplicationTypeCode((String) loan_application_type.getSelectedItem()));
+            pst.setInt(4, loanApplicationTypeCodes.get((String) loan_application_type.getSelectedItem()));
             pst.setString(5, sqlBusinessDate.toString());
             pst.setString(6, customer_id.getText());
             pst.setString(7, customer_name.getText());
             pst.setString(8, customer_gender.getText());
             pst.setString(9, vision_ouc.getText());
             pst.setString(10, loan_purpose.getText());
-            pst.setString(11, helper.getVillageCode((String) loan_utilization_location.getSelectedItem()));
-            pst.setString(12, helper.getVision_SBU_Code(vision_sbu.getText()));
-            pst.setString(13, helper.getEconomicSectorCode((String) economic_sector_code.getSelectedItem()));
+            pst.setString(11, villages.get((String) loan_utilization_location.getSelectedItem()));
+            pst.setString(12, visionSBUCodes.get(vision_sbu.getText()));
+            pst.setString(13, economicSectorCodes.get((String) economic_sector_code.getSelectedItem()));
             pst.setString(14, sqlApplicationDate.toString());
-            pst.setString(15, helper.getLoanApplicationStastusCode((String) loan_application_status.getSelectedItem()));
+            pst.setString(15, loanApplicationStatusCodes.get((String) loan_application_status.getSelectedItem()));
             pst.setString(16, currency);
             pst.setFloat(17, Float.valueOf((applied_amount.getText()).trim()));
             pst.setFloat(18, Float.valueOf((applied_amount.getText()).trim()));
@@ -630,13 +642,13 @@ public class LoanApplication extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The Loan Application ID field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (loan_purpose.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The Loan Purpose field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getEconomicSectorCode(economic_sector_code.getSelectedItem().toString()).isEmpty()) {
+        } else if (economicSectorCodes.get(economic_sector_code.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The Economic Sector Code field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getLoanApplicationTypeCode(loan_application_type.getSelectedItem().toString()) == -1) {
+        } else if (loanApplicationTypeCodes.get(loan_application_type.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The Loan Application Type field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getLoanApplicationStastusCode(loan_application_status.getSelectedItem().toString()).isEmpty()) {
+        } else if (loanApplicationStatusCodes.get(loan_application_status.getSelectedItem().toString()).isEmpty()) {
             JOptionPane.showMessageDialog(null, "The Loan Application Status field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getVillageCode(loan_utilization_location.getSelectedItem().toString()).isEmpty()) {
+        } else if (villages.get(loan_utilization_location.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The Loan Utilization field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (applied_amount.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The Applied Amount field is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -756,4 +768,6 @@ public class LoanApplication extends javax.swing.JFrame {
     private javax.swing.JTextField vision_ouc;
     private javax.swing.JTextField vision_sbu;
     // End of variables declaration//GEN-END:variables
+
+
 }

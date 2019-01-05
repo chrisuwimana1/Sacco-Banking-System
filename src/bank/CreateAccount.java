@@ -91,9 +91,6 @@ public class CreateAccount extends javax.swing.JFrame {
             Logger.getLogger(CreateAccount.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
-
-
         employee_name = prefs.get("firstname", "") + " " + prefs.get("lastname", "");
         try {
             mask = new MaskFormatter("310-####-10");
@@ -519,15 +516,11 @@ public class CreateAccount extends javax.swing.JFrame {
 
         comm_residence_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Owner", "Tenant" }));
 
-        perm_address_1.setText("Kicu");
-
         permanent_country.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RW", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AN", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW", "XK" }));
 
         comm_country.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RW", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AN", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW", "XK" }));
 
         residence.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RW", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AN", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW", "XK" }));
-
-        comm_address_1.setText("Kicu");
 
         comm_address_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -840,16 +833,11 @@ public class CreateAccount extends javax.swing.JFrame {
 
         jLabel20.setText("Work Phone (*):");
 
-        home_telephone.setText("0781049683");
-
-        work_telephone.setText("0781049683");
         work_telephone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 work_telephoneActionPerformed(evt);
             }
         });
-
-        email.setText("chrisuwim@gmail.com");
 
         jLabel66.setText("Fax Number 1:");
 
@@ -1150,19 +1138,11 @@ public class CreateAccount extends javax.swing.JFrame {
 
         jLabel2.setText("Short Name/Acronym (*):");
 
-        forename_1.setText("laskkasdjk");
-
-        customer_name.setText("saldll,");
-
         customer_gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Gender", "Male", "Female", "Corporate" }));
 
         jLabel16.setText("Nationality (*):");
 
-        place_of_birth.setText("asmndm");
-
         jLabel14.setText("Gender (*):");
-
-        surname.setText("jasjdhasld");
 
         jLabel5.setText("Last Name (*):");
 
@@ -1191,11 +1171,7 @@ public class CreateAccount extends javax.swing.JFrame {
 
         nationality.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RW", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AN", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW", "XK" }));
 
-        national_id_number.setText("1234567890123456");
-
         jLabel8.setText("First Name (*):");
-
-        customer_acronym.setText("asd");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1440,7 +1416,7 @@ public class CreateAccount extends javax.swing.JFrame {
                             .addComponent(jButton2)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(56, 56, 56)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -1857,8 +1833,8 @@ public class CreateAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The Customer gender field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (maritalStatusCodes.get(marital_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The marital status field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        }else if (national_id_number.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "The ID number field is required", "Error", JOptionPane.ERROR_MESSAGE);  
+        } else if (national_id_number.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "The ID number field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (nationalIdTypeCodes.get(national_id_type.getSelectedItem().toString()) == 2 && national_id_number.getText().length() != 16) {
             JOptionPane.showMessageDialog(null, "The ID Number field should be 16 digits", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (customer_open_date.getDate() == null) {
@@ -1867,14 +1843,7 @@ public class CreateAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The Sacco Branch field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (visionSBUCodes.get(vision_sbu.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The business segment field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } 
-//        else if (nationalIdTypeCodes.get(next_of_kin_id_type.getSelectedItem().toString()) == 2 && next_of_kin_id_no.getText().length() != 16) {
-//            JOptionPane.showMessageDialog(null, "The Next Kin ID Number field should be 16 digits", "Error", JOptionPane.ERROR_MESSAGE);
-//        } else if (nationalIdTypeCodes.get(account_mandate_id_type.getSelectedItem().toString()) == 2 && account_mandate_id_number.getText().length() != 16) {
-//            JOptionPane.showMessageDialog(null, "The Next Kin ID Number field should be 16 digits", "Error", JOptionPane.ERROR_MESSAGE);
-//        } 
-        
-        else if (number_of_dependants.getText().isEmpty()) {
+        } else if (number_of_dependants.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The number of dependants field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (residence.getSelectedItem().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The residence field is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1896,20 +1865,13 @@ public class CreateAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The home telephone field has to be 10 digits", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (occupationCodes.get(occupation.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The occupation field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        }  else if (naicsCodes.get(naics_code.getSelectedItem().toString()) == null) {
+        } else if (naicsCodes.get(naics_code.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The NAICS Code field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-                else if (economicsubsectorISICCodes.get(economic_sub_sector_isic.getSelectedItem().toString()) == null) {
-                    JOptionPane.showMessageDialog(null, "The economic sub sector field ISIC is required", "Error", JOptionPane.ERROR_MESSAGE);
-                } 
-  
-        
-        else if (educationCodes.get(education.getSelectedItem().toString()) == null) {
+        } else if (economicsubsectorISICCodes.get(economic_sub_sector_isic.getSelectedItem().toString()) == null) {
+            JOptionPane.showMessageDialog(null, "The economic sub sector field ISIC is required", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (educationCodes.get(education.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The education field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } 
-   
-        
-        else if (customerStatusCodes.get(customer_status.getSelectedItem().toString()) == null) {
+        } else if (customerStatusCodes.get(customer_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The customer status field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (legalStatusCodes.get(legal_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The legal status field is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1917,10 +1879,7 @@ public class CreateAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The account status field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (account_status_date.getDate() == null) {
             JOptionPane.showMessageDialog(null, "No account status date specified!", "Error", JOptionPane.ERROR_MESSAGE);
-        } 
-        
-        
-        else if (accountTypeCodes.get(account_type.getSelectedItem().toString()) == null) {
+        } else if (accountTypeCodes.get(account_type.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The account type field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (freezeStatusCodes.get(freeze_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The freeze status is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1981,7 +1940,7 @@ public class CreateAccount extends javax.swing.JFrame {
             String nextOfKinEmail = email.getText();
             String numberOfDependants = number_of_dependants.getText();
             String accountMandateName = account_mandate_name.getText();
-            
+
             int accountMandateIdType = 2;
             String accountMandateIdTypeFull = (String) account_mandate_id_type.getSelectedItem();
             String accountMandateIdNumber = account_mandate_id_number.getText();
@@ -2360,7 +2319,7 @@ public class CreateAccount extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void addAllHashMaps() {
-               villages = helper.getVillageCodes();
+        villages = helper.getVillageCodes();
         economicsubsectorISICCodes = helper.getEconomicSubSectorISICCodes();
         naicsCodes = helper.getNaicsCodes();
         occupationCodes = helper.getOccupationCodes();

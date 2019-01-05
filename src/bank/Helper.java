@@ -523,16 +523,16 @@ public class Helper {
         return economicSectorCodes;
     }
 
-    public HashMap<String, String> getLoanApplicationStastusCodes(String applicationStatus) {
-        HashMap<String, String> loanApplicationCodes = new HashMap<>();
+    public HashMap<String, String> getLoanApplicationStastusCodes() {
+        HashMap<String, String> loanApplicationStatusCodes = new HashMap<>();
 
-        loanApplicationCodes.put("Approved", "A");
-        loanApplicationCodes.put("Rejected", "R");
+        loanApplicationStatusCodes.put("Approved", "A");
+        loanApplicationStatusCodes.put("Rejected", "R");
 
-        return loanApplicationCodes;
+        return loanApplicationStatusCodes;
     }
 
-    public HashMap<String, Integer> getInterestRateMethodCodes(String interestRate) {
+    public HashMap<String, Integer> getInterestRateMethodCodes() {
 
         HashMap<String, Integer> interestRateMethodCodes = new HashMap<>();
         interestRateMethodCodes.put("Flat", 1);
@@ -543,7 +543,7 @@ public class Helper {
         return interestRateMethodCodes;
     }
 
-    public HashMap<String, Integer> getContractStatusCodes(String contractStatus) {
+    public HashMap<String, Integer> getContractStatusCodes() {
 
         HashMap<String, Integer> contractStatusCodes = new HashMap<>();
         contractStatusCodes.put("Active", 0);
@@ -556,7 +556,7 @@ public class Helper {
         return contractStatusCodes;
     }
 
-    public HashMap<String, Integer> getLoanApplicationTypeCodes(String applicationType) {
+    public HashMap<String, Integer> getLoanApplicationTypeCodes() {
 
         HashMap<String, Integer> loanApplicationTypeCodes = new HashMap<>();
         loanApplicationTypeCodes.put("New Loan Application", 1);

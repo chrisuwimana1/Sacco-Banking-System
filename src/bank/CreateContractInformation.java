@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
@@ -37,18 +38,22 @@ public class CreateContractInformation extends javax.swing.JFrame {
     float epargneObligatoire = 0;
     float total_amount_due;
     String loan_application_id;
-       
+    HashMap<String, Integer> contractStatusCodes;
+    HashMap<String, Integer> interestRateMethodCodes ;   
+    
     
     //loan_epargne_obligatoire
     public CreateContractInformation(String loanApplicationId)  {
 
         initComponents();
+        helper = new Helper();
+        addAllHashMaps();
         try {
             conn = new DBConnection();
         } catch (BackingStoreException ex) {
             Logger.getLogger(CreateContractInformation.class.getName()).log(Level.SEVERE, null, ex);
         }
-        helper = new Helper();
+        
         loan_application_id =loanApplicationId;
         save_contract.setEnabled(false);
         cancel.setEnabled(false);
@@ -888,6 +893,11 @@ public class CreateContractInformation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addAllHashMaps(){
+        contractStatusCodes =helper.getContractStatusCodes();
+        interestRateMethodCodes= helper.getInterestRateMethodCodes();
+    }
+    
     public Calendar toCalendar(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -1003,7 +1013,7 @@ public class CreateContractInformation extends javax.swing.JFrame {
         String interestGl = interest_gl.getText();
         float principalAmount = Float.parseFloat(principal_amount.getText());
         float interestAmount = Float.parseFloat(interest_amount.getText());
-        int contractStatusCode = helper.getContractStatusCode(contract_status.getSelectedItem().toString());
+        int contractStatusCode = contractStatusCodes.get(contract_status.getSelectedItem().toString());
         float emiAmount = Float.parseFloat(emi_amount.getText());
         int loanPeriod = Integer.parseInt(loan_period.getText());
         String accountNumber = account_number.getText().trim();
@@ -1057,7 +1067,7 @@ public class CreateContractInformation extends javax.swing.JFrame {
             pst.setString(11, deal_sub_type.getSelectedItem().toString());
             pst.setString(12, govt_schemes_flag.getSelectedItem().toString());
             pst.setString(13, govt_schemes_description.getText());
-            pst.setInt(14, helper.getInterestRateMethodCode(interest_rate_method_template.getSelectedItem().toString()));
+            pst.setInt(14, interestRateMethodCodes.get(interest_rate_method_template.getSelectedItem().toString()));
             pst.setFloat(15, interestRateDr);
             pst.setFloat(16, interestRateCr);
             pst.setFloat(17, aprRate);
@@ -1318,7 +1328,7 @@ public class CreateContractInformation extends javax.swing.JFrame {
         } else if (govt_schemes_flag.getSelectedItem().toString().equalsIgnoreCase("Select Y/N")) {
             JOptionPane.showMessageDialog(null, "The deal sub type field is required!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } else if (helper.getInterestRateMethodCode(interest_rate_method_template.getSelectedItem().toString()) == -1) {
+        } else if (interestRateMethodCodes.get(interest_rate_method_template.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The interest rate method field is required!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else if (interest_rate_dr.getText().isEmpty()) {
@@ -1360,7 +1370,7 @@ public class CreateContractInformation extends javax.swing.JFrame {
         } else if (interest_amount.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The interest amount field is required!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } else if (helper.getContractStatusCode(contract_status.getSelectedItem().toString()) == -1) {
+        } else if (contractStatusCodes.get(contract_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The contract status field is required!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else if (epargne_obligatoire.getText().isEmpty()) {
