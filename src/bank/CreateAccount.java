@@ -7,7 +7,6 @@ package bank;
 
 // Java program to check if an email address
 // is valid using Regex.
-
 import java.awt.Frame;
 import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
@@ -18,6 +17,7 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Random;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
@@ -56,14 +56,44 @@ public class CreateAccount extends javax.swing.JFrame {
     String employee_name;
     Helper helper;
 
+    HashMap<String, String> villages;
+    HashMap<String, String> economicsubsectorISICCodes;
+    HashMap<String, Integer> naicsCodes;
+    HashMap<String, Integer> occupationCodes;
+    HashMap<String, Integer> incomeRangesCodes;
+    HashMap<String, Integer> customerStatusCodes;
+    HashMap<String, Integer> legalStatusCodes;
+    HashMap<String, String> incomeFrequencyCodes;
+    HashMap<String, Integer> relationshipTypeCodes;
+    HashMap<String, Integer> educationCodes;
+    HashMap<String, String> residenceTypeCodes;
+    HashMap<String, Integer> nationalIdTypeCodes;
+    HashMap<String, String> maritalStatusCodes;
+    HashMap<String, String> genderCodes;
+    HashMap<String, String> visionSBUCodes;
+    HashMap<String, Integer> accountStatusCodes;
+    HashMap<String, String> accountTypeCodes;
+    HashMap<String, String> freezeStatusCodes;
+    HashMap<String, String> publicSectorCodes;
+    HashMap<String, String> institutionalSectorCodes;
+    HashMap<String, String> accountOwnerShipCodes;
+    HashMap<String, String> performanceClassCodes;
+    HashMap<String, Integer> creditCategoryCodes;
+    HashMap<String, String> economicSectorCodes;
+
     public CreateAccount() {
         initComponents();
+        helper = new Helper();
+        addAllHashMaps();
         try {
             conn = new DBConnection();
         } catch (BackingStoreException ex) {
             Logger.getLogger(CreateAccount.class.getName()).log(Level.SEVERE, null, ex);
         }
-        helper = new Helper();
+
+
+
+
         employee_name = prefs.get("firstname", "") + " " + prefs.get("lastname", "");
         try {
             mask = new MaskFormatter("310-####-10");
@@ -380,7 +410,7 @@ public class CreateAccount extends javax.swing.JFrame {
 
         emp_country.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RW", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AN", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW", "XK" }));
 
-        emp_village.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Village", "Amajyambere", "Bukinanyana", "Cyimana", "Gataba", "Itetero", "Kabare", "Kamuhire", "Karukamba", "Nyagacyamo", "Rwinzovu", "Urugwiro ", "Uruhongore", "Agasaro", "Gasharu", "Inkingi", "Kanserege", "Kigugu", "Ruganwa", "Umuco", "Umutekano", "Urugero", "Urwibutso", "Amahoro", "Bwiza", "Ihuriro", "Ineza", "Inyange", "Iriba", "Kabagari", "Ubumwe", "Umutako", "Urukundo", "Virunga" }));
+        emp_village.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amajyambere", "Bukinanyana", "Cyimana", "Gataba", "Itetero", "Kabare", "Kamuhire", "Karukamba", "Nyagacyamo", "Rwinzovu", "Urugwiro ", "Uruhongore", "Agasaro", "Gasharu", "Inkingi", "Kanserege", "Kigugu", "Ruganwa", "Umuco", "Umutekano", "Urugero", "Urwibutso", "Amahoro", "Bwiza", "Ihuriro", "Ineza", "Inyange", "Iriba", "Kabagari", "Ubumwe", "Umutako", "Urukundo", "Virunga" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -489,11 +519,15 @@ public class CreateAccount extends javax.swing.JFrame {
 
         comm_residence_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Owner", "Tenant" }));
 
+        perm_address_1.setText("Kicu");
+
         permanent_country.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RW", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AN", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW", "XK" }));
 
         comm_country.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RW", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AN", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW", "XK" }));
 
         residence.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RW", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AN", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW", "XK" }));
+
+        comm_address_1.setText("Kicu");
 
         comm_address_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -501,9 +535,9 @@ public class CreateAccount extends javax.swing.JFrame {
             }
         });
 
-        comm_village.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Village", "Amajyambere", "Bukinanyana", "Cyimana", "Gataba", "Itetero", "Kabare", "Kamuhire", "Karukamba", "Nyagacyamo", "Rwinzovu", "Urugwiro ", "Uruhongore", "Agasaro", "Gasharu", "Inkingi", "Kanserege", "Kigugu", "Ruganwa", "Umuco", "Umutekano", "Urugero", "Urwibutso", "Amahoro", "Bwiza", "Ihuriro", "Ineza", "Inyange", "Iriba", "Kabagari", "Ubumwe", "Umutako", "Urukundo", "Virunga" }));
+        comm_village.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amajyambere", "Bukinanyana", "Cyimana", "Gataba", "Itetero", "Kabare", "Kamuhire", "Karukamba", "Nyagacyamo", "Rwinzovu", "Urugwiro ", "Uruhongore", "Agasaro", "Gasharu", "Inkingi", "Kanserege", "Kigugu", "Ruganwa", "Umuco", "Umutekano", "Urugero", "Urwibutso", "Amahoro", "Bwiza", "Ihuriro", "Ineza", "Inyange", "Iriba", "Kabagari", "Ubumwe", "Umutako", "Urukundo", "Virunga" }));
 
-        perm_village.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Village", "Amajyambere", "Bukinanyana", "Cyimana", "Gataba", "Itetero", "Kabare", "Kamuhire", "Karukamba", "Nyagacyamo", "Rwinzovu", "Urugwiro ", "Uruhongore", "Agasaro", "Gasharu", "Inkingi", "Kanserege", "Kigugu", "Ruganwa", "Umuco", "Umutekano", "Urugero", "Urwibutso", "Amahoro", "Bwiza", "Ihuriro", "Ineza", "Inyange", "Iriba", "Kabagari", "Ubumwe", "Umutako", "Urukundo", "Virunga" }));
+        perm_village.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amajyambere", "Bukinanyana", "Cyimana", "Gataba", "Itetero", "Kabare", "Kamuhire", "Karukamba", "Nyagacyamo", "Rwinzovu", "Urugwiro ", "Uruhongore", "Agasaro", "Gasharu", "Inkingi", "Kanserege", "Kigugu", "Ruganwa", "Umuco", "Umutekano", "Urugero", "Urwibutso", "Amahoro", "Bwiza", "Ihuriro", "Ineza", "Inyange", "Iriba", "Kabagari", "Ubumwe", "Umutako", "Urukundo", "Virunga" }));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -806,11 +840,16 @@ public class CreateAccount extends javax.swing.JFrame {
 
         jLabel20.setText("Work Phone (*):");
 
+        home_telephone.setText("0781049683");
+
+        work_telephone.setText("0781049683");
         work_telephone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 work_telephoneActionPerformed(evt);
             }
         });
+
+        email.setText("chrisuwim@gmail.com");
 
         jLabel66.setText("Fax Number 1:");
 
@@ -914,7 +953,7 @@ public class CreateAccount extends javax.swing.JFrame {
 
         jLabel29.setText("Mobile Banking Subscription (*): ");
 
-        economic_sub_sector_isic.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Economic Sub Sector ISIC", "Growing of rice", "Growing of vegetables and melons, roots and tubers", "Raising of cattle and buffaloes", "Raising of sheep and goats", "Raising of swine/pigs", "Raising of poultry", "Mixed farming\"", "Manufacture of dairy products", "Manufacture of other food products n.e.c.", "Weaving of textiles", "Repair of machinery", "Electrical installation", "Wholesale of food, beverages and tobacco", "Wholesale of textiles, clothing and footwear", "Wholesale of other household goods", "Wholesale of other machinery and equipment", "Restaurants and mobile food service activities", "Beverage serving activities", "Higher education", "Sports and recreation education", "Cultural education", "Other education n.e.c.", "Hospital activities", "Activities of religious organizations", "Other personal service activities n.e.c." }));
+        economic_sub_sector_isic.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Economic Sub Sector ISIC", "Growing of rice", "Growing of vegetables and melons, roots and tubers", "Raising of cattle and buffaloes", "Raising of sheep and goats", "Raising of swine/pigs", "Raising of poultry", "Mixed farming", "Manufacture of dairy products", "Manufacture of other food products n.e.c.", "Weaving of textiles", "Repair of machinery", "Electrical installation", "Wholesale of food, beverages and tobacco", "Wholesale of textiles, clothing and footwear", "Wholesale of other household goods", "Wholesale of other machinery and equipment", "Restaurants and mobile food service activities", "Beverage serving activities", "Higher education", "Sports and recreation education", "Cultural education", "Other education n.e.c.", "Hospital activities", "Activities of religious organizations", "Other personal service activities n.e.c." }));
 
         education.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Highest Education", "PHD", "Masters", "Bachelors Degree", "Diploma (A2 or A1 level)", "School attendace below A2 level", "High School", "Primary School", "Below Primary" }));
 
@@ -934,9 +973,9 @@ public class CreateAccount extends javax.swing.JFrame {
 
         legal_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Legal Status", "Sole Trader", "Partnership", "Private Company", "Public Company", "Trustee", "Co operatives", "Non-Profit Organization", " " }));
 
-        income_frequency.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Income Frequency", "Monthly", "Quarterly", "Annual", "Daily", "Weekly", "Not Applicable" }));
+        income_frequency.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monthly", "Quarterly", "Annual", "Daily", "Weekly", "Not Applicable" }));
 
-        income.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Income Range", "0 -30,000", "30,001 - 100,000", "101,000 - 170,000", "171,000 - 230,000", "231,000 - 300,000", "301,000 - 370,000", "371,000 - 440,000", "441,000 - 510,000", "511,000 - 580,000", "581,000 - 650,000", "651,000 - 720,000", "721,000 - 790,000", "791,000 - 860,000", "861,000 - 930,000", "931,000 - 1,000,000", "1,001,000 - 1,070,000", "1,071,000 - 1,140,000", "1,141,000 - 1,210,000", "1,211,000 - 1,280,000", "1,281,000 - 1,350,000", "1,351,000 - 1,420,000", "1,421,000 - 1,490,000", "1,491,000 - 1,560,000", "1,561,000 - 1,630,000", "1,631,000 - 1,700,000", "1,701,000 - 1,770,000", "1,771,000 - 1,840,000", "1,841,000 - 1,910,000", "1,911,000 - 1,980,000", "1,981,000  and  above" }));
+        income.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0 -30,000", "30,001 - 100,000", "101,000 - 170,000", "171,000 - 230,000", "231,000 - 300,000", "301,000 - 370,000", "371,000 - 440,000", "441,000 - 510,000", "511,000 - 580,000", "581,000 - 650,000", "651,000 - 720,000", "721,000 - 790,000", "791,000 - 860,000", "861,000 - 930,000", "931,000 - 1,000,000", "1,001,000 - 1,070,000", "1,071,000 - 1,140,000", "1,141,000 - 1,210,000", "1,211,000 - 1,280,000", "1,281,000 - 1,350,000", "1,351,000 - 1,420,000", "1,421,000 - 1,490,000", "1,491,000 - 1,560,000", "1,561,000 - 1,630,000", "1,631,000 - 1,700,000", "1,701,000 - 1,770,000", "1,771,000 - 1,840,000", "1,841,000 - 1,910,000", "1,911,000 - 1,980,000", "1,981,000  and  above" }));
 
         health_insurance_number.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1111,15 +1150,23 @@ public class CreateAccount extends javax.swing.JFrame {
 
         jLabel2.setText("Short Name/Acronym (*):");
 
+        forename_1.setText("laskkasdjk");
+
+        customer_name.setText("saldll,");
+
         customer_gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Gender", "Male", "Female", "Corporate" }));
 
         jLabel16.setText("Nationality (*):");
 
+        place_of_birth.setText("asmndm");
+
         jLabel14.setText("Gender (*):");
+
+        surname.setText("jasjdhasld");
 
         jLabel5.setText("Last Name (*):");
 
-        national_id_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "National_ID  (Mandatory for Rwandan Nationals)", "Driving_License", "Refugee ID", "Passport", "Foreigner's ID", "Registration Number (For companies only)", "Other Gov Institutions(BNR,RDB,etc.)" }));
+        national_id_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "National_ID(Mandatory for Rwandan Nationals)", "Driving_License", "Refugee ID", "Passport", "Foreigner's ID", "Registration Number (For companies only)", "Other Gov Institutions(BNR,RDB,etc.)" }));
 
         jLabel11.setText("National ID Type (*):");
 
@@ -1144,7 +1191,11 @@ public class CreateAccount extends javax.swing.JFrame {
 
         nationality.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RW", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AN", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW", "XK" }));
 
+        national_id_number.setText("1234567890123456");
+
         jLabel8.setText("First Name (*):");
+
+        customer_acronym.setText("asd");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1293,13 +1344,13 @@ public class CreateAccount extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1389,14 +1440,14 @@ public class CreateAccount extends javax.swing.JFrame {
                             .addComponent(jButton2)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(56, 56, 56)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    protected void lastAccountNumber() {
+    private void lastAccountNumber() {
         try {
             String sql = "SELECT COUNT(*) AS counts FROM (SELECT customer_information.id FROM customer_information) x";
             pst = conn.connection.prepareStatement(sql);
@@ -1424,8 +1475,6 @@ public class CreateAccount extends javax.swing.JFrame {
         String saltStr = salt.toString();
         return saltStr;
     }
-
-
 
     private boolean doesAccountExist(String acc) throws SQLException {
         boolean accountExists = false;
@@ -1499,17 +1548,7 @@ public class CreateAccount extends javax.swing.JFrame {
                 + " `Card_Subscription`,"
                 + " `Performance_Class`,"
                 + " `Credit_Category`,"
-                + " `Merchant_Id`,"
-                + " `Vision_SBU_Full`,"
-                + " `Account_Status_Full`,"
-                + " `Account_Type_Full`,"
-                + " `Freeze_Status_Full`,"
-                + " `Economic_Sub_Sector_Code_ISIC_Full`,"
-                + " `Public_Sector_Code_Full`,"
-                + " `Institutional_Sector_Code_Full`,"
-                + " `Account_Ownership_Full`,"
-                + " `Performance_Class_Full`,"
-                + " `Credit_Category_Full`)  values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                + " `Merchant_Id`)  values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         pst = conn.connection.prepareStatement(sql);
         pst.setString(1, country);
@@ -1540,16 +1579,6 @@ public class CreateAccount extends javax.swing.JFrame {
         pst.setString(26, performanceClass);
         pst.setInt(27, creditCategory);
         pst.setString(28, merchantId);
-        pst.setString(29, visionSBUFull);
-        pst.setString(30, accountStatusFull);
-        pst.setString(31, accountTypeFull);
-        pst.setString(32, freezeStatusFull);
-        pst.setString(33, economicSubSectorCodeISICFull);
-        pst.setString(34, publicSectorFull);
-        pst.setString(35, institutionalSectorFull);
-        pst.setString(36, accountOwnershipFull);
-        pst.setString(37, performanceClassFull);
-        pst.setString(38, creditCategoryFull);
         int saved = pst.executeUpdate();
         if (saved > 0) {
             return message = true;
@@ -1593,27 +1622,27 @@ public class CreateAccount extends javax.swing.JFrame {
             String commVillageFull, String permVillageFull, String empVillageFull) throws SQLException, ParseException {
 
         String accountStatusFull = (String) account_status.getSelectedItem();
-        int accountStatus = helper.getAccountStatusCode((String) account_status.getSelectedItem());
+        int accountStatus = accountStatusCodes.get((String) account_status.getSelectedItem());
         String accountTypeFull = (String) account_type.getSelectedItem();
-        String accountType = helper.getAccountTypeCode((String) account_type.getSelectedItem());
+        String accountType = accountTypeCodes.get((String) account_type.getSelectedItem());
         String freezeStatusFull = (String) freeze_status.getSelectedItem();
-        String freezeStatusCode = helper.getFreezeStatusCode((String) freeze_status.getSelectedItem());
+        String freezeStatusCode = freezeStatusCodes.get((String) freeze_status.getSelectedItem());
         float interestRateDebit = Float.valueOf(interest_rate_debit.getText().trim());
         float interestRateCredit = Float.valueOf(interest_rate_credit.getText().trim());
 
         String economicSubSectorCode = (String) economic_sub_sector.getSelectedItem();
         String publicSectorFull = (String) public_sector_code.getSelectedItem();
-        String publicSectorCode = helper.getPublicSectorCode((String) public_sector_code.getSelectedItem());
+        String publicSectorCode = publicSectorCodes.get((String) public_sector_code.getSelectedItem());
         String institutionalSectorFull = (String) institutional_sector_code.getSelectedItem();
-        String institutionalSectorCode = helper.getInstitutionalSectorCode((String) institutional_sector_code.getSelectedItem());
+        String institutionalSectorCode = institutionalSectorCodes.get((String) institutional_sector_code.getSelectedItem());
         String accountOwnershipFull = (String) account_ownership.getSelectedItem();
-        String accountOwnership = helper.getAccountOwnershipCode((String) account_ownership.getSelectedItem());
+        String accountOwnership = accountOwnerShipCodes.get((String) account_ownership.getSelectedItem());
         int jointParticipationCount = Integer.parseInt(joint_participation_count.getText());
         String cardSubscription = (String) card_subscription.getSelectedItem();
         String performanceClassFull = (String) performance_class.getSelectedItem();
-        String performanceClass = helper.getPerformanceClassCode((String) performance_class.getSelectedItem());
+        String performanceClass = performanceClassCodes.get((String) performance_class.getSelectedItem());
         String creditCategoryFull = (String) credit_category.getSelectedItem();
-        int creditCategory = helper.getCreditCategoryCode((String) credit_category.getSelectedItem());
+        int creditCategory = creditCategoryCodes.get((String) credit_category.getSelectedItem());
         String merchantId = "";
         // float initialDeposit = Float.parseFloat(initial_deposit.getText());
 
@@ -1696,25 +1725,7 @@ public class CreateAccount extends javax.swing.JFrame {
                     + "Group_Name,"
                     + "Group_Number,"
                     + "Legal_Status,"
-                    + "Customer_Status,"
-                    + "Vision_SBU_Full,"
-                    + "Customer_Gender_Full,"
-                    + "Marital_Status_Full,"
-                    + "Next_of_kin_ID_Type_Full,"
-                    + "Account_Mandate_ID_Type_Full,"
-                    + "Education_Full,"
-                    + "NAICS_Code_Full,"
-                    + "Economic_Sub_Sector_Code_ISIC_Full,"
-                    + "Relationship_Type_Full,"
-                    + "National_ID_Type_Full,"
-                    + "Occupation_Full,"
-                    + "Income_Full,"
-                    + "Income_Frequency_Full,"
-                    + "Legal_Status_Full,"
-                    + "Customer_Status_Full,"
-                    + "Comm_Village_Full,"
-                    + "Perm_Village_Full,"
-                    + "Emp_Village_Full) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "Customer_Status) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             pst = conn.connection.prepareStatement(sql);
             pst.setString(1, customerKey);
@@ -1791,24 +1802,6 @@ public class CreateAccount extends javax.swing.JFrame {
             pst.setString(71, groupNumber);
             pst.setInt(72, legalStatusCode);
             pst.setInt(73, customerStatusCode);
-            pst.setString(74, visionSBUFull);
-            pst.setString(75, genderFull);
-            pst.setString(76, maritalStatusFull);
-            pst.setString(77, next_of_kin_id_type.getSelectedItem().toString());
-            pst.setString(78, accountMandateIdTypeFull);
-            pst.setString(79, educationFull);
-            pst.setString(80, naicsCodeFull);
-            pst.setString(81, economicSubSectorCodeISICFull);
-            pst.setString(82, relationshipTypeFull);
-            pst.setString(83, nationalIdTypeFull);
-            pst.setString(84, occupationFull);
-            pst.setString(85, income.getSelectedItem().toString());
-            pst.setString(86, income_frequency.getSelectedItem().toString());
-            pst.setString(87, legal_status.getSelectedItem().toString());
-            pst.setString(88, customerStatusFull);
-            pst.setString(89, commVillageFull);
-            pst.setString(90, permVillageFull);
-            pst.setString(91, empVillageFull);
             int saved = pst.executeUpdate();
             if (saved > 0) {
                 JOptionPane.showMessageDialog(null, "Customer information info was created!");
@@ -1839,6 +1832,7 @@ public class CreateAccount extends javax.swing.JFrame {
     private void saveCustomer() {
 
         //Validation
+        System.out.println(economicsubsectorISICCodes.get(economic_sub_sector_isic.getSelectedItem().toString()));
         if (salutation.getSelectedItem().toString().equalsIgnoreCase("Select Salutation")) {
             JOptionPane.showMessageDialog(null, "Invalid Salutation", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (account_number.getText().trim().isEmpty()) {
@@ -1853,15 +1847,34 @@ public class CreateAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The first name field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (customer_acronym.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The customer acronym field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (forename_1.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "The Sacco Branch field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (customer_acronym.getText().length() > 20) {
             JOptionPane.showMessageDialog(null, "The customer acronym field must be at most 20 characters", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getVision_SBU_Code(vision_sbu.getSelectedItem().toString()).isEmpty()) {
-            JOptionPane.showMessageDialog(null, "The business segment field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getGenderCode(customer_gender.getSelectedItem().toString()).isEmpty()) {
+        } else if (date_of_birth.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "No date of birth specified!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (place_of_birth.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "The place of birth field is required", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (genderCodes.get(customer_gender.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The Customer gender field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (number_of_dependants.getText().isEmpty()) {
+        } else if (maritalStatusCodes.get(marital_status.getSelectedItem().toString()) == null) {
+            JOptionPane.showMessageDialog(null, "The marital status field is required", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if (national_id_number.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "The ID number field is required", "Error", JOptionPane.ERROR_MESSAGE);  
+        } else if (nationalIdTypeCodes.get(national_id_type.getSelectedItem().toString()) == 2 && national_id_number.getText().length() != 16) {
+            JOptionPane.showMessageDialog(null, "The ID Number field should be 16 digits", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (customer_open_date.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "No account opening date specified!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (vision_ouc.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "The Sacco Branch field is required", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (visionSBUCodes.get(vision_sbu.getSelectedItem().toString()) == null) {
+            JOptionPane.showMessageDialog(null, "The business segment field is required", "Error", JOptionPane.ERROR_MESSAGE);
+        } 
+//        else if (nationalIdTypeCodes.get(next_of_kin_id_type.getSelectedItem().toString()) == 2 && next_of_kin_id_no.getText().length() != 16) {
+//            JOptionPane.showMessageDialog(null, "The Next Kin ID Number field should be 16 digits", "Error", JOptionPane.ERROR_MESSAGE);
+//        } else if (nationalIdTypeCodes.get(account_mandate_id_type.getSelectedItem().toString()) == 2 && account_mandate_id_number.getText().length() != 16) {
+//            JOptionPane.showMessageDialog(null, "The Next Kin ID Number field should be 16 digits", "Error", JOptionPane.ERROR_MESSAGE);
+//        } 
+        
+        else if (number_of_dependants.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The number of dependants field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (residence.getSelectedItem().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The residence field is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1881,27 +1894,35 @@ public class CreateAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The home telephone field is required!", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (home_telephone.getText().length() != 10) {
             JOptionPane.showMessageDialog(null, "The home telephone field has to be 10 digits", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getOccupationCode(occupation.getSelectedItem().toString()) == -1) {
+        } else if (occupationCodes.get(occupation.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The occupation field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getEducationCode(education.getSelectedItem().toString()) == -1) {
-            JOptionPane.showMessageDialog(null, "The education field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getNaicsCode(naics_code.getSelectedItem().toString()) == -1) {
+        }  else if (naicsCodes.get(naics_code.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The NAICS Code field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getEconomicSubSectorISICCode(economic_sub_sector_isic.getSelectedItem().toString()).isEmpty()) {
-            JOptionPane.showMessageDialog(null, "The economic sub sector field ISIC is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getNationalIdTypeCode(national_id_type.getSelectedItem().toString()) == 2 && national_id_number.getText().length() != 16) {
-            JOptionPane.showMessageDialog(null, "The ID Number field should be 16 digits", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getCustomerStatusCode(customer_status.getSelectedItem().toString()) == -1) {
+        }
+                else if (economicsubsectorISICCodes.get(economic_sub_sector_isic.getSelectedItem().toString()) == null) {
+                    JOptionPane.showMessageDialog(null, "The economic sub sector field ISIC is required", "Error", JOptionPane.ERROR_MESSAGE);
+                } 
+  
+        
+        else if (educationCodes.get(education.getSelectedItem().toString()) == null) {
+            JOptionPane.showMessageDialog(null, "The education field is required", "Error", JOptionPane.ERROR_MESSAGE);
+        } 
+   
+        
+        else if (customerStatusCodes.get(customer_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The customer status field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getLegalStatusCode(legal_status.getSelectedItem().toString()) == -1) {
+        } else if (legalStatusCodes.get(legal_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The legal status field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (national_id_number.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "The ID number field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getAccountStatusCode(account_status.getSelectedItem().toString()) == -1) {
+        } else if (accountStatusCodes.get(account_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The account status field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getAccountTypeCode(account_type.getSelectedItem().toString()).isEmpty()) {
+        } else if (account_status_date.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "No account status date specified!", "Error", JOptionPane.ERROR_MESSAGE);
+        } 
+        
+        
+        else if (accountTypeCodes.get(account_type.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The account type field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getFreezeStatusCode(freeze_status.getSelectedItem().toString()).isEmpty()) {
+        } else if (freezeStatusCodes.get(freeze_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The freeze status is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (interest_rate_credit.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The interest rate credit field is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1909,11 +1930,11 @@ public class CreateAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The interest rate debit field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (joint_participation_count.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The joint participation count field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getVillageCode(emp_village.getSelectedItem().toString()).length() > 10) {
+        } else if (villages.get(emp_village.getSelectedItem().toString()).length() > 10) {
             JOptionPane.showMessageDialog(null, "The Emp Village field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getVillageCode(comm_village.getSelectedItem().toString()).length() > 10) {
+        } else if (villages.get(comm_village.getSelectedItem().toString()).length() > 10) {
             JOptionPane.showMessageDialog(null, "The Comm Village field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getVillageCode(perm_village.getSelectedItem().toString()).length() > 10) {
+        } else if (villages.get(perm_village.getSelectedItem().toString()).length() > 10) {
             JOptionPane.showMessageDialog(null, "The perm Village field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (employee_id.getText().length() > 15) {
             JOptionPane.showMessageDialog(null, "The Employee ID field shoud be at most 15 characters", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1921,12 +1942,6 @@ public class CreateAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The Health Insurance Number field shoud be at most 15 characters", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (customer_tin.getText().length() > 10) {
             JOptionPane.showMessageDialog(null, "The Customer TIN field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (date_of_birth.getDate() == null) {
-            JOptionPane.showMessageDialog(null, "No date of birth specified!", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (customer_open_date.getDate() == null) {
-            JOptionPane.showMessageDialog(null, "No account opening date specified!", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (account_status_date.getDate() == null) {
-            JOptionPane.showMessageDialog(null, "No account status date specified!", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (nationality.getSelectedItem().toString().equalsIgnoreCase("Select Nationality")) {
             JOptionPane.showMessageDialog(null, "The nationality field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (social_economic_class.getSelectedItem().toString().equalsIgnoreCase("Select Social Economic Class")) {
@@ -1935,10 +1950,8 @@ public class CreateAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The Customer ID field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (customer_id.getText().length() != 10) {
             JOptionPane.showMessageDialog(null, "The customer ID field is badly formatted", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getAccountOwnershipCode(account_ownership.getSelectedItem().toString()).isEmpty()) {
+        } else if (accountOwnerShipCodes.get(account_ownership.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The Account Ownership field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (helper.getIncomeRangeCode(income.getSelectedItem().toString()) == -1) {
-            JOptionPane.showMessageDialog(null, "The Income field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             String accountNumber = account_number.getText();
             String customerKey = getSaltString(200);
@@ -1950,76 +1963,77 @@ public class CreateAccount extends javax.swing.JFrame {
             String forename2 = forename_2.getText();
             String customerAcronym = customer_acronym.getText();
             String visionOUC = vision_ouc.getText();
-            String visionSBUCode = helper.getVision_SBU_Code((String) vision_sbu.getSelectedItem());
+            String visionSBUCode = visionSBUCodes.get((String) vision_sbu.getSelectedItem());
             String visionSBUFull = (String) vision_sbu.getSelectedItem();
             String accountOfficer = "";
-            String gender = helper.getGenderCode((String) customer_gender.getSelectedItem());
+            String gender = genderCodes.get((String) customer_gender.getSelectedItem());
             String genderFull = (String) customer_gender.getSelectedItem();
             String placeOfBirth = place_of_birth.getText();
-            String maritalStatus = helper.getMaritalStatusCode((String) marital_status.getSelectedItem());
+            String maritalStatus = maritalStatusCodes.get((String) marital_status.getSelectedItem());
             String maritalStatusFull = (String) marital_status.getSelectedItem();
             String spouseName = spouse_name.getText();
             int socialEconomicClassCode = Integer.parseInt((String) social_economic_class.getSelectedItem());
 
             String nextOfKinName = next_of_kin_name.getText();
-            int nextOfKinIdType = helper.getNationalIdTypeCode((String) next_of_kin_id_type.getSelectedItem());
+            int nextOfKinIdType = 2;
             String nextOfKinIdNumber = next_of_kin_id_no.getText();
-            String nextofKinPhone = next_of_kin_telephone.getText();
+            String nextofKinPhone = "";
             String nextOfKinEmail = email.getText();
             String numberOfDependants = number_of_dependants.getText();
             String accountMandateName = account_mandate_name.getText();
-            int accountMandateIdType = helper.getNationalIdTypeCode((String) account_mandate_id_type.getSelectedItem());
+            
+            int accountMandateIdType = 2;
             String accountMandateIdTypeFull = (String) account_mandate_id_type.getSelectedItem();
             String accountMandateIdNumber = account_mandate_id_number.getText();
             String nationalityString = (String) nationality.getSelectedItem();
             String residenceString = (String) residence.getSelectedItem();
             String commAddress1 = comm_address_1.getText();
             String commAddress2 = comm_address_2.getText();
-            String commVillage = helper.getVillageCode(comm_village.getSelectedItem().toString());
+            String commVillage = villages.get(comm_village.getSelectedItem().toString());
             String commCountry = (String) comm_country.getSelectedItem();
-            String commResidenceType = helper.getResidenceTypeCode((String) comm_residence_type.getSelectedItem());
+            String commResidenceType = residenceTypeCodes.get((String) comm_residence_type.getSelectedItem());
             String permAddress1 = perm_address_1.getText();
             String permAddress2 = perm_address_2.getText();
-            String permVillage = helper.getVillageCode(perm_village.getSelectedItem().toString());
+            String permVillage = villages.get(perm_village.getSelectedItem().toString());
             String permCountry = (String) permanent_country.getSelectedItem();
             String emailID = email.getText();
             String workTelephone = work_telephone.getText();
             String homeTelephone = home_telephone.getText();
             String faxNumber1 = fax_number_1.getText();
             String faxNumber2 = fax_number_2.getText();
-            int educationCode = helper.getEducationCode((String) education.getSelectedItem());
+            int educationCode = educationCodes.get((String) education.getSelectedItem());
             String educationFull = (String) education.getSelectedItem();
             String customerTin = customer_tin.getText();
-            int naicsCode = helper.getNaicsCode((String) naics_code.getSelectedItem());
+            int naicsCode = naicsCodes.get((String) naics_code.getSelectedItem());
             String naicsCodeFull = (String) naics_code.getSelectedItem();
-            String economicSubSectorCodeISIC = helper.getEconomicSubSectorISICCode((String) economic_sub_sector_isic.getSelectedItem());
+            String economicSubSectorCodeISIC = economicsubsectorISICCodes.get((String) economic_sub_sector_isic.getSelectedItem());
             String economicSubSectorCodeISICFull = (String) economic_sub_sector_isic.getSelectedItem();
             String relatedParty = (String) related_party.getSelectedItem();
             String relationshipTypeFull = (String) relationship_type.getSelectedItem();
-            int relationshipTypeCode = helper.getRelationshipTypeCode((String) relationship_type.getSelectedItem());
+            int relationshipTypeCode = relationshipTypeCodes.get((String) relationship_type.getSelectedItem());
             String relatedPartyName = related_party_name.getText();
             String localGovtMember = (String) local_govt_member.getSelectedItem();
             String internetBankingSubscription = (String) internet_banking_subscription.getSelectedItem();
             String mobileBankingSubscription = (String) mobile_banking_subscription.getSelectedItem();
             String ssnNumber = ssn_number.getText();
-            int nationalIdType = helper.getNationalIdTypeCode((String) national_id_type.getSelectedItem());
+            int nationalIdType = nationalIdTypeCodes.get((String) national_id_type.getSelectedItem());
             String nationalIdTypeFull = (String) national_id_type.getSelectedItem();
             String nationalIDNumber = national_id_number.getText();
             String healthInsuranceNumber = health_insurance_number.getText();
-            int occupationCode = helper.getOccupationCode((String) occupation.getSelectedItem());
+            int occupationCode = occupationCodes.get((String) occupation.getSelectedItem());
             String occupationFull = (String) occupation.getSelectedItem();
             String employerName = employer_name.getText();
             String employeeID = employee_id.getText();
             String empAddress1 = emp_address_1.getText();
             String empAddress2 = emp_address_2.getText();
-            String empVillage = helper.getVillageCode(emp_village.getSelectedItem().toString());
+            String empVillage = villages.get(emp_village.getSelectedItem().toString());
             String empCountry = (String) emp_country.getSelectedItem();
-            int incomeCode = helper.getIncomeRangeCode((String) income.getSelectedItem());
-            String incomeFrequencyCode = helper.getIncomeFrequencyCode((String) income_frequency.getSelectedItem());
+            int incomeCode = incomeRangesCodes.get((String) income.getSelectedItem());
+            String incomeFrequencyCode = incomeFrequencyCodes.get((String) income_frequency.getSelectedItem());
             String groupName = group_name.getText();
             String groupNumber = group_number.getText();
-            int legalStatusCode = helper.getLegalStatusCode((String) legal_status.getSelectedItem());
-            int customerStatusCode = helper.getCustomerStatusCode((String) customer_status.getSelectedItem());
+            int legalStatusCode = legalStatusCodes.get((String) legal_status.getSelectedItem());
+            int customerStatusCode = customerStatusCodes.get((String) customer_status.getSelectedItem());
             String customerStatusFull = (String) customer_status.getSelectedItem();
             String commVillageFull = (String) comm_village.getSelectedItem();
             String permVillageFull = (String) perm_village.getSelectedItem();
@@ -2034,7 +2048,7 @@ public class CreateAccount extends javax.swing.JFrame {
 
             try {
                 if (doesAccountExist(accountNumber) == false) {
-                    /*doesA*/           dialog = new JDialog(parentComponent, true); // modal
+                    /*doesA*/ dialog = new JDialog(parentComponent, true); // modal
                     dialog.setUndecorated(true);
                     JProgressBar bar = new JProgressBar();
                     bar.setIndeterminate(true);
@@ -2084,7 +2098,7 @@ public class CreateAccount extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "This account already exists!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (SQLException ex) {
-               JOptionPane.showMessageDialog(null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             }
         }
     }
@@ -2344,4 +2358,31 @@ public class CreateAccount extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> vision_sbu;
     private javax.swing.JTextField work_telephone;
     // End of variables declaration//GEN-END:variables
+
+    private void addAllHashMaps() {
+               villages = helper.getVillageCodes();
+        economicsubsectorISICCodes = helper.getEconomicSubSectorISICCodes();
+        naicsCodes = helper.getNaicsCodes();
+        occupationCodes = helper.getOccupationCodes();
+        incomeRangesCodes = helper.getIncomeRangeCodes();
+        customerStatusCodes = helper.getCustomerStatusCodes();
+        legalStatusCodes = helper.getLegalStatusCodes();
+        incomeFrequencyCodes = helper.getIncomeFrequencyCodes();
+        relationshipTypeCodes = helper.getRelationshipTypeCodes();
+        educationCodes = helper.getEducationCodes();
+        residenceTypeCodes = helper.getResidenceTypeCodes();
+        nationalIdTypeCodes = helper.getNationalIdTypeCodes();
+        maritalStatusCodes = helper.getMaritalStatusCodes();
+        genderCodes = helper.getGenderCodes();
+        visionSBUCodes = helper.getVisionSBUCodes();
+        accountStatusCodes = helper.getAccountStatusCodes();
+        accountTypeCodes = helper.getAccountTypeCodes();
+        freezeStatusCodes = helper.getFreezeStatusCodes();
+        publicSectorCodes = helper.getPublicSectorCodes();
+        institutionalSectorCodes = helper.getInstitutionalSectorCodes();
+        accountOwnerShipCodes = helper.getAccountOwnershipCodes();
+        performanceClassCodes = helper.getPerformanceClassCodes();
+        creditCategoryCodes = helper.getCreditCategoryCodes();
+        economicSectorCodes = helper.getEconomicSectorCodes();
+    }
 }
