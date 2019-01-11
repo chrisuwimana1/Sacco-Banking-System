@@ -519,7 +519,11 @@ public class AccountantDashboard extends javax.swing.JFrame {
 
         add_expense.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         add_expense.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/payment-icon.png"))); // NOI18N
+<<<<<<< HEAD
         add_expense.setText("ADD AN EXPENSE");
+=======
+        add_expense.setText("ADD EXPENSE");
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         add_expense.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 add_expenseMouseClicked(evt);
@@ -531,6 +535,14 @@ public class AccountantDashboard extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/Cash-icon.png"))); // NOI18N
         jLabel8.setText("ADD EXPENSE TYPE");
+<<<<<<< HEAD
+=======
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         jToolBar2.add(jLabel8);
         jToolBar2.add(jSeparator11);
 
@@ -732,6 +744,14 @@ public class AccountantDashboard extends javax.swing.JFrame {
         new CreateSaccoAccount().setVisible(true);
     }//GEN-LAST:event_jLabel7MouseClicked
 
+<<<<<<< HEAD
+=======
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+         new CreateExpenseType().setVisible(true);
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     /**
      * @param args the command line arguments
      */

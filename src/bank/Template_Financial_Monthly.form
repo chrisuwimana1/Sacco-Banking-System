@@ -6,7 +6,11 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+<<<<<<< HEAD
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+=======
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -30,8 +34,13 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="year_month" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+=======
+                      <Component id="year_month" min="-2" pref="143" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                       <Component id="generate" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="export" min="-2" max="-2" attributes="0"/>
@@ -48,6 +57,7 @@
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="export" alignment="1" max="32767" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+<<<<<<< HEAD
                       <Component id="jLabel1" alignment="3" max="32767" attributes="0"/>
                       <Component id="year_month" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -56,6 +66,16 @@
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="445" max="-2" attributes="0"/>
               <EmptySpace pref="60" max="32767" attributes="0"/>
+=======
+                      <Component id="generate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="3" max="32767" attributes="0"/>
+                      <Component id="year_month" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" pref="499" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
           </Group>
       </Group>
     </DimensionLayout>
@@ -81,8 +101,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="jScrollPane1" min="-2" pref="318" max="-2" attributes="0"/>
                       <EmptySpace pref="357" max="32767" attributes="0"/>
+=======
+                      <Component id="jScrollPane1" min="-2" pref="449" max="-2" attributes="0"/>
+                      <EmptySpace pref="226" max="32767" attributes="0"/>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                   </Group>
               </Group>
             </DimensionLayout>

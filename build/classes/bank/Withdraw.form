@@ -7,7 +7,11 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+<<<<<<< HEAD
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+=======
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -24,6 +28,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -38,6 +43,17 @@
                   </Group>
               </Group>
               <EmptySpace pref="157" max="32767" attributes="0"/>
+=======
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="Withdraw" max="32767" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="111" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
           </Group>
       </Group>
     </DimensionLayout>
@@ -45,11 +61,22 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Component id="jPanel1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Withdraw" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="Withdraw" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -87,6 +114,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -185,6 +213,82 @@
                       <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="80" max="32767" attributes="0"/>
+=======
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tenue_de_compte" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fiche" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="clearence_form" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="salary_commission" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="teller" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="transaction_date" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="new_balance" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="debited_amount" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="total_withdrawal_charges" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="transaction_description" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="transaction_code" alignment="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="transaction_type" alignment="0" pref="160" max="32767" attributes="0"/>
+                                          <Component id="customer_id_number" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="customer_name" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="account_number" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="current_balance" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="commission_input" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="clearence_form_input" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="fiche_input" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="tenue_de_compte_input" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="historique" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="bordereau" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="missing_carnet" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="carnet" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="missing_carnet_input" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="bordereau_input" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="historique_input" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="carnet_input" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="search_account_number" min="-2" max="-2" attributes="0"/>
+                                      <Component id="calculate_button" min="-2" pref="112" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="124" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
               </Group>
           </Group>
         </DimensionLayout>
@@ -207,10 +311,17 @@
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="customer_id_number" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="transaction_type" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                      <Component id="transaction_type" min="-2" max="-2" attributes="0"/>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -235,6 +346,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+<<<<<<< HEAD
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tenue_de_compte" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -270,11 +382,81 @@
                       <Component id="transaction_date" min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="tenue_de_compte" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="fiche" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                  <Component id="clearence_form" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                  <Component id="salary_commission" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="historique" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="historique_input" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="bordereau" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="bordereau_input" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="missing_carnet" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="missing_carnet_input" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="carnet" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="carnet_input" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="tenue_de_compte_input" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="fiche_input" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="clearence_form_input" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="commission_input" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="7" max="32767" attributes="0"/>
+                          <Component id="total_withdrawal_charges" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="new_balance" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="calculate_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="transaction_date" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="teller" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
               </Group>
           </Group>
         </DimensionLayout>
@@ -339,12 +521,24 @@
         <Component class="javax.swing.JComboBox" name="transaction_type">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+<<<<<<< HEAD
               <StringArray count="1">
                 <StringItem index="0" value="Withdraw"/>
               </StringArray>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+=======
+              <StringArray count="2">
+                <StringItem index="0" value="Withdraw"/>
+                <StringItem index="1" value="Closing Balance"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="transaction_typeItemStateChanged"/>
+          </Events>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -429,40 +623,125 @@
             <Property name="text" type="java.lang.String" value="Charges:"/>
           </Properties>
         </Component>
+<<<<<<< HEAD
+=======
+        <Component class="javax.swing.JLabel" name="jLabel13">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Total Charges:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="total_withdrawal_charges">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel14">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="New Balance:"/>
+          </Properties>
+        </Component>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         <Component class="javax.swing.JCheckBox" name="tenue_de_compte">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tenue de Compte"/>
           </Properties>
+<<<<<<< HEAD
+=======
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="tenue_de_compteStateChanged"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tenue_de_compteActionPerformed"/>
+          </Events>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         </Component>
         <Component class="javax.swing.JCheckBox" name="fiche">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fiche"/>
           </Properties>
+<<<<<<< HEAD
+=======
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="ficheStateChanged"/>
+          </Events>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         </Component>
         <Component class="javax.swing.JCheckBox" name="clearence_form">
           <Properties>
             <Property name="text" type="java.lang.String" value="Clearence Form"/>
           </Properties>
+<<<<<<< HEAD
+=======
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="clearence_formStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="salary_commission">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Commission"/>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="salary_commissionStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="commission_input">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="clearence_form_input">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="fiche_input">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tenue_de_compte_input">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         </Component>
         <Component class="javax.swing.JCheckBox" name="historique">
           <Properties>
             <Property name="text" type="java.lang.String" value="Historique"/>
           </Properties>
+<<<<<<< HEAD
+=======
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="historiqueStateChanged"/>
+          </Events>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         </Component>
         <Component class="javax.swing.JCheckBox" name="bordereau">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bordereau"/>
           </Properties>
+<<<<<<< HEAD
+=======
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="bordereauStateChanged"/>
+          </Events>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         </Component>
         <Component class="javax.swing.JCheckBox" name="missing_carnet">
           <Properties>
             <Property name="text" type="java.lang.String" value="Missing Carnet"/>
           </Properties>
+<<<<<<< HEAD
+=======
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="missing_carnetStateChanged"/>
+          </Events>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         </Component>
         <Component class="javax.swing.JCheckBox" name="carnet">
           <Properties>
             <Property name="text" type="java.lang.String" value="Carnet"/>
           </Properties>
+<<<<<<< HEAD
         </Component>
         <Component class="javax.swing.JCheckBox" name="salary_commission">
           <Properties>
@@ -483,6 +762,30 @@
         <Component class="javax.swing.JLabel" name="jLabel14">
           <Properties>
             <Property name="text" type="java.lang.String" value="New Balance:"/>
+=======
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="carnetStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="carnet_input">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="missing_carnet_input">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="bordereau_input">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="historique_input">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
           </Properties>
         </Component>
       </SubComponents>

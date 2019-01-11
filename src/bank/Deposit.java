@@ -49,8 +49,15 @@ public class Deposit extends javax.swing.JFrame {
     float epargneObligatoire = 0;
     boolean doesCustomerHasEpargneObligatoire = false;
     private ArrayList<String> listOfSelectedCharges = new ArrayList<>();
+<<<<<<< HEAD
     float selectedTransactionCharge = 0;
     DecimalFormat formatter = new DecimalFormat("#,###.00");
+=======
+    private ArrayList<Float> listOfSelectedAmountCharges = new ArrayList<>();
+    float selectedTransactionCharge = 0;
+    DecimalFormat formatter = new DecimalFormat("#,###.00");
+    float c_balance=0;
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     public Deposit() {
         initComponents();
@@ -68,7 +75,10 @@ public class Deposit extends javax.swing.JFrame {
         //listCharges();
         getCountTransactionCredit();
         getCountTransactionDebit();
+<<<<<<< HEAD
 
+=======
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     }
 
     /**
@@ -80,7 +90,10 @@ public class Deposit extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
         deposit = new javax.swing.JButton();
+=======
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         jPanel1 = new javax.swing.JPanel();
         account_number = new javax.swing.JTextField();
         customer_name = new javax.swing.JTextField();
@@ -122,11 +135,25 @@ public class Deposit extends javax.swing.JFrame {
         epargne_obligatoire_checkbox = new javax.swing.JCheckBox();
         jLabel10 = new javax.swing.JLabel();
         epargne_obligatoire = new javax.swing.JTextField();
+<<<<<<< HEAD
+=======
+        tenue_de_compte_input = new javax.swing.JTextField();
+        fiche_input = new javax.swing.JTextField();
+        clearence_form_input = new javax.swing.JTextField();
+        commission_input = new javax.swing.JTextField();
+        historique_input = new javax.swing.JTextField();
+        bordereau_input = new javax.swing.JTextField();
+        missing_carnet_input = new javax.swing.JTextField();
+        carnet_input = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        deposit = new javax.swing.JButton();
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("DEPOSIT");
 
+<<<<<<< HEAD
         deposit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/deposit_new.png"))); // NOI18N
         deposit.setText("DEPOSIT");
         deposit.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +162,8 @@ public class Deposit extends javax.swing.JFrame {
             }
         });
 
+=======
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "Deposit"));
 
         customer_name.setEditable(false);
@@ -152,8 +181,22 @@ public class Deposit extends javax.swing.JFrame {
 
         jLabel7.setText("Description:");
 
+<<<<<<< HEAD
         transaction_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Deposit" }));
         transaction_type.setEnabled(false);
+=======
+        transaction_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Deposit", "Closing Balance" }));
+        transaction_type.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                transaction_typeItemStateChanged(evt);
+            }
+        });
+        transaction_type.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transaction_typeActionPerformed(evt);
+            }
+        });
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
         search_account_number.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/search.gif"))); // NOI18N
         search_account_number.setText("Search");
@@ -199,22 +242,80 @@ public class Deposit extends javax.swing.JFrame {
         initial_deposit_label.setText("Part Social:");
 
         tenue_de_compte.setText("Tenue de Compte");
+<<<<<<< HEAD
 
         historique.setText("Historique");
 
         carnet.setText("Carnet");
 
         fiche.setText("Fiche");
+=======
+        tenue_de_compte.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tenue_de_compteStateChanged(evt);
+            }
+        });
+
+        historique.setText("Historique");
+        historique.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                historiqueStateChanged(evt);
+            }
+        });
+
+        carnet.setText("Carnet");
+        carnet.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                carnetStateChanged(evt);
+            }
+        });
+
+        fiche.setText("Fiche");
+        fiche.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ficheStateChanged(evt);
+            }
+        });
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
         jLabel12.setText("Charges:");
 
         bordereau.setText("Bordereau");
+<<<<<<< HEAD
 
         salary_commission.setText("Commission");
 
         clearence_form.setText("Clearence Form");
 
         missing_carnet.setText("Missing Carnet");
+=======
+        bordereau.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                bordereauStateChanged(evt);
+            }
+        });
+
+        salary_commission.setText("Commission");
+        salary_commission.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                salary_commissionStateChanged(evt);
+            }
+        });
+
+        clearence_form.setText("Clearence Form");
+        clearence_form.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                clearence_formStateChanged(evt);
+            }
+        });
+
+        missing_carnet.setText("Missing Carnet");
+        missing_carnet.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                missing_carnetStateChanged(evt);
+            }
+        });
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
         jLabel13.setText("Total Charges:");
 
@@ -239,6 +340,25 @@ public class Deposit extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
+=======
+        tenue_de_compte_input.setEnabled(false);
+
+        fiche_input.setEnabled(false);
+
+        clearence_form_input.setEnabled(false);
+
+        commission_input.setEnabled(false);
+
+        historique_input.setEnabled(false);
+
+        bordereau_input.setEnabled(false);
+
+        missing_carnet_input.setEnabled(false);
+
+        carnet_input.setEnabled(false);
+
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -246,6 +366,7 @@ public class Deposit extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
@@ -334,6 +455,85 @@ public class Deposit extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(0, 0, Short.MAX_VALUE))))
+=======
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6)
+                    .addComponent(initial_deposit_label)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel10)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel9)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addGap(14, 14, 14)))
+                            .addComponent(jLabel12))
+                        .addGap(254, 254, 254)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(credited_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(transaction_description, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                                .addComponent(current_balance, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(initial_deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(233, 233, 233)
+                                .addComponent(search_account_number))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(transaction_code, javax.swing.GroupLayout.Alignment.LEADING, 0, 1, Short.MAX_VALUE)
+                                .addComponent(transaction_type, javax.swing.GroupLayout.Alignment.LEADING, 0, 160, Short.MAX_VALUE)
+                                .addComponent(customer_id_number, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(customer_name, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(account_number, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(epargne_obligatoire_checkbox)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                                                .addComponent(epargne_obligatoire, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(teller)
+                                            .addComponent(total_deposit_charges)
+                                            .addComponent(new_balance)
+                                            .addComponent(transaction_date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tenue_de_compte)
+                                            .addComponent(fiche)
+                                            .addComponent(clearence_form)
+                                            .addComponent(salary_commission))
+                                        .addGap(92, 92, 92)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(commission_input)
+                                        .addComponent(clearence_form_input)
+                                        .addComponent(fiche_input)
+                                        .addComponent(tenue_de_compte_input, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(calculate_button, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(historique)
+                                    .addComponent(bordereau)
+                                    .addComponent(missing_carnet)
+                                    .addComponent(carnet))
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(missing_carnet_input)
+                                    .addComponent(bordereau_input)
+                                    .addComponent(historique_input)
+                                    .addComponent(carnet_input, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(57, 57, 57)))))
+                .addContainerGap())
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,6 +575,7 @@ public class Deposit extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(initial_deposit_label)
                     .addComponent(initial_deposit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -400,6 +601,45 @@ public class Deposit extends javax.swing.JFrame {
                                     .addComponent(carnet))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(1, 1, 1)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(tenue_de_compte))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fiche)
+                        .addGap(9, 9, 9)
+                        .addComponent(clearence_form)
+                        .addGap(9, 9, 9)
+                        .addComponent(salary_commission))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(historique)
+                            .addComponent(historique_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bordereau)
+                            .addComponent(bordereau_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(missing_carnet)
+                            .addComponent(missing_carnet_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(carnet)
+                            .addComponent(carnet_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(tenue_de_compte_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fiche_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(clearence_form_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(commission_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(epargne_obligatoire_checkbox)
@@ -413,7 +653,11 @@ public class Deposit extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(new_balance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(calculate_button))
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(transaction_date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -424,14 +668,50 @@ public class Deposit extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+<<<<<<< HEAD
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/cancel-icon.png"))); // NOI18N
         jButton1.setText("CANCEL");
 
+=======
+        deposit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/deposit_new.png"))); // NOI18N
+        deposit.setText("DEPOSIT");
+        deposit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                depositActionPerformed(evt);
+            }
+        });
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/cancel-icon.png"))); // NOI18N
+        jButton1.setText("CANCEL");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(deposit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(244, 244, 244)
                 .addComponent(deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
@@ -440,10 +720,17 @@ public class Deposit extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 52, Short.MAX_VALUE))
+=======
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(12, 12, 12)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -454,6 +741,17 @@ public class Deposit extends javax.swing.JFrame {
         );
 
         pack();
+=======
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5))
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     }// </editor-fold>//GEN-END:initComponents
 
     private void getCountTransactionCredit() {
@@ -604,6 +902,10 @@ public class Deposit extends javax.swing.JFrame {
                 customer_name.setText(rs.getString("Customer_Name"));
                 customer_id_number.setText(rs.getString("National_ID_Number"));
                 current_balance.setText(String.valueOf(getCurrrentBalance(rs.getString("Account_Number"))));
+<<<<<<< HEAD
+=======
+                c_balance=getCurrrentBalance(rs.getString("Account_Number"));
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             } else {
                 JOptionPane.showMessageDialog(null, "Sorry this account does not exist!", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -712,6 +1014,7 @@ public class Deposit extends javax.swing.JFrame {
                 float oldBalance = Float.parseFloat(current_balance.getText());
                 float creditedAmount = Float.parseFloat(credited_amount.getText());
 
+<<<<<<< HEAD
                 if (tenue_de_compte.isSelected()) {
                     allCharges += Float.parseFloat(getChargeAmount(tenue_de_compte.getText()));
                 }
@@ -735,6 +1038,31 @@ public class Deposit extends javax.swing.JFrame {
                 }
                 if (missing_carnet.isSelected()) {
                     allCharges += Float.parseFloat(getChargeAmount(missing_carnet.getText()));
+=======
+                if (tenue_de_compte.isSelected() && !tenue_de_compte_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(tenue_de_compte_input.getText());
+                }
+                if (historique.isSelected() && !historique_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(historique_input.getText());
+                }
+                if (carnet.isSelected() && !carnet_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(carnet_input.getText());
+                }
+                if (fiche.isSelected() && !fiche_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(fiche_input.getText());
+                }
+                if (bordereau.isSelected() && !bordereau_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(bordereau_input.getText());
+                }
+                if (salary_commission.isSelected() && !commission_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(commission_input.getText());
+                }
+                if (clearence_form.isSelected() && !clearence_form_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(clearence_form_input.getText());
+                }
+                if (missing_carnet.isSelected() && !missing_carnet_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(missing_carnet_input.getText());
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                 }
                 if (epargne_obligatoire_checkbox.isSelected()) {
                     epargneObligatoire = Float.parseFloat(epargne_obligatoire.getText());
@@ -749,8 +1077,12 @@ public class Deposit extends javax.swing.JFrame {
 
                         float initialDeposit = Float.parseFloat(initial_deposit.getText());
 
+<<<<<<< HEAD
                         System.out.println(oldBalance);
                         System.out.println(creditedAmount);
+=======
+                        
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                         allCharges += initialDeposit;
                         if (oldBalance + creditedAmount < allCharges) {
                             JOptionPane.showMessageDialog(null, "Insufficient funds!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -766,7 +1098,11 @@ public class Deposit extends javax.swing.JFrame {
                     } else {
                         total_deposit_charges.setText(String.valueOf(allCharges));
                         newBalance = oldBalance + creditedAmount - allCharges;
+<<<<<<< HEAD
                         //System.out.println(formatter.format(amount));
+=======
+                       
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                         new_balance.setText(String.valueOf(newBalance));
                     }
                 }
@@ -781,7 +1117,10 @@ public class Deposit extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (account_number.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Enter account number", "Error", JOptionPane.ERROR_MESSAGE);
+<<<<<<< HEAD
             //save_person.setEnabled(false);
+=======
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         } else {
             searchAccount(account_number.getText());
 
@@ -919,7 +1258,10 @@ public class Deposit extends javax.swing.JFrame {
             pst.setString(3, transactionDate);
             pst.setString(4, accountNumber);
             pst.execute();
+<<<<<<< HEAD
             //JOptionPane.showMessageDialog(null, "Successfully Withdraws");
+=======
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -929,6 +1271,7 @@ public class Deposit extends javax.swing.JFrame {
 
         ArrayList<String> selectedCharges = new ArrayList<>();
 
+<<<<<<< HEAD
         if (tenue_de_compte.isSelected()) {
             selectedCharges.add(tenue_de_compte.getText());
         }
@@ -951,11 +1294,70 @@ public class Deposit extends javax.swing.JFrame {
             selectedCharges.add(clearence_form.getText());
         }
         if (missing_carnet.isSelected()) {
+=======
+        if (tenue_de_compte.isSelected() && !tenue_de_compte_input.getText().isEmpty()) {
+            selectedCharges.add(tenue_de_compte.getText());
+        }
+        if (historique.isSelected() && !historique_input.getText().isEmpty()) {
+            selectedCharges.add(historique.getText());
+        }
+        if (carnet.isSelected() && !carnet_input.getText().isEmpty()) {
+            selectedCharges.add(carnet.getText());
+        }
+        if (fiche.isSelected() && !fiche_input.getText().isEmpty()) {
+            selectedCharges.add(fiche.getText());
+        }
+        if (bordereau.isSelected() && !bordereau_input.getText().isEmpty()) {
+            selectedCharges.add(bordereau.getText());
+        }
+        if (salary_commission.isSelected() && !commission_input.getText().isEmpty()) {
+            selectedCharges.add(salary_commission.getText());
+        }
+        if (clearence_form.isSelected() && !clearence_form_input.getText().isEmpty()) {
+            selectedCharges.add(clearence_form.getText());
+        }
+        if (missing_carnet.isSelected() && !missing_carnet_input.getText().isEmpty()) {
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             selectedCharges.add(missing_carnet.getText());
         }
 
         return selectedCharges;
     }
+<<<<<<< HEAD
+=======
+    
+    private ArrayList<Float> getArrayListOfSelectedAmountCharges() {
+
+        ArrayList<Float> selectedAmountCharges = new ArrayList<>();
+
+        if (tenue_de_compte.isSelected() && !tenue_de_compte_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(tenue_de_compte_input.getText()));
+        }
+        if (historique.isSelected() && !historique_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(historique_input.getText()));
+        }
+        if (carnet.isSelected() && !carnet_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(carnet_input.getText()));
+        }
+        if (fiche.isSelected() && !fiche_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(fiche_input.getText()));
+        }
+        if (bordereau.isSelected() && !bordereau_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(bordereau_input.getText()));
+        }
+        if (salary_commission.isSelected() && !commission_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(commission_input.getText()));
+        }
+        if (clearence_form.isSelected() && !clearence_form_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(clearence_form_input.getText()));
+        }
+        if (missing_carnet.isSelected() && !missing_carnet_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(missing_carnet_input.getText()));
+        }
+
+        return selectedAmountCharges;
+    }
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     private void updateInitialDeposit(String accountNumber, String transactionDate) {
 
@@ -975,6 +1377,43 @@ public class Deposit extends javax.swing.JFrame {
         }
 
     }
+<<<<<<< HEAD
+=======
+    
+    private int getTransaction_ref(String accountNumber) {
+        String sql = "SELECT `transaction_id` FROM `transactions` WHERE transactions.Account_Number =?  ORDER BY transaction_id desc  LIMIT 1";
+        int transaction_id = 0;
+        try {
+            pst = conn.connection.prepareStatement(sql);
+            pst.setString(1, accountNumber);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                transaction_id = rs.getInt("transaction_id");
+            }
+        } catch (SQLException ex) {
+            // TODO Auto-generated catch block
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return transaction_id;
+    }
+    
+    private String getTransaction_date(String accountNumber) {
+        String sql = "SELECT `date_created` FROM `transactions` WHERE transactions.Account_Number =?  ORDER BY transaction_id desc  LIMIT 1";
+        String transaction_date = "";
+        try {
+            pst = conn.connection.prepareStatement(sql);
+            pst.setString(1, accountNumber);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                transaction_date = rs.getString("date_created");
+            }
+        } catch (SQLException ex) {
+            // TODO Auto-generated catch block
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return transaction_date;
+    }
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     private void save_deposit(String accountNumber, String customerName, float previousBalance, float currentBalance,
             float transactionAmount, float transactionCharges, float transaction_net_amount, String transactionDate, String transactionType,
@@ -1010,6 +1449,7 @@ public class Deposit extends javax.swing.JFrame {
                             }
 
                             for (int i = 0; i < listOfSelectedCharges.size(); i++) {
+<<<<<<< HEAD
                                 float selectedTransactionCharge = Float.parseFloat(getChargeAmount(listOfSelectedCharges.get(i)));
                                 chargeDescription = listOfSelectedCharges.get(i);
                                 //System.out.println(chargeDescription);
@@ -1018,6 +1458,20 @@ public class Deposit extends javax.swing.JFrame {
                             updateTransactionDate(accountNumber, transactionDate);
                             new DepositSuccess(accountNumber, customerName, previousBalance, transactionAmount, transactionCharges,
                                     currentBalance, transactionDate, employee_name).setVisible(true);
+=======
+                                float selectedTransactionCharge = listOfSelectedAmountCharges.get(i);
+                                chargeDescription = listOfSelectedCharges.get(i);
+                                
+                                updateProductsTable(chargeDescription, selectedTransactionCharge, transactionDate, accountNumber);
+                            }
+                            updateTransactionDate(accountNumber, transactionDate);
+                            
+                            int transaction_reference =getTransaction_ref(accountNumber);
+                            String transaction_d = getTransaction_date(accountNumber);
+                            
+                            new DepositReceipt(accountNumber, customerName, previousBalance, transactionAmount, transactionCharges,
+                                    currentBalance, transaction_d, employee_name,transaction_reference).setVisible(true);
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
                         }
 
@@ -1045,7 +1499,36 @@ public class Deposit extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The new balance field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (transaction_date.getDate() == null) {
             JOptionPane.showMessageDialog(null, "The transaction date is required!", "Error", JOptionPane.ERROR_MESSAGE);
+<<<<<<< HEAD
         } else {
+=======
+        } 
+        else if (tenue_de_compte.isSelected() && tenue_de_compte_input.getText().isEmpty()) {
+           JOptionPane.showMessageDialog(null, "Tenue de compte is required or uncheck it!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (historique.isSelected() && historique_input.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Historique is required or uncheck it!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (carnet.isSelected() && carnet_input.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Carnet is required or uncheck it!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (fiche.isSelected() && fiche_input.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fiche is required or uncheck it!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (bordereau.isSelected() && bordereau_input.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Bordereau is required or uncheck it!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (salary_commission.isSelected() && commission_input.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Commission is required or uncheck it!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (clearence_form.isSelected() && clearence_form_input.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Clearence form is required or uncheck it!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (missing_carnet.isSelected() && missing_carnet_input.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Missing Carnet is required or uncheck it!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else {
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
             String accountNumber = account_number.getText();
             String customerName = customer_name.getText();
@@ -1059,7 +1542,10 @@ public class Deposit extends javax.swing.JFrame {
             Calendar date = toCalendar(tdate);
 
             int yearMonth = getMonthYear(date);
+<<<<<<< HEAD
             //System.out.println(yearMonth);
+=======
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             float transactionAmountCredit = transactionAmount;
             String transactionType = (String) transaction_type.getSelectedItem();
             String transactionDescription = transaction_description.getText();
@@ -1071,9 +1557,15 @@ public class Deposit extends javax.swing.JFrame {
             float transactionAmountDebit = 0;
             String chargeDescription = "";
             listOfSelectedCharges = getArrayListOfSelectedCharges();
+<<<<<<< HEAD
 
             try {
                 // System.out.println(initial_deposit.isEnabled());
+=======
+            listOfSelectedAmountCharges = getArrayListOfSelectedAmountCharges();
+
+            try {
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                 save_deposit(accountNumber, customerName, previousBalance, currentBalance, transactionAmount, transactionCharges,
                         transaction_net_amount, transactionDate.toString(), transactionType, transactionDescription, teller.getText(),
                         transactionReference, transactionNarration, transactionAmountCredit, transactionCode, transactionCountDebit,
@@ -1084,7 +1576,10 @@ public class Deposit extends javax.swing.JFrame {
                 if (epargne_obligatoire_checkbox.isSelected()) {
                     doesEpargneObligatoireExist(account_number.getText());
                     if (doesCustomerHasEpargneObligatoire == false) {
+<<<<<<< HEAD
                         System.out.println(doesCustomerHasEpargneObligatoire);
+=======
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                         createEpargneObligatoire(account_number.getText(), epargneObligatoire);
                     } else {
                         updateEpargneObligatoire(account_number.getText(), epargneObligatoire);
@@ -1119,6 +1614,106 @@ public class Deposit extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_epargne_obligatoireActionPerformed
 
+<<<<<<< HEAD
+=======
+    private void transaction_typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transaction_typeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_transaction_typeActionPerformed
+
+    private void transaction_typeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_transaction_typeItemStateChanged
+        // TODO add your handling code here:
+        if(transaction_type.getSelectedItem().toString().equalsIgnoreCase("Closing Balance")){
+            current_balance.setText("0.0");
+            current_balance.setEditable(true);
+        }else{
+            current_balance.setEditable(false);
+            current_balance.setText(c_balance+"");
+        }
+    }//GEN-LAST:event_transaction_typeItemStateChanged
+
+    private void tenue_de_compteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tenue_de_compteStateChanged
+        // TODO add your handling code here:
+      
+        if (tenue_de_compte.isSelected()) {
+            tenue_de_compte_input.setEnabled(true);
+        }else{
+            tenue_de_compte_input.setEnabled(false);
+            tenue_de_compte_input.setText("");
+        }
+    }//GEN-LAST:event_tenue_de_compteStateChanged
+
+    private void ficheStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ficheStateChanged
+        // TODO add your handling code here:
+      
+        if (fiche.isSelected()) {
+            fiche_input.setEnabled(true);
+        }else{
+            fiche_input.setEnabled(false);
+            fiche_input.setText("");
+        }
+    }//GEN-LAST:event_ficheStateChanged
+
+    private void clearence_formStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_clearence_formStateChanged
+        // TODO add your handling code here:
+        if (clearence_form.isSelected()) {
+            clearence_form_input.setEnabled(true);
+        }else{
+            clearence_form_input.setEnabled(false);
+            clearence_form_input.setText("");
+        }
+    }//GEN-LAST:event_clearence_formStateChanged
+
+    private void salary_commissionStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_salary_commissionStateChanged
+        // TODO add your handling code here:
+        if (salary_commission.isSelected()) {
+            commission_input.setEnabled(true);
+        }else{
+            commission_input.setEnabled(false);
+            commission_input.setText("");
+        }
+    }//GEN-LAST:event_salary_commissionStateChanged
+
+    private void historiqueStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_historiqueStateChanged
+        // TODO add your handling code here:
+        if (historique.isSelected()) {
+            historique_input.setEnabled(true);
+        }else{
+            historique_input.setEnabled(false);
+            historique_input.setText("");
+        }
+    }//GEN-LAST:event_historiqueStateChanged
+
+    private void bordereauStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_bordereauStateChanged
+        // TODO add your handling code here:
+        if (bordereau.isSelected()) {
+            bordereau_input.setEnabled(true);
+        }else{
+            bordereau_input.setEnabled(false);
+            bordereau_input.setText("");
+        }
+    }//GEN-LAST:event_bordereauStateChanged
+
+    private void missing_carnetStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_missing_carnetStateChanged
+        // TODO add your handling code here:
+        if (missing_carnet.isSelected()) {
+            missing_carnet_input.setEnabled(true);
+        }else{
+            missing_carnet_input.setEnabled(false);
+            missing_carnet_input.setText("");
+        }
+    }//GEN-LAST:event_missing_carnetStateChanged
+
+    private void carnetStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_carnetStateChanged
+        // TODO add your handling code here:
+        if (carnet.isSelected()) {
+            carnet_input.setEnabled(true);
+        }else{
+            carnet_input.setEnabled(false);
+            carnet_input.setText("");
+        }
+    }//GEN-LAST:event_carnetStateChanged
+
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     /**
      * @param args the command line arguments
      */
@@ -1165,9 +1760,19 @@ public class Deposit extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField account_number;
     private javax.swing.JCheckBox bordereau;
+<<<<<<< HEAD
     private javax.swing.JButton calculate_button;
     private javax.swing.JCheckBox carnet;
     private javax.swing.JCheckBox clearence_form;
+=======
+    private javax.swing.JTextField bordereau_input;
+    private javax.swing.JButton calculate_button;
+    private javax.swing.JCheckBox carnet;
+    private javax.swing.JTextField carnet_input;
+    private javax.swing.JCheckBox clearence_form;
+    private javax.swing.JTextField clearence_form_input;
+    private javax.swing.JTextField commission_input;
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JTextField credited_amount;
     private javax.swing.JTextField current_balance;
     private javax.swing.JTextField customer_id_number;
@@ -1176,7 +1781,13 @@ public class Deposit extends javax.swing.JFrame {
     private javax.swing.JTextField epargne_obligatoire;
     private javax.swing.JCheckBox epargne_obligatoire_checkbox;
     private javax.swing.JCheckBox fiche;
+<<<<<<< HEAD
     private javax.swing.JCheckBox historique;
+=======
+    private javax.swing.JTextField fiche_input;
+    private javax.swing.JCheckBox historique;
+    private javax.swing.JTextField historique_input;
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JTextField initial_deposit;
     private javax.swing.JLabel initial_deposit_label;
     private javax.swing.JButton jButton1;
@@ -1195,12 +1806,22 @@ public class Deposit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+<<<<<<< HEAD
     private javax.swing.JCheckBox missing_carnet;
+=======
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JCheckBox missing_carnet;
+    private javax.swing.JTextField missing_carnet_input;
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JTextField new_balance;
     private javax.swing.JCheckBox salary_commission;
     private javax.swing.JButton search_account_number;
     private javax.swing.JTextField teller;
     private javax.swing.JCheckBox tenue_de_compte;
+<<<<<<< HEAD
+=======
+    private javax.swing.JTextField tenue_de_compte_input;
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JTextField total_deposit_charges;
     private javax.swing.JComboBox<String> transaction_code;
     private com.toedter.calendar.JDateChooser transaction_date;

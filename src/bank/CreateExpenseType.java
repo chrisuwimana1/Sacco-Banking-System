@@ -27,8 +27,17 @@ public class CreateExpenseType extends javax.swing.JFrame {
     ResultSet rs = null;
     DBConnection conn;
 
+<<<<<<< HEAD
     public CreateExpenseType() throws BackingStoreException {
         conn = new DBConnection();
+=======
+    public CreateExpenseType() {
+        try {
+            conn = new DBConnection();
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(CreateExpenseType.class.getName()).log(Level.SEVERE, null, ex);
+        }
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         initComponents();
     }
 
@@ -45,7 +54,11 @@ public class CreateExpenseType extends javax.swing.JFrame {
         expense_type = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
+<<<<<<< HEAD
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+=======
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
         jLabel1.setText("Expense Type (*):");
 
@@ -64,6 +77,7 @@ public class CreateExpenseType extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1)
                     .addGroup(layout.createSequentialGroup()
@@ -71,6 +85,14 @@ public class CreateExpenseType extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(expense_type, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(333, Short.MAX_VALUE))
+=======
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(expense_type, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,12 +101,22 @@ public class CreateExpenseType extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(expense_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                 .addGap(73, 73, 73)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(175, Short.MAX_VALUE))
         );
 
         pack();
+=======
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -136,11 +168,15 @@ public class CreateExpenseType extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+<<<<<<< HEAD
                 try {
                     new CreateExpenseType().setVisible(true);
                 } catch (BackingStoreException ex) {
                     Logger.getLogger(CreateExpenseType.class.getName()).log(Level.SEVERE, null, ex);
                 }
+=======
+                 new CreateExpenseType().setVisible(true);
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             }
         });
     }

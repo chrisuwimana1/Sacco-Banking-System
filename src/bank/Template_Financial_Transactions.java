@@ -27,6 +27,10 @@ import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import java.text.DecimalFormat;
 import bank.Helper;
+<<<<<<< HEAD
+=======
+import java.awt.Desktop;
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 import java.util.prefs.BackingStoreException;
 
 public class Template_Financial_Transactions extends javax.swing.JFrame {
@@ -266,6 +270,7 @@ public class Template_Financial_Transactions extends javax.swing.JFrame {
     }
 
     public void exportTable() {
+<<<<<<< HEAD
 
         SXSSFWorkbook wb = new SXSSFWorkbook(-1);
         SXSSFSheet sh = (SXSSFSheet) wb.createSheet("Report");
@@ -304,6 +309,64 @@ public class Template_Financial_Transactions extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Template_Account_Information.class.getName()).log(Level.SEVERE, null, ex);
         }
+=======
+        try {
+                String fileName = "Sacco/";
+                String directoryName = FileSystemView.getFileSystemView().getDefaultDirectory().getPath()+"/Documents/".concat(fileName);
+                File dir = new File(directoryName);
+                 if (!dir.exists()) dir.mkdirs();
+
+                ExcelExporter exp = new ExcelExporter();
+                exp.exportTable(financial_transactions, new File(directoryName+year_month.getText()+"_FINMTH.xls"));
+
+                //OPEN FILE
+                File tmpDir = new File(directoryName+year_month.getText()+"_FINMTH.xls");
+                boolean exists = tmpDir.exists();
+                  if (exists) {
+                      Desktop dt = Desktop.getDesktop();
+                      dt.open(new File(directoryName+year_month.getText()+"_FINMTH.xls"));
+                  }
+              } catch (IOException ex) {
+                Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
+              }
+//        SXSSFWorkbook wb = new SXSSFWorkbook(-1);
+//        SXSSFSheet sh = (SXSSFSheet) wb.createSheet("Report");
+//        Row row = sh.createRow(0);
+//        for (int i = 0; i < model.getColumnCount(); i++) {
+//            Cell cell = row.createCell(i);
+//            cell.setCellValue(model.getColumnName(i));
+//        }
+//        for (int i = 0; i < model.getRowCount(); i++) {
+//            row = sh.createRow(i + 1);
+//            for (int j = 0; j < model.getColumnCount(); j++) {
+//                Cell cell = row.createCell(j);
+//                if (model.getValueAt(i, j) != null) {
+//                    cell.setCellValue(model.getValueAt(i, j).toString());
+//                } else {
+//                    cell.setCellValue("");
+//                }
+//            }
+//        }
+//
+//        try {
+//            String fileName = "Sacco/";
+//            String directoryName = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/".concat(fileName);
+//            File dir = new File(directoryName);
+//            if (!dir.exists()) {
+//                dir.mkdirs();
+//            }
+//
+//            FileOutputStream excel = new FileOutputStream(directoryName + year_month.getText() + "_FINMTH.xlsx");
+//            wb.write(excel);
+//            excel.flush();
+//            excel.close();
+//            JOptionPane.showMessageDialog(null, "The template was successfuly saved!");
+//        } catch (FileNotFoundException ex) {
+//            Logger.getLogger(Template_Account_Information.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Template_Account_Information.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     }
 
     private void generateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateActionPerformed

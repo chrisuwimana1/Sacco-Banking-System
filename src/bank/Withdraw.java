@@ -45,8 +45,15 @@ public class Withdraw extends javax.swing.JFrame {
     int transactionCountDebit;
     int transactionCountCredit;
     private ArrayList<String> listOfSelectedCharges = new ArrayList<>();
+<<<<<<< HEAD
     float selectedTransactionCharge = 0;
     DecimalFormat formatter = new DecimalFormat("#,###.00");
+=======
+    private ArrayList<Float> listOfSelectedAmountCharges = new ArrayList<>();
+    float selectedTransactionCharge = 0;
+    DecimalFormat formatter = new DecimalFormat("#,###.00");
+    float c_balance=0;
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     public Withdraw() {
         initComponents();
@@ -100,17 +107,38 @@ public class Withdraw extends javax.swing.JFrame {
         transaction_date = new com.toedter.calendar.JDateChooser();
         account_number = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+<<<<<<< HEAD
         tenue_de_compte = new javax.swing.JCheckBox();
         fiche = new javax.swing.JCheckBox();
         clearence_form = new javax.swing.JCheckBox();
+=======
+        jLabel13 = new javax.swing.JLabel();
+        total_withdrawal_charges = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        tenue_de_compte = new javax.swing.JCheckBox();
+        fiche = new javax.swing.JCheckBox();
+        clearence_form = new javax.swing.JCheckBox();
+        salary_commission = new javax.swing.JCheckBox();
+        commission_input = new javax.swing.JTextField();
+        clearence_form_input = new javax.swing.JTextField();
+        fiche_input = new javax.swing.JTextField();
+        tenue_de_compte_input = new javax.swing.JTextField();
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         historique = new javax.swing.JCheckBox();
         bordereau = new javax.swing.JCheckBox();
         missing_carnet = new javax.swing.JCheckBox();
         carnet = new javax.swing.JCheckBox();
+<<<<<<< HEAD
         salary_commission = new javax.swing.JCheckBox();
         jLabel13 = new javax.swing.JLabel();
         total_withdrawal_charges = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+=======
+        carnet_input = new javax.swing.JTextField();
+        missing_carnet_input = new javax.swing.JTextField();
+        bordereau_input = new javax.swing.JTextField();
+        historique_input = new javax.swing.JTextField();
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -155,8 +183,17 @@ public class Withdraw extends javax.swing.JFrame {
 
         jLabel6.setText("Type:");
 
+<<<<<<< HEAD
         transaction_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Withdraw" }));
         transaction_type.setEnabled(false);
+=======
+        transaction_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Withdraw", "Closing Balance" }));
+        transaction_type.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                transaction_typeItemStateChanged(evt);
+            }
+        });
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
         transaction_description.setText("Withdraw");
 
@@ -191,6 +228,7 @@ public class Withdraw extends javax.swing.JFrame {
 
         jLabel12.setText("Charges:");
 
+<<<<<<< HEAD
         tenue_de_compte.setText("Tenue de Compte");
 
         fiche.setText("Fiche");
@@ -213,6 +251,91 @@ public class Withdraw extends javax.swing.JFrame {
         total_withdrawal_charges.setText("0");
 
         jLabel14.setText("New Balance:");
+=======
+        jLabel13.setText("Total Charges:");
+
+        total_withdrawal_charges.setEditable(false);
+        total_withdrawal_charges.setText("0");
+
+        jLabel14.setText("New Balance:");
+
+        tenue_de_compte.setText("Tenue de Compte");
+        tenue_de_compte.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tenue_de_compteStateChanged(evt);
+            }
+        });
+        tenue_de_compte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tenue_de_compteActionPerformed(evt);
+            }
+        });
+
+        fiche.setText("Fiche");
+        fiche.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ficheStateChanged(evt);
+            }
+        });
+
+        clearence_form.setText("Clearence Form");
+        clearence_form.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                clearence_formStateChanged(evt);
+            }
+        });
+
+        salary_commission.setText("Commission");
+        salary_commission.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                salary_commissionStateChanged(evt);
+            }
+        });
+
+        commission_input.setEnabled(false);
+
+        clearence_form_input.setEnabled(false);
+
+        fiche_input.setEnabled(false);
+
+        tenue_de_compte_input.setEnabled(false);
+
+        historique.setText("Historique");
+        historique.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                historiqueStateChanged(evt);
+            }
+        });
+
+        bordereau.setText("Bordereau");
+        bordereau.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                bordereauStateChanged(evt);
+            }
+        });
+
+        missing_carnet.setText("Missing Carnet");
+        missing_carnet.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                missing_carnetStateChanged(evt);
+            }
+        });
+
+        carnet.setText("Carnet");
+        carnet.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                carnetStateChanged(evt);
+            }
+        });
+
+        carnet_input.setEnabled(false);
+
+        missing_carnet_input.setEnabled(false);
+
+        bordereau_input.setEnabled(false);
+
+        historique_input.setEnabled(false);
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -221,6 +344,7 @@ public class Withdraw extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
@@ -294,6 +418,69 @@ public class Withdraw extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(jLabel13))
                 .addContainerGap(80, Short.MAX_VALUE))
+=======
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel9))
+                                .addGap(194, 194, 194)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tenue_de_compte)
+                                    .addComponent(fiche)
+                                    .addComponent(clearence_form)
+                                    .addComponent(salary_commission)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(teller, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(transaction_date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(new_balance, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(debited_amount, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(total_withdrawal_charges, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(transaction_description, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(transaction_code, javax.swing.GroupLayout.Alignment.LEADING, 0, 1, Short.MAX_VALUE)
+                                        .addComponent(transaction_type, javax.swing.GroupLayout.Alignment.LEADING, 0, 160, Short.MAX_VALUE)
+                                        .addComponent(customer_id_number, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(customer_name, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(account_number, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(current_balance)))
+                                .addGap(74, 74, 74)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(commission_input)
+                                            .addComponent(clearence_form_input)
+                                            .addComponent(fiche_input)
+                                            .addComponent(tenue_de_compte_input, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(historique)
+                                            .addComponent(bordereau)
+                                            .addComponent(missing_carnet)
+                                            .addComponent(carnet))
+                                        .addGap(57, 57, 57)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(missing_carnet_input)
+                                            .addComponent(bordereau_input)
+                                            .addComponent(historique_input)
+                                            .addComponent(carnet_input, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(search_account_number)
+                                    .addComponent(calculate_button, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(124, Short.MAX_VALUE))))
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,8 +498,13 @@ public class Withdraw extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(customer_id_number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                     .addComponent(jLabel6)
                     .addComponent(transaction_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -334,6 +526,7 @@ public class Withdraw extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
                             .addComponent(tenue_de_compte)
@@ -365,6 +558,63 @@ public class Withdraw extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(teller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16))
+=======
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel13)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel14))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(tenue_de_compte)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fiche)
+                                .addGap(9, 9, 9)
+                                .addComponent(clearence_form)
+                                .addGap(9, 9, 9)
+                                .addComponent(salary_commission))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(historique)
+                                    .addComponent(historique_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bordereau)
+                                    .addComponent(bordereau_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(missing_carnet)
+                                    .addComponent(missing_carnet_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(carnet)
+                                    .addComponent(carnet_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(tenue_de_compte_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fiche_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clearence_form_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(commission_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addComponent(total_withdrawal_charges, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(new_balance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(calculate_button))
+                        .addGap(2, 2, 2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(transaction_date, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(teller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46))
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/cancel-icon.png"))); // NOI18N
@@ -380,6 +630,7 @@ public class Withdraw extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(193, 193, 193)
@@ -390,26 +641,50 @@ public class Withdraw extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(157, Short.MAX_VALUE))
+=======
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Withdraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Withdraw)
                     .addComponent(jButton1))
+=======
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Withdraw)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                 .addContainerGap())
         );
 
         pack();
+<<<<<<< HEAD
+=======
+        setLocationRelativeTo(null);
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     }// </editor-fold>//GEN-END:initComponents
 
     private ArrayList<String> getArrayListOfSelectedCharges() {
 
         ArrayList<String> selectedCharges = new ArrayList<>();
 
+<<<<<<< HEAD
         if (tenue_de_compte.isSelected()) {
             selectedCharges.add(tenue_de_compte.getText());
         }
@@ -432,11 +707,70 @@ public class Withdraw extends javax.swing.JFrame {
             selectedCharges.add(clearence_form.getText());
         }
         if (missing_carnet.isSelected()) {
+=======
+        if (tenue_de_compte.isSelected() && !tenue_de_compte_input.getText().isEmpty()) {
+            selectedCharges.add(tenue_de_compte.getText());
+        }
+        if (historique.isSelected() && !historique_input.getText().isEmpty()) {
+            selectedCharges.add(historique.getText());
+        }
+        if (carnet.isSelected() && !carnet_input.getText().isEmpty()) {
+            selectedCharges.add(carnet.getText());
+        }
+        if (fiche.isSelected() && !fiche_input.getText().isEmpty()) {
+            selectedCharges.add(fiche.getText());
+        }
+        if (bordereau.isSelected() && !bordereau_input.getText().isEmpty()) {
+            selectedCharges.add(bordereau.getText());
+        }
+        if (salary_commission.isSelected() && !commission_input.getText().isEmpty()) {
+            selectedCharges.add(salary_commission.getText());
+        }
+        if (clearence_form.isSelected() && !clearence_form_input.getText().isEmpty()) {
+            selectedCharges.add(clearence_form.getText());
+        }
+        if (missing_carnet.isSelected() && !missing_carnet_input.getText().isEmpty()) {
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             selectedCharges.add(missing_carnet.getText());
         }
 
         return selectedCharges;
     }
+<<<<<<< HEAD
+=======
+    
+    private ArrayList<Float> getArrayListOfSelectedAmountCharges() {
+
+        ArrayList<Float> selectedAmountCharges = new ArrayList<>();
+
+        if (tenue_de_compte.isSelected() && !tenue_de_compte_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(tenue_de_compte_input.getText()));
+        }
+        if (historique.isSelected() && !historique_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(historique_input.getText()));
+        }
+        if (carnet.isSelected() && !carnet_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(carnet_input.getText()));
+        }
+        if (fiche.isSelected() && !fiche_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(fiche_input.getText()));
+        }
+        if (bordereau.isSelected() && !bordereau_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(bordereau_input.getText()));
+        }
+        if (salary_commission.isSelected() && !commission_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(commission_input.getText()));
+        }
+        if (clearence_form.isSelected() && !clearence_form_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(clearence_form_input.getText()));
+        }
+        if (missing_carnet.isSelected() && !missing_carnet_input.getText().isEmpty()) {
+            selectedAmountCharges.add(Float.parseFloat(missing_carnet_input.getText()));
+        }
+
+        return selectedAmountCharges;
+    }
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     private void getCountTransactionCredit() {
         try {
@@ -537,6 +871,10 @@ public class Withdraw extends javax.swing.JFrame {
                 customer_id_number.setText(rs.getString("National_ID_Number"));
                 //current_balance.setText(getCurrrentBalance(rs.getString("account_number")).toString());
                 current_balance.setText(String.valueOf(getCurrrentBalance(rs.getString("Account_Number"))));
+<<<<<<< HEAD
+=======
+                c_balance=getCurrrentBalance(rs.getString("Account_Number"));
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             } else {
                 JOptionPane.showMessageDialog(null, "Sorry this account does not exist!", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -544,6 +882,10 @@ public class Withdraw extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     private float getCurrrentBalance(String accountNumber) {
         String sql = "SELECT * FROM balance WHERE Account_Number = ?";
@@ -561,6 +903,26 @@ public class Withdraw extends javax.swing.JFrame {
         }
         return balance;
     }
+<<<<<<< HEAD
+=======
+    
+    private int getTransaction_ref(String accountNumber) {
+        String sql = "SELECT `transaction_id` FROM `transactions` WHERE transactions.Account_Number =?  ORDER BY transaction_id desc  LIMIT 1";
+        int transaction_id = 0;
+        try {
+            pst = conn.connection.prepareStatement(sql);
+            pst.setString(1, accountNumber);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                transaction_id = rs.getInt("transaction_id");
+            }
+        } catch (SQLException ex) {
+            // TODO Auto-generated catch block
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return transaction_id;
+    }
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     private String getTransactionCode(String transaction) {
 
@@ -723,6 +1085,26 @@ public class Withdraw extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+<<<<<<< HEAD
+=======
+    
+    private String getTransaction_date(String accountNumber) {
+        String sql = "SELECT `date_created` FROM `transactions` WHERE transactions.Account_Number =?  ORDER BY transaction_id desc  LIMIT 1";
+        String transaction_date = "";
+        try {
+            pst = conn.connection.prepareStatement(sql);
+            pst.setString(1, accountNumber);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                transaction_date = rs.getString("date_created");
+            }
+        } catch (SQLException ex) {
+            // TODO Auto-generated catch block
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return transaction_date;
+    }
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     private void save_withdrawal(String accountNumber, String customerName, float previousBalance,
             float currentBalance, float transactionAmount, float transactionCharges, float transaction_net_amount, String transactionDate,
@@ -754,6 +1136,7 @@ public class Withdraw extends javax.swing.JFrame {
                                     transactionAmountCredit, transactionDate, transactionType);
                             for (int i = 0; i < listOfSelectedCharges.size(); i++) {
 
+<<<<<<< HEAD
                                 selectedTransactionCharge = Float.parseFloat(getChargeAmount(listOfSelectedCharges.get(i)));
                                 chargeDescription = listOfSelectedCharges.get(i);
                                 System.out.println(chargeDescription);
@@ -762,6 +1145,20 @@ public class Withdraw extends javax.swing.JFrame {
                             updateTransactionDate(accountNumber, transactionDate);
                             new WithdrawSuccess(accountNumber, customerName, previousBalance, transactionAmount, transactionCharges,
                                     currentBalance, transactionDate, employee_name).setVisible(true);
+=======
+                                selectedTransactionCharge = listOfSelectedAmountCharges.get(i);
+                                chargeDescription = listOfSelectedCharges.get(i);
+                                
+                                updateProductsTable(chargeDescription, selectedTransactionCharge, transactionDate, accountNumber);
+                            }
+                            updateTransactionDate(accountNumber, transactionDate);
+                            
+                            int transaction_reference =getTransaction_ref(accountNumber);
+                            String transaction_d = getTransaction_date(accountNumber);
+                            
+                            new WithdrawReceipt(accountNumber, customerName, previousBalance, transactionAmount, transactionCharges,
+                                    currentBalance, transaction_d, employee_name, transaction_reference).setVisible(true);
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                         }
                     } catch (ParseException ex) {
                         Logger.getLogger(Deposit.class.getName()).log(Level.SEVERE, null, ex);
@@ -816,10 +1213,16 @@ public class Withdraw extends javax.swing.JFrame {
             String transactionType = (String) transaction_type.getSelectedItem();
             String transactionDescription = transaction_description.getText();
 
+<<<<<<< HEAD
             System.out.println(currentBalance);
 
             transaction_net_amount = transactionAmount + transactionCharges;
             listOfSelectedCharges = getArrayListOfSelectedCharges();
+=======
+            transaction_net_amount = transactionAmount + transactionCharges;
+            listOfSelectedCharges = getArrayListOfSelectedCharges();
+            listOfSelectedAmountCharges = getArrayListOfSelectedAmountCharges();
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
             try {
                 save_withdrawal(accountNumber, customerName, previousBalance, currentBalance, transactionAmount, transactionCharges,
@@ -841,6 +1244,7 @@ public class Withdraw extends javax.swing.JFrame {
                 float oldBalance = Float.parseFloat(current_balance.getText());
                 float debitedAmount = Float.parseFloat(debited_amount.getText());
 
+<<<<<<< HEAD
                 if (tenue_de_compte.isSelected()) {
                     allCharges += Float.parseFloat(getChargeAmount(tenue_de_compte.getText()));
                 }
@@ -865,6 +1269,33 @@ public class Withdraw extends javax.swing.JFrame {
                 if (missing_carnet.isSelected()) {
                     allCharges += Float.parseFloat(getChargeAmount(missing_carnet.getText()));
                 } else {
+=======
+                if (tenue_de_compte.isSelected() && !tenue_de_compte_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(tenue_de_compte_input.getText());
+                }
+                if (historique.isSelected() && !historique_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(historique_input.getText());
+                }
+                if (carnet.isSelected() && !carnet_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(carnet_input.getText());
+                }
+                if (fiche.isSelected() && !fiche_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(fiche_input.getText());
+                }
+                if (bordereau.isSelected() && !bordereau_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(bordereau_input.getText());
+                }
+                if (salary_commission.isSelected() && !commission_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(commission_input.getText());
+                }
+                if (clearence_form.isSelected() && !clearence_form_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(clearence_form_input.getText());
+                }
+                if (missing_carnet.isSelected() && !missing_carnet_input.getText().isEmpty()) {
+                    allCharges += Float.parseFloat(missing_carnet_input.getText());
+                }
+                else {
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                     allCharges += 0;
                 }
 
@@ -895,6 +1326,106 @@ public class Withdraw extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+<<<<<<< HEAD
+=======
+    private void transaction_typeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_transaction_typeItemStateChanged
+        // TODO add your handling code here:
+        if(transaction_type.getSelectedItem().toString().equalsIgnoreCase("Closing Balance")){
+            current_balance.setText("0.0");
+            current_balance.setEditable(true);
+        }else{
+            current_balance.setEditable(false);
+            current_balance.setText(c_balance+"");
+        }
+    }//GEN-LAST:event_transaction_typeItemStateChanged
+
+    private void tenue_de_compteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tenue_de_compteStateChanged
+        // TODO add your handling code here:
+
+        if (tenue_de_compte.isSelected()) {
+            tenue_de_compte_input.setEnabled(true);
+        }else{
+            tenue_de_compte_input.setEnabled(false);
+            tenue_de_compte_input.setText("");
+        }
+    }//GEN-LAST:event_tenue_de_compteStateChanged
+
+    private void ficheStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ficheStateChanged
+        // TODO add your handling code here:
+
+        if (fiche.isSelected()) {
+            fiche_input.setEnabled(true);
+        }else{
+            fiche_input.setEnabled(false);
+            fiche_input.setText("");
+        }
+    }//GEN-LAST:event_ficheStateChanged
+
+    private void clearence_formStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_clearence_formStateChanged
+        // TODO add your handling code here:
+        if (clearence_form.isSelected()) {
+            clearence_form_input.setEnabled(true);
+        }else{
+            clearence_form_input.setEnabled(false);
+            clearence_form_input.setText("");
+        }
+    }//GEN-LAST:event_clearence_formStateChanged
+
+    private void salary_commissionStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_salary_commissionStateChanged
+        // TODO add your handling code here:
+        if (salary_commission.isSelected()) {
+            commission_input.setEnabled(true);
+        }else{
+            commission_input.setEnabled(false);
+            commission_input.setText("");
+        }
+    }//GEN-LAST:event_salary_commissionStateChanged
+
+    private void historiqueStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_historiqueStateChanged
+        // TODO add your handling code here:
+        if (historique.isSelected()) {
+            historique_input.setEnabled(true);
+        }else{
+            historique_input.setEnabled(false);
+            historique_input.setText("");
+        }
+    }//GEN-LAST:event_historiqueStateChanged
+
+    private void bordereauStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_bordereauStateChanged
+        // TODO add your handling code here:
+        if (bordereau.isSelected()) {
+            bordereau_input.setEnabled(true);
+        }else{
+            bordereau_input.setEnabled(false);
+            bordereau_input.setText("");
+        }
+    }//GEN-LAST:event_bordereauStateChanged
+
+    private void missing_carnetStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_missing_carnetStateChanged
+        // TODO add your handling code here:
+        if (missing_carnet.isSelected()) {
+            missing_carnet_input.setEnabled(true);
+        }else{
+            missing_carnet_input.setEnabled(false);
+            missing_carnet_input.setText("");
+        }
+    }//GEN-LAST:event_missing_carnetStateChanged
+
+    private void carnetStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_carnetStateChanged
+        // TODO add your handling code here:
+        if (carnet.isSelected()) {
+            carnet_input.setEnabled(true);
+        }else{
+            carnet_input.setEnabled(false);
+            carnet_input.setText("");
+        }
+    }//GEN-LAST:event_carnetStateChanged
+
+    private void tenue_de_compteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenue_de_compteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tenue_de_compteActionPerformed
+
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     /**
      * @param args the command line arguments
      */
@@ -943,15 +1474,31 @@ public class Withdraw extends javax.swing.JFrame {
     private javax.swing.JButton Withdraw;
     private javax.swing.JTextField account_number;
     private javax.swing.JCheckBox bordereau;
+<<<<<<< HEAD
     private javax.swing.JButton calculate_button;
     private javax.swing.JCheckBox carnet;
     private javax.swing.JCheckBox clearence_form;
+=======
+    private javax.swing.JTextField bordereau_input;
+    private javax.swing.JButton calculate_button;
+    private javax.swing.JCheckBox carnet;
+    private javax.swing.JTextField carnet_input;
+    private javax.swing.JCheckBox clearence_form;
+    private javax.swing.JTextField clearence_form_input;
+    private javax.swing.JTextField commission_input;
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JTextField current_balance;
     private javax.swing.JTextField customer_id_number;
     private javax.swing.JTextField customer_name;
     private javax.swing.JTextField debited_amount;
     private javax.swing.JCheckBox fiche;
+<<<<<<< HEAD
     private javax.swing.JCheckBox historique;
+=======
+    private javax.swing.JTextField fiche_input;
+    private javax.swing.JCheckBox historique;
+    private javax.swing.JTextField historique_input;
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -968,11 +1515,19 @@ public class Withdraw extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JCheckBox missing_carnet;
+<<<<<<< HEAD
+=======
+    private javax.swing.JTextField missing_carnet_input;
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JTextField new_balance;
     private javax.swing.JCheckBox salary_commission;
     private javax.swing.JButton search_account_number;
     private javax.swing.JTextField teller;
     private javax.swing.JCheckBox tenue_de_compte;
+<<<<<<< HEAD
+=======
+    private javax.swing.JTextField tenue_de_compte_input;
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JTextField total_withdrawal_charges;
     private javax.swing.JComboBox<String> transaction_code;
     private com.toedter.calendar.JDateChooser transaction_date;

@@ -9,6 +9,10 @@ package bank;
  *
  * @author chris
  */
+<<<<<<< HEAD
+=======
+import java.awt.Desktop;
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -505,6 +509,7 @@ public class Template_Customer_Information extends javax.swing.JFrame {
     }
 
     public void exportTable() {
+<<<<<<< HEAD
 
         SXSSFWorkbook wb = new SXSSFWorkbook(-1);
         SXSSFSheet sh = (SXSSFSheet) wb.createSheet("Report");
@@ -542,6 +547,63 @@ public class Template_Customer_Information extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Template_Account_Information.class.getName()).log(Level.SEVERE, null, ex);
         }
+=======
+        try {
+                String fileName = "Sacco/";
+                String directoryName = FileSystemView.getFileSystemView().getDefaultDirectory().getPath()+"/Documents/".concat(fileName);
+                File dir = new File(directoryName);
+                 if (!dir.exists()) dir.mkdirs();
+
+                ExcelExporter exp = new ExcelExporter();
+                exp.exportTable(customer_information, new File(directoryName+input_date+"_CUST.xls"));
+
+                //OPEN FILE
+                File tmpDir = new File(directoryName+input_date+"_CUST.xls");
+                boolean exists = tmpDir.exists();
+                  if (exists) {
+                      Desktop dt = Desktop.getDesktop();
+                      dt.open(new File(directoryName+input_date+"_CUST.xls"));
+                  }
+              } catch (IOException ex) {
+                Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
+              }
+//        SXSSFWorkbook wb = new SXSSFWorkbook(-1);
+//        SXSSFSheet sh = (SXSSFSheet) wb.createSheet("Report");
+//        Row row = sh.createRow(0);
+//        for (int i = 0; i < model.getColumnCount(); i++) {
+//            Cell cell = row.createCell(i);
+//            cell.setCellValue(model.getColumnName(i));
+//        }
+//
+//        for (int i = 0; i < model.getRowCount(); i++) {
+//            row = sh.createRow(i + 1);
+//            for (int j = 0; j < model.getColumnCount(); j++) {
+//                Cell cell = row.createCell(j);
+//                if (model.getValueAt(i, j) != null) {
+//                    cell.setCellValue(model.getValueAt(i, j).toString());
+//                } else {
+//                    cell.setCellValue("");
+//                }
+//            }
+//        }
+//        try {
+//            String fileName = "Sacco/";
+//            String directoryName = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/".concat(fileName);
+//            File dir = new File(directoryName);
+//            if (!dir.exists()) {
+//                dir.mkdirs();
+//            }
+//            FileOutputStream excel = new FileOutputStream(directoryName + input_date + "_CUST.xlsx");
+//            wb.write(excel);
+//            excel.flush();
+//            excel.close();
+//            JOptionPane.showMessageDialog(null, "The template was successfuly saved!");
+//        } catch (FileNotFoundException ex) {
+//            Logger.getLogger(Template_Account_Information.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Template_Account_Information.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+>>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     }
 
     private void exportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportActionPerformed
