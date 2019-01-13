@@ -45,15 +45,10 @@ public class Withdraw extends javax.swing.JFrame {
     int transactionCountDebit;
     int transactionCountCredit;
     private ArrayList<String> listOfSelectedCharges = new ArrayList<>();
-<<<<<<< HEAD
-    float selectedTransactionCharge = 0;
-    DecimalFormat formatter = new DecimalFormat("#,###.00");
-=======
     private ArrayList<Float> listOfSelectedAmountCharges = new ArrayList<>();
     float selectedTransactionCharge = 0;
     DecimalFormat formatter = new DecimalFormat("#,###.00");
     float c_balance=0;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     public Withdraw() {
         initComponents();
@@ -107,11 +102,6 @@ public class Withdraw extends javax.swing.JFrame {
         transaction_date = new com.toedter.calendar.JDateChooser();
         account_number = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-<<<<<<< HEAD
-        tenue_de_compte = new javax.swing.JCheckBox();
-        fiche = new javax.swing.JCheckBox();
-        clearence_form = new javax.swing.JCheckBox();
-=======
         jLabel13 = new javax.swing.JLabel();
         total_withdrawal_charges = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -123,22 +113,14 @@ public class Withdraw extends javax.swing.JFrame {
         clearence_form_input = new javax.swing.JTextField();
         fiche_input = new javax.swing.JTextField();
         tenue_de_compte_input = new javax.swing.JTextField();
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         historique = new javax.swing.JCheckBox();
         bordereau = new javax.swing.JCheckBox();
         missing_carnet = new javax.swing.JCheckBox();
         carnet = new javax.swing.JCheckBox();
-<<<<<<< HEAD
-        salary_commission = new javax.swing.JCheckBox();
-        jLabel13 = new javax.swing.JLabel();
-        total_withdrawal_charges = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-=======
         carnet_input = new javax.swing.JTextField();
         missing_carnet_input = new javax.swing.JTextField();
         bordereau_input = new javax.swing.JTextField();
         historique_input = new javax.swing.JTextField();
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -183,17 +165,12 @@ public class Withdraw extends javax.swing.JFrame {
 
         jLabel6.setText("Type:");
 
-<<<<<<< HEAD
-        transaction_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Withdraw" }));
-        transaction_type.setEnabled(false);
-=======
         transaction_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Withdraw", "Closing Balance" }));
         transaction_type.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 transaction_typeItemStateChanged(evt);
             }
         });
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
         transaction_description.setText("Withdraw");
 
@@ -228,30 +205,6 @@ public class Withdraw extends javax.swing.JFrame {
 
         jLabel12.setText("Charges:");
 
-<<<<<<< HEAD
-        tenue_de_compte.setText("Tenue de Compte");
-
-        fiche.setText("Fiche");
-
-        clearence_form.setText("Clearence Form");
-
-        historique.setText("Historique");
-
-        bordereau.setText("Bordereau");
-
-        missing_carnet.setText("Missing Carnet");
-
-        carnet.setText("Carnet");
-
-        salary_commission.setText("Salary Commission");
-
-        jLabel13.setText("Total Charges:");
-
-        total_withdrawal_charges.setEditable(false);
-        total_withdrawal_charges.setText("0");
-
-        jLabel14.setText("New Balance:");
-=======
         jLabel13.setText("Total Charges:");
 
         total_withdrawal_charges.setEditable(false);
@@ -335,7 +288,6 @@ public class Withdraw extends javax.swing.JFrame {
         bordereau_input.setEnabled(false);
 
         historique_input.setEnabled(false);
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -344,81 +296,6 @@ public class Withdraw extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel11)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(tenue_de_compte)
-                                                        .addComponent(historique))
-                                                    .addGap(18, 18, 18)
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(bordereau)
-                                                        .addComponent(fiche))
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(carnet)
-                                                        .addComponent(salary_commission)))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                                    .addGap(12, 12, 12)
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                            .addComponent(new_balance, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                            .addComponent(calculate_button, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(teller, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(transaction_date, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(total_withdrawal_charges, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                            .addGap(0, 0, Short.MAX_VALUE)))))
-                                            .addGap(18, 18, 18)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(clearence_form)
-                                                .addComponent(missing_carnet))
-                                            .addGap(138, 138, 138))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(transaction_description, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(transaction_code, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(current_balance, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(debited_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(0, 0, Short.MAX_VALUE))))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(12, 12, 12)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(customer_name)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(account_number, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                                            .addComponent(search_account_number))
-                                        .addComponent(customer_id_number, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(transaction_type, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(21, 21, 21))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGap(0, 0, Short.MAX_VALUE)))
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13))
-                .addContainerGap(80, Short.MAX_VALUE))
-=======
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -480,7 +357,6 @@ public class Withdraw extends javax.swing.JFrame {
                                     .addComponent(search_account_number)
                                     .addComponent(calculate_button, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(124, Short.MAX_VALUE))))
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -498,13 +374,8 @@ public class Withdraw extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(customer_id_number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-<<<<<<< HEAD
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-=======
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                     .addComponent(jLabel6)
                     .addComponent(transaction_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -526,39 +397,6 @@ public class Withdraw extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-<<<<<<< HEAD
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(tenue_de_compte)
-                            .addComponent(fiche)
-                            .addComponent(carnet))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(historique)
-                            .addComponent(bordereau)
-                            .addComponent(salary_commission)
-                            .addComponent(missing_carnet)))
-                    .addComponent(clearence_form))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 21, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(total_withdrawal_charges, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel14)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(new_balance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(calculate_button)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(transaction_date, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(teller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16))
-=======
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel13)
@@ -614,7 +452,6 @@ public class Withdraw extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(teller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46))
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/cancel-icon.png"))); // NOI18N
@@ -630,18 +467,6 @@ public class Withdraw extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(Withdraw)
-                        .addGap(43, 43, 43)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(157, Short.MAX_VALUE))
-=======
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -649,19 +474,11 @@ public class Withdraw extends javax.swing.JFrame {
                     .addComponent(Withdraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-<<<<<<< HEAD
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Withdraw)
-                    .addComponent(jButton1))
-=======
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Withdraw)
@@ -669,45 +486,17 @@ public class Withdraw extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                 .addContainerGap())
         );
 
         pack();
-<<<<<<< HEAD
-=======
         setLocationRelativeTo(null);
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     }// </editor-fold>//GEN-END:initComponents
 
     private ArrayList<String> getArrayListOfSelectedCharges() {
 
         ArrayList<String> selectedCharges = new ArrayList<>();
 
-<<<<<<< HEAD
-        if (tenue_de_compte.isSelected()) {
-            selectedCharges.add(tenue_de_compte.getText());
-        }
-        if (historique.isSelected()) {
-            selectedCharges.add(historique.getText());
-        }
-        if (carnet.isSelected()) {
-            selectedCharges.add(carnet.getText());
-        }
-        if (fiche.isSelected()) {
-            selectedCharges.add(fiche.getText());
-        }
-        if (bordereau.isSelected()) {
-            selectedCharges.add(bordereau.getText());
-        }
-        if (salary_commission.isSelected()) {
-            selectedCharges.add(salary_commission.getText());
-        }
-        if (clearence_form.isSelected()) {
-            selectedCharges.add(clearence_form.getText());
-        }
-        if (missing_carnet.isSelected()) {
-=======
         if (tenue_de_compte.isSelected() && !tenue_de_compte_input.getText().isEmpty()) {
             selectedCharges.add(tenue_de_compte.getText());
         }
@@ -730,14 +519,11 @@ public class Withdraw extends javax.swing.JFrame {
             selectedCharges.add(clearence_form.getText());
         }
         if (missing_carnet.isSelected() && !missing_carnet_input.getText().isEmpty()) {
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             selectedCharges.add(missing_carnet.getText());
         }
 
         return selectedCharges;
     }
-<<<<<<< HEAD
-=======
     
     private ArrayList<Float> getArrayListOfSelectedAmountCharges() {
 
@@ -770,7 +556,6 @@ public class Withdraw extends javax.swing.JFrame {
 
         return selectedAmountCharges;
     }
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     private void getCountTransactionCredit() {
         try {
@@ -871,10 +656,7 @@ public class Withdraw extends javax.swing.JFrame {
                 customer_id_number.setText(rs.getString("National_ID_Number"));
                 //current_balance.setText(getCurrrentBalance(rs.getString("account_number")).toString());
                 current_balance.setText(String.valueOf(getCurrrentBalance(rs.getString("Account_Number"))));
-<<<<<<< HEAD
-=======
                 c_balance=getCurrrentBalance(rs.getString("Account_Number"));
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             } else {
                 JOptionPane.showMessageDialog(null, "Sorry this account does not exist!", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -882,10 +664,7 @@ public class Withdraw extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-<<<<<<< HEAD
-=======
     
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     private float getCurrrentBalance(String accountNumber) {
         String sql = "SELECT * FROM balance WHERE Account_Number = ?";
@@ -903,8 +682,6 @@ public class Withdraw extends javax.swing.JFrame {
         }
         return balance;
     }
-<<<<<<< HEAD
-=======
     
     private int getTransaction_ref(String accountNumber) {
         String sql = "SELECT `transaction_id` FROM `transactions` WHERE transactions.Account_Number =?  ORDER BY transaction_id desc  LIMIT 1";
@@ -922,7 +699,6 @@ public class Withdraw extends javax.swing.JFrame {
         }
         return transaction_id;
     }
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     private String getTransactionCode(String transaction) {
 
@@ -1085,8 +861,6 @@ public class Withdraw extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-<<<<<<< HEAD
-=======
     
     private String getTransaction_date(String accountNumber) {
         String sql = "SELECT `date_created` FROM `transactions` WHERE transactions.Account_Number =?  ORDER BY transaction_id desc  LIMIT 1";
@@ -1104,7 +878,6 @@ public class Withdraw extends javax.swing.JFrame {
         }
         return transaction_date;
     }
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     private void save_withdrawal(String accountNumber, String customerName, float previousBalance,
             float currentBalance, float transactionAmount, float transactionCharges, float transaction_net_amount, String transactionDate,
@@ -1136,16 +909,6 @@ public class Withdraw extends javax.swing.JFrame {
                                     transactionAmountCredit, transactionDate, transactionType);
                             for (int i = 0; i < listOfSelectedCharges.size(); i++) {
 
-<<<<<<< HEAD
-                                selectedTransactionCharge = Float.parseFloat(getChargeAmount(listOfSelectedCharges.get(i)));
-                                chargeDescription = listOfSelectedCharges.get(i);
-                                System.out.println(chargeDescription);
-                                updateProductsTable(chargeDescription, selectedTransactionCharge, transactionDate, accountNumber);
-                            }
-                            updateTransactionDate(accountNumber, transactionDate);
-                            new WithdrawSuccess(accountNumber, customerName, previousBalance, transactionAmount, transactionCharges,
-                                    currentBalance, transactionDate, employee_name).setVisible(true);
-=======
                                 selectedTransactionCharge = listOfSelectedAmountCharges.get(i);
                                 chargeDescription = listOfSelectedCharges.get(i);
                                 
@@ -1158,7 +921,6 @@ public class Withdraw extends javax.swing.JFrame {
                             
                             new WithdrawReceipt(accountNumber, customerName, previousBalance, transactionAmount, transactionCharges,
                                     currentBalance, transaction_d, employee_name, transaction_reference).setVisible(true);
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                         }
                     } catch (ParseException ex) {
                         Logger.getLogger(Deposit.class.getName()).log(Level.SEVERE, null, ex);
@@ -1213,16 +975,9 @@ public class Withdraw extends javax.swing.JFrame {
             String transactionType = (String) transaction_type.getSelectedItem();
             String transactionDescription = transaction_description.getText();
 
-<<<<<<< HEAD
-            System.out.println(currentBalance);
-
-            transaction_net_amount = transactionAmount + transactionCharges;
-            listOfSelectedCharges = getArrayListOfSelectedCharges();
-=======
             transaction_net_amount = transactionAmount + transactionCharges;
             listOfSelectedCharges = getArrayListOfSelectedCharges();
             listOfSelectedAmountCharges = getArrayListOfSelectedAmountCharges();
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
             try {
                 save_withdrawal(accountNumber, customerName, previousBalance, currentBalance, transactionAmount, transactionCharges,
@@ -1244,32 +999,6 @@ public class Withdraw extends javax.swing.JFrame {
                 float oldBalance = Float.parseFloat(current_balance.getText());
                 float debitedAmount = Float.parseFloat(debited_amount.getText());
 
-<<<<<<< HEAD
-                if (tenue_de_compte.isSelected()) {
-                    allCharges += Float.parseFloat(getChargeAmount(tenue_de_compte.getText()));
-                }
-                if (historique.isSelected()) {
-                    allCharges += Float.parseFloat(getChargeAmount(historique.getText()));
-                }
-                if (carnet.isSelected()) {
-                    allCharges += Float.parseFloat(getChargeAmount(carnet.getText()));
-                }
-                if (fiche.isSelected()) {
-                    allCharges += Float.parseFloat(getChargeAmount(fiche.getText()));
-                }
-                if (bordereau.isSelected()) {
-                    allCharges += Float.parseFloat(getChargeAmount(bordereau.getText()));
-                }
-                if (salary_commission.isSelected()) {
-                    allCharges += Float.parseFloat(getChargeAmount(salary_commission.getText()));
-                }
-                if (clearence_form.isSelected()) {
-                    allCharges += Float.parseFloat(getChargeAmount(clearence_form.getText()));
-                }
-                if (missing_carnet.isSelected()) {
-                    allCharges += Float.parseFloat(getChargeAmount(missing_carnet.getText()));
-                } else {
-=======
                 if (tenue_de_compte.isSelected() && !tenue_de_compte_input.getText().isEmpty()) {
                     allCharges += Float.parseFloat(tenue_de_compte_input.getText());
                 }
@@ -1295,7 +1024,6 @@ public class Withdraw extends javax.swing.JFrame {
                     allCharges += Float.parseFloat(missing_carnet_input.getText());
                 }
                 else {
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                     allCharges += 0;
                 }
 
@@ -1326,8 +1054,6 @@ public class Withdraw extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-<<<<<<< HEAD
-=======
     private void transaction_typeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_transaction_typeItemStateChanged
         // TODO add your handling code here:
         if(transaction_type.getSelectedItem().toString().equalsIgnoreCase("Closing Balance")){
@@ -1425,7 +1151,6 @@ public class Withdraw extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tenue_de_compteActionPerformed
 
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     /**
      * @param args the command line arguments
      */
@@ -1474,11 +1199,6 @@ public class Withdraw extends javax.swing.JFrame {
     private javax.swing.JButton Withdraw;
     private javax.swing.JTextField account_number;
     private javax.swing.JCheckBox bordereau;
-<<<<<<< HEAD
-    private javax.swing.JButton calculate_button;
-    private javax.swing.JCheckBox carnet;
-    private javax.swing.JCheckBox clearence_form;
-=======
     private javax.swing.JTextField bordereau_input;
     private javax.swing.JButton calculate_button;
     private javax.swing.JCheckBox carnet;
@@ -1486,19 +1206,14 @@ public class Withdraw extends javax.swing.JFrame {
     private javax.swing.JCheckBox clearence_form;
     private javax.swing.JTextField clearence_form_input;
     private javax.swing.JTextField commission_input;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JTextField current_balance;
     private javax.swing.JTextField customer_id_number;
     private javax.swing.JTextField customer_name;
     private javax.swing.JTextField debited_amount;
     private javax.swing.JCheckBox fiche;
-<<<<<<< HEAD
-    private javax.swing.JCheckBox historique;
-=======
     private javax.swing.JTextField fiche_input;
     private javax.swing.JCheckBox historique;
     private javax.swing.JTextField historique_input;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -1515,19 +1230,13 @@ public class Withdraw extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JCheckBox missing_carnet;
-<<<<<<< HEAD
-=======
     private javax.swing.JTextField missing_carnet_input;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JTextField new_balance;
     private javax.swing.JCheckBox salary_commission;
     private javax.swing.JButton search_account_number;
     private javax.swing.JTextField teller;
     private javax.swing.JCheckBox tenue_de_compte;
-<<<<<<< HEAD
-=======
     private javax.swing.JTextField tenue_de_compte_input;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JTextField total_withdrawal_charges;
     private javax.swing.JComboBox<String> transaction_code;
     private com.toedter.calendar.JDateChooser transaction_date;

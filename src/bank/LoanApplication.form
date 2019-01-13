@@ -126,6 +126,9 @@
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="search_field">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="310-0002-10"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="search_account">
           <Properties>
@@ -505,10 +508,9 @@
             <Component class="javax.swing.JComboBox" name="loan_application_type">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="Select One"/>
-                    <StringItem index="1" value="New Loan Application"/>
-                    <StringItem index="2" value="Application to modify existing loan"/>
+                  <StringArray count="2">
+                    <StringItem index="0" value="New Loan Application"/>
+                    <StringItem index="1" value="Application to modify existing loan"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -536,10 +538,9 @@
             <Component class="javax.swing.JComboBox" name="loan_application_status">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="Select One"/>
-                    <StringItem index="1" value="Approved"/>
-                    <StringItem index="2" value="Rejected"/>
+                  <StringArray count="2">
+                    <StringItem index="0" value="Approved"/>
+                    <StringItem index="1" value="Rejected"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -585,41 +586,40 @@
             <Component class="javax.swing.JComboBox" name="loan_utilization_location">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="34">
-                    <StringItem index="0" value="Select Village"/>
-                    <StringItem index="1" value="Amajyambere"/>
-                    <StringItem index="2" value="Bukinanyana"/>
-                    <StringItem index="3" value="Cyimana"/>
-                    <StringItem index="4" value="Gataba"/>
-                    <StringItem index="5" value="Itetero"/>
-                    <StringItem index="6" value="Kabare"/>
-                    <StringItem index="7" value="Kamuhire"/>
-                    <StringItem index="8" value="Karukamba"/>
-                    <StringItem index="9" value="Nyagacyamo"/>
-                    <StringItem index="10" value="Rwinzovu"/>
-                    <StringItem index="11" value="Urugwiro "/>
-                    <StringItem index="12" value="Uruhongore"/>
-                    <StringItem index="13" value="Agasaro"/>
-                    <StringItem index="14" value="Gasharu"/>
-                    <StringItem index="15" value="Inkingi"/>
-                    <StringItem index="16" value="Kanserege"/>
-                    <StringItem index="17" value="Kigugu"/>
-                    <StringItem index="18" value="Ruganwa"/>
-                    <StringItem index="19" value="Umuco"/>
-                    <StringItem index="20" value="Umutekano"/>
-                    <StringItem index="21" value="Urugero"/>
-                    <StringItem index="22" value="Urwibutso"/>
-                    <StringItem index="23" value="Amahoro"/>
-                    <StringItem index="24" value="Bwiza"/>
-                    <StringItem index="25" value="Ihuriro"/>
-                    <StringItem index="26" value="Ineza"/>
-                    <StringItem index="27" value="Inyange"/>
-                    <StringItem index="28" value="Iriba"/>
-                    <StringItem index="29" value="Kabagari"/>
-                    <StringItem index="30" value="Ubumwe"/>
-                    <StringItem index="31" value="Umutako"/>
-                    <StringItem index="32" value="Urukundo"/>
-                    <StringItem index="33" value="Virunga"/>
+                  <StringArray count="33">
+                    <StringItem index="0" value="Amajyambere"/>
+                    <StringItem index="1" value="Bukinanyana"/>
+                    <StringItem index="2" value="Cyimana"/>
+                    <StringItem index="3" value="Gataba"/>
+                    <StringItem index="4" value="Itetero"/>
+                    <StringItem index="5" value="Kabare"/>
+                    <StringItem index="6" value="Kamuhire"/>
+                    <StringItem index="7" value="Karukamba"/>
+                    <StringItem index="8" value="Nyagacyamo"/>
+                    <StringItem index="9" value="Rwinzovu"/>
+                    <StringItem index="10" value="Urugwiro "/>
+                    <StringItem index="11" value="Uruhongore"/>
+                    <StringItem index="12" value="Agasaro"/>
+                    <StringItem index="13" value="Gasharu"/>
+                    <StringItem index="14" value="Inkingi"/>
+                    <StringItem index="15" value="Kanserege"/>
+                    <StringItem index="16" value="Kigugu"/>
+                    <StringItem index="17" value="Ruganwa"/>
+                    <StringItem index="18" value="Umuco"/>
+                    <StringItem index="19" value="Umutekano"/>
+                    <StringItem index="20" value="Urugero"/>
+                    <StringItem index="21" value="Urwibutso"/>
+                    <StringItem index="22" value="Amahoro"/>
+                    <StringItem index="23" value="Bwiza"/>
+                    <StringItem index="24" value="Ihuriro"/>
+                    <StringItem index="25" value="Ineza"/>
+                    <StringItem index="26" value="Inyange"/>
+                    <StringItem index="27" value="Iriba"/>
+                    <StringItem index="28" value="Kabagari"/>
+                    <StringItem index="29" value="Ubumwe"/>
+                    <StringItem index="30" value="Umutako"/>
+                    <StringItem index="31" value="Urukundo"/>
+                    <StringItem index="32" value="Virunga"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -663,8 +663,8 @@
             <Component class="javax.swing.JComboBox" name="economic_sector_code">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="23">
-                    <StringItem index="0" value="Select Code"/>
+                  <StringArray count="22">
+                    <StringItem index="0" value="Other service activities"/>
                     <StringItem index="1" value="Agriculture, forestry and fishing"/>
                     <StringItem index="2" value="Mining and quarrying"/>
                     <StringItem index="3" value="Manufacturing"/>
@@ -679,14 +679,13 @@
                     <StringItem index="12" value="Real estate activities"/>
                     <StringItem index="13" value="Professional, scientific and technical activities"/>
                     <StringItem index="14" value="Administrative and support service activities"/>
-                    <StringItem index="15" value="Not Applicable"/>
-                    <StringItem index="16" value="Public administration and defence; compulsory social security"/>
-                    <StringItem index="17" value="Education"/>
-                    <StringItem index="18" value="Human health and social work activities"/>
-                    <StringItem index="19" value="Arts, entertainment and recreation"/>
-                    <StringItem index="20" value="Other service activities"/>
-                    <StringItem index="21" value="Activities of households as employers; undifferentiated goods- and services-prod"/>
-                    <StringItem index="22" value="Activities of extraterritorial organizations and bodies"/>
+                    <StringItem index="15" value="Public administration and defence; compulsory social security"/>
+                    <StringItem index="16" value="Education"/>
+                    <StringItem index="17" value="Human health and social work activities"/>
+                    <StringItem index="18" value="Arts, entertainment and recreation"/>
+                    <StringItem index="19" value="Activities of households as employers; undifferentiated goods- and services-prod"/>
+                    <StringItem index="20" value="Activities of extraterritorial organizations and bodies"/>
+                    <StringItem index="21" value="Not Applicable"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -753,6 +752,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="loan_application_id">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="000000001L"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

@@ -26,17 +26,10 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-<<<<<<< HEAD
-                  <Component id="jToolBar1" max="32767" attributes="0"/>
-                  <Component id="jPanel12" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace pref="38" max="32767" attributes="0"/>
-=======
                   <Component id="jToolBar1" pref="1381" max="32767" attributes="0"/>
                   <Component id="jPanel12" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
           </Group>
       </Group>
     </DimensionLayout>
@@ -113,8 +106,6 @@
         </Component>
         <Component class="javax.swing.JToolBar$Separator" name="jSeparator3">
         </Component>
-<<<<<<< HEAD
-=======
         <Component class="javax.swing.JLabel" name="new_withdrawal1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -131,7 +122,6 @@
         </Component>
         <Component class="javax.swing.JToolBar$Separator" name="jSeparator5">
         </Component>
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         <Component class="javax.swing.JLabel" name="myinfo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -190,25 +180,6 @@
                           <Component id="new_term_deposit" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-<<<<<<< HEAD
-                  <EmptySpace pref="92" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="view_balance" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="view_transactions" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="epargne_obligatoire" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                          <Component id="view_part_social" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="217" max="32767" attributes="0"/>
-=======
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -230,7 +201,6 @@
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       </Group>
                   </Group>
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
               </Group>
           </Group>
         </DimensionLayout>
@@ -254,25 +224,6 @@
                               <Component id="new_savings" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="new_term_deposit" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
                           </Group>
-<<<<<<< HEAD
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton1" max="32767" attributes="0"/>
-                              <Component id="view_part_social" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="458" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="view_balance" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="view_transactions" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="epargne_obligatoire" alignment="3" min="-2" pref="73" max="-2" attributes="0"/>
-                  </Group>
-=======
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -297,7 +248,6 @@
                           </Group>
                       </Group>
                   </Group>
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -475,11 +425,7 @@
                               </Group>
                               <Component id="jPanel5" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-<<<<<<< HEAD
-                          <EmptySpace pref="220" max="32767" attributes="0"/>
-=======
                           <EmptySpace pref="829" max="32767" attributes="0"/>
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -502,11 +448,7 @@
                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <EmptySpace pref="50" max="32767" attributes="0"/>
-=======
                           <EmptySpace max="32767" attributes="0"/>
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1219,10 +1161,6 @@
                     <Component class="javax.swing.JComboBox" name="emp_village">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-<<<<<<< HEAD
-                          <StringArray count="1">
-                            <StringItem index="0" value="Select Village"/>
-=======
                           <StringArray count="34">
                             <StringItem index="0" value="Select Village"/>
                             <StringItem index="1" value="Amajyambere"/>
@@ -1258,7 +1196,6 @@
                             <StringItem index="31" value="Umutako"/>
                             <StringItem index="32" value="Urukundo"/>
                             <StringItem index="33" value="Virunga"/>
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                           </StringArray>
                         </Property>
                         <Property name="enabled" type="boolean" value="false"/>
@@ -2247,10 +2184,6 @@
                     <Component class="javax.swing.JComboBox" name="perm_village">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-<<<<<<< HEAD
-                          <StringArray count="1">
-                            <StringItem index="0" value="Select Village"/>
-=======
                           <StringArray count="34">
                             <StringItem index="0" value="Select Village"/>
                             <StringItem index="1" value="Amajyambere"/>
@@ -2286,7 +2219,6 @@
                             <StringItem index="31" value="Umutako"/>
                             <StringItem index="32" value="Urukundo"/>
                             <StringItem index="33" value="Virunga"/>
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                           </StringArray>
                         </Property>
                         <Property name="enabled" type="boolean" value="false"/>
@@ -2298,10 +2230,6 @@
                     <Component class="javax.swing.JComboBox" name="comm_village">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-<<<<<<< HEAD
-                          <StringArray count="1">
-                            <StringItem index="0" value="Select Village"/>
-=======
                           <StringArray count="34">
                             <StringItem index="0" value="Select Village"/>
                             <StringItem index="1" value="Amajyambere"/>
@@ -2337,7 +2265,6 @@
                             <StringItem index="31" value="Umutako"/>
                             <StringItem index="32" value="Urukundo"/>
                             <StringItem index="33" value="Virunga"/>
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                           </StringArray>
                         </Property>
                         <Property name="enabled" type="boolean" value="false"/>
@@ -4422,31 +4349,18 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveupdateActionPerformed"/>
           </Events>
         </Component>
-<<<<<<< HEAD
-        <Component class="javax.swing.JButton" name="view_balance">
-=======
         <Component class="javax.swing.JButton" name="add_expenses">
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-<<<<<<< HEAD
-              <Image iconType="3" name="/bank/images/balance.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Current Balance"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="view_balanceActionPerformed"/>
-=======
               <Image iconType="3" name="/bank/images/down-icon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ADD EXPENSE"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_expensesActionPerformed"/>
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="view_transactions">
@@ -4528,8 +4442,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="new_term_depositActionPerformed"/>
           </Events>
         </Component>
-<<<<<<< HEAD
-=======
         <Component class="javax.swing.JButton" name="view_balance1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -4552,13 +4464,12 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/bank/images/down-icon.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ADD EXPENSE"/>
+            <Property name="text" type="java.lang.String" value="ADD EXPENSE TYPE"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_expense_typesActionPerformed"/>
           </Events>
         </Component>
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
       </SubComponents>
     </Container>
   </SubComponents>

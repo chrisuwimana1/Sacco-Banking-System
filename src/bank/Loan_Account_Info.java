@@ -55,8 +55,8 @@ public class Loan_Account_Info extends javax.swing.JFrame {
     String settlementDateString;
     String account_number;
     String customer_name;
-    
-        HashMap<String, String> villages;
+
+    HashMap<String, String> villages;
     HashMap<String, String> economicsubsectorISICCodes;
     HashMap<String, Integer> naicsCodes;
     HashMap<String, Integer> occupationCodes;
@@ -80,20 +80,19 @@ public class Loan_Account_Info extends javax.swing.JFrame {
     HashMap<String, String> performanceClassCodes;
     HashMap<String, Integer> creditCategoryCodes;
     HashMap<String, String> economicSectorCodes;
-    
-    
-    
-    
-    public Loan_Account_Info(String country, String leBook, String customerID, String accountNumber, String customerName ,String visionOUC,
+
+    public Loan_Account_Info(String country, String leBook, String customerID, String accountNumber, String customerName, String visionOUC,
             String visionSBU, String contractID, float emiAmount, int loanPeriod, String startDate,
             float principalAmount, float interestAmount, String settlementDate) {
         initComponents();
+        helper = new Helper();
+        addAllHashMaps();
         try {
             conn = new DBConnection();
         } catch (BackingStoreException ex) {
             Logger.getLogger(Loan_Account_Info.class.getName()).log(Level.SEVERE, null, ex);
         }
-        helper = new Helper();
+
         countryString = country;
         customerIDString = customerID;
         leBookString = leBook;
@@ -723,7 +722,7 @@ public class Loan_Account_Info extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        private void addAllHashMaps() {
+    private void addAllHashMaps() {
         villages = helper.getVillageCodes();
         economicsubsectorISICCodes = helper.getEconomicSubSectorISICCodes();
         naicsCodes = helper.getNaicsCodes();
@@ -749,7 +748,7 @@ public class Loan_Account_Info extends javax.swing.JFrame {
         creditCategoryCodes = helper.getCreditCategoryCodes();
         economicSectorCodes = helper.getEconomicSectorCodes();
     }
-    
+
     public int getYearMonthDigits(int yearMonth) {
         int count = 0;
         while (yearMonth != 0) {
@@ -852,10 +851,10 @@ public class Loan_Account_Info extends javax.swing.JFrame {
         } else if (account_open_date.getDate() == null) {
             JOptionPane.showMessageDialog(null, "No accoount Opening date specified!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } else if (account_type.getSelectedItem().toString().isEmpty()) {
+        } else if (accountTypeCodes.get(account_type.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The account type field is required", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } else if (freeze_status.getSelectedItem().toString().isEmpty()) {
+        } else if (freezeStatusCodes.get(freeze_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The freeze status is required", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else if (performance_class.getSelectedItem().toString().isEmpty()) {
@@ -864,14 +863,17 @@ public class Loan_Account_Info extends javax.swing.JFrame {
         } else if (credit_category.getSelectedItem().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The credit category is required", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
+        } else if (performanceClassCodes.get(performance_class.getSelectedItem().toString()) == null) {
+            JOptionPane.showMessageDialog(null, "The performance class field is required", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
         } else if (institutional_sector_code.getSelectedItem().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The institutional code is required", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else if (public_sector_code.getSelectedItem().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The public sector code is required", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } else if (account_ownership.getSelectedItem().toString().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "The account ownership is required", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (accountOwnerShipCodes.get(account_ownership.getSelectedItem().toString()) == null) {
+            JOptionPane.showMessageDialog(null, "The Account Ownership field is required", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else if (interest_rate_credit.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The interest rate credit field is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -884,9 +886,6 @@ public class Loan_Account_Info extends javax.swing.JFrame {
             return false;
         } else if (economicsubsectorISICCodes.get(economic_sub_sector_isic.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The economic sub sector field ISIC is required", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        } else if (accountOwnerShipCodes.get(account_ownership.getSelectedItem().toString())==null) {
-            JOptionPane.showMessageDialog(null, "The Account Ownership field is required", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else {
             return true;

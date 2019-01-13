@@ -5,10 +5,7 @@
  */
 package bank;
 
-<<<<<<< HEAD
-=======
 import java.awt.Desktop;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 import java.awt.print.PageFormat;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
@@ -90,8 +87,6 @@ public class Transaction extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JToolBar.Separator();
         jLabel5 = new javax.swing.JLabel();
-<<<<<<< HEAD
-=======
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         total_withdraw = new javax.swing.JLabel();
@@ -99,7 +94,6 @@ public class Transaction extends javax.swing.JFrame {
         total_deposit = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         total_w_d = new javax.swing.JLabel();
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -162,11 +156,7 @@ public class Transaction extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-<<<<<<< HEAD
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-=======
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -175,31 +165,14 @@ public class Transaction extends javax.swing.JFrame {
                             .addComponent(date_range_label))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-=======
                             .addComponent(transaction_date, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(date_choice, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                             .addComponent(account_number, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(from_transaction_date, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(to_label)
                                 .addGap(16, 16, 16)
-<<<<<<< HEAD
-                                .addComponent(to_transaction_date, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(date_choice, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(transaction_date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(221, 221, 221))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(transaction_type, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(go, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(114, 114, 114))))
-=======
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(go, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(to_transaction_date, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)))))
@@ -208,7 +181,6 @@ public class Transaction extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(transaction_type, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(120, Short.MAX_VALUE))
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,11 +209,7 @@ public class Transaction extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(transaction_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(go))
-<<<<<<< HEAD
-                .addContainerGap())
-=======
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
 
         jToolBar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -249,11 +217,7 @@ public class Transaction extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/print-icon.png"))); // NOI18N
-<<<<<<< HEAD
-        jLabel3.setText("PRINT");
-=======
         jLabel3.setText("EXPORT");
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -283,8 +247,6 @@ public class Transaction extends javax.swing.JFrame {
         });
         jToolBar1.add(jLabel5);
 
-<<<<<<< HEAD
-=======
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "TOTAL"));
 
         jLabel7.setText("Total Withdraw:");
@@ -337,20 +299,10 @@ public class Transaction extends javax.swing.JFrame {
                 .addGap(36, 36, 36))
         );
 
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 996, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 34, Short.MAX_VALUE))
-=======
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -361,23 +313,11 @@ public class Transaction extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-<<<<<<< HEAD
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-        );
-
-        pack();
-=======
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -390,16 +330,11 @@ public class Transaction extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     }// </editor-fold>//GEN-END:initComponents
 
     private String formatFloat(String s) {
         double stringToDouble = Float.parseFloat(s);
-<<<<<<< HEAD
-        return String.valueOf(formatter.format(stringToDouble));
-=======
         return String.valueOf(formatter.format(stringToDouble)).equals(".00") ? "0.0" : String.valueOf(formatter.format(stringToDouble));
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     }
 
     //retrive all transaction
@@ -422,9 +357,6 @@ public class Transaction extends javax.swing.JFrame {
             model.addColumn("Transaction Date");
             model.addColumn("Teller");
             int i = 0;
-<<<<<<< HEAD
-            while (rs.next()) {
-=======
             double totalWithdraw = 0.0;
             double totalDeposit = 0.0;
             double totalCharges = 0.0;
@@ -438,7 +370,6 @@ public class Transaction extends javax.swing.JFrame {
                 
                 totalCharges += Double.parseDouble(rs.getString("transaction_charge"));
 
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                 model.addRow(new Object[]{rs.getString("Account_Number"), formatFloat(rs.getString("transaction_amount")),
                     formatFloat(rs.getString("transaction_charge")), formatFloat(rs.getString("transaction_net_amount")),
                     formatFloat(rs.getString("previous_balance")),
@@ -448,12 +379,9 @@ public class Transaction extends javax.swing.JFrame {
                 });
                 i++;
             }
-<<<<<<< HEAD
-=======
             total_deposit.setText(formatFloat(totalDeposit+""));
             total_withdraw.setText(formatFloat((totalWithdraw +totalCharges)+""));
             total_w_d.setText(formatFloat((totalDeposit - (totalWithdraw +totalCharges))+""));
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -481,10 +409,6 @@ public class Transaction extends javax.swing.JFrame {
                     pst.setString(1, accountNumber);
                     pst.setString(2, transactionDate);
                     rs = pst.executeQuery();
-<<<<<<< HEAD
-                    //int count = 0;
-=======
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                     list_of_transactions.setModel(model);
                     model.addColumn("Account Number");
                     model.addColumn("Gross Amount");
@@ -496,19 +420,6 @@ public class Transaction extends javax.swing.JFrame {
                     model.addColumn("Description");
                     model.addColumn("Transaction Date");
                     model.addColumn("Teller");
-<<<<<<< HEAD
-
-                    while (rs.next()) {
-                        //count++;
-                        model.addRow(new Object[]{rs.getString("Account_Number"), formatFloat(rs.getString("transaction_amount")),
-                            formatFloat(rs.getString("transaction_charge")), formatFloat(rs.getString("transaction_net_amount")),
-                            formatFloat(rs.getString("previous_balance")),
-                            formatFloat(rs.getString("current_balance")), rs.getString("transaction_type"),
-                            rs.getString("transaction_description"), rs.getString("transaction_date"),
-                            rs.getString("firstname") + " " + rs.getString("lastname")
-                        });
-                    }
-=======
                     double totalWithdraw = 0.0;
                     double totalDeposit = 0.0;
                     double totalCharges = 0.0;
@@ -537,7 +448,6 @@ public class Transaction extends javax.swing.JFrame {
                     total_deposit.setText(formatFloat(totalDeposit+""));
                     total_withdraw.setText(formatFloat(totalWithdraw+""));
                     total_w_d.setText(formatFloat((totalDeposit - (totalWithdraw +totalCharges))+""));
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                 } else {
 
                     sql = "SELECT `transaction_amount`, `transaction_charge`, `transaction_net_amount`,`previous_balance`, `current_balance`, `transaction_date`, `transaction_type`, `transaction_description`, `Account_Number`, e.firstname, e.lastname FROM `transactions` INNER JOIN employees e on e.employee_key = transactions.employee_key WHERE Account_Number = ? and transaction_date LIKE ? AND transaction_type = ? ORDER BY transaction_date DESC";
@@ -546,11 +456,7 @@ public class Transaction extends javax.swing.JFrame {
                     pst.setString(2, transactionDate);
                     pst.setString(3, transactionType);
                     rs = pst.executeQuery();
-<<<<<<< HEAD
-                    //int count = 0;
-=======
                     
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                     list_of_transactions.setModel(model);
                     model.addColumn("Account Number");
                     model.addColumn("Gross Amount");
@@ -562,10 +468,6 @@ public class Transaction extends javax.swing.JFrame {
                     model.addColumn("Description");
                     model.addColumn("Transaction Date");
                     model.addColumn("Teller");
-<<<<<<< HEAD
-                    while (rs.next()) {
-                        //count++;
-=======
                     double totalWithdraw = 0.0;
                     double totalDeposit = 0.0;
                     double totalCharges = 0.0;
@@ -580,7 +482,6 @@ public class Transaction extends javax.swing.JFrame {
                         
                         totalCharges += Double.parseDouble(rs.getString("transaction_charge"));
                         
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                         model.addRow(new Object[]{rs.getString("Account_Number"), formatFloat(rs.getString("transaction_amount")),
                             formatFloat(rs.getString("transaction_charge")), formatFloat(rs.getString("transaction_net_amount")),
                             formatFloat(rs.getString("previous_balance")),
@@ -589,12 +490,9 @@ public class Transaction extends javax.swing.JFrame {
                             rs.getString("firstname") + " " + rs.getString("lastname")
                         });
                     }
-<<<<<<< HEAD
-=======
                     total_deposit.setText(formatFloat(totalDeposit+""));
                     total_withdraw.setText(formatFloat(totalWithdraw+""));
                     total_w_d.setText(formatFloat((totalDeposit - (totalWithdraw +totalCharges))+""));
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -620,20 +518,12 @@ public class Transaction extends javax.swing.JFrame {
                 dtm.setRowCount(0);
                 dtm.setColumnCount(0);
                 if (transactionType.equalsIgnoreCase("All")) {
-<<<<<<< HEAD
-                    System.out.println("All");
-=======
                     
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                     sql = "SELECT `transaction_amount`, `transaction_charge`, `transaction_net_amount`,`previous_balance`, `current_balance`, `transaction_date`, `transaction_type`, `transaction_description`, `Account_Number`, e.firstname, e.lastname FROM `transactions` INNER JOIN employees e on e.employee_key = transactions.employee_key WHERE Account_Number = ? and transaction_date BETWEEN '" + sqlFromDate.toString() + "%' AND '" + sqlToDate.toString() + "%' ORDER BY transaction_date DESC";
                     pst = conn.connection.prepareStatement(sql);
                     pst.setString(1, accountNumber);
                     rs = pst.executeQuery();
-<<<<<<< HEAD
-                    //int count = 0;
-=======
                    
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                     list_of_transactions.setModel(model);
                     model.addColumn("Account Number");
                     model.addColumn("Gross Amount");
@@ -645,11 +535,6 @@ public class Transaction extends javax.swing.JFrame {
                     model.addColumn("Description");
                     model.addColumn("Transaction Date");
                     model.addColumn("Teller");
-<<<<<<< HEAD
-
-                    while (rs.next()) {
-                        //count++;
-=======
                     double totalWithdraw = 0.0;
                     double totalDeposit = 0.0;
                     double totalCharges = 0.0;
@@ -664,7 +549,6 @@ public class Transaction extends javax.swing.JFrame {
                         
                         totalCharges += Double.parseDouble(rs.getString("transaction_charge"));
                         
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                         model.addRow(new Object[]{rs.getString("Account_Number"), formatFloat(rs.getString("transaction_amount")),
                             formatFloat(rs.getString("transaction_charge")), formatFloat(rs.getString("transaction_net_amount")),
                             formatFloat(rs.getString("previous_balance")),
@@ -673,23 +557,16 @@ public class Transaction extends javax.swing.JFrame {
                             rs.getString("firstname") + " " + rs.getString("lastname")
                         });
                     }
-<<<<<<< HEAD
-=======
                     total_deposit.setText(formatFloat(totalDeposit+""));
                     total_withdraw.setText(formatFloat(totalWithdraw+""));
                     total_w_d.setText(formatFloat((totalDeposit - (totalWithdraw +totalCharges))+""));
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                 } else {
                     sql = "SELECT `transaction_amount`, `transaction_charge`, `transaction_net_amount`,`previous_balance`, `current_balance`, `transaction_date`, `transaction_type`, `transaction_description`, `Account_Number`, e.firstname, e.lastname FROM `transactions` INNER JOIN employees e on e.employee_key = transactions.employee_key WHERE Account_Number = ? and transaction_type = ? and transaction_date BETWEEN '" + sqlFromDate.toString() + "%' AND '" + sqlToDate.toString() + "%' ORDER BY transaction_date DESC";
                     pst = conn.connection.prepareStatement(sql);
                     pst.setString(1, accountNumber);
                     pst.setString(2, transactionType);
                     rs = pst.executeQuery();
-<<<<<<< HEAD
-                    //int count = 0;
-=======
                     
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                     list_of_transactions.setModel(model);
                     model.addColumn("Account Number");
                     model.addColumn("Gross Amount");
@@ -701,11 +578,6 @@ public class Transaction extends javax.swing.JFrame {
                     model.addColumn("Description");
                     model.addColumn("Transaction Date");
                     model.addColumn("Teller");
-<<<<<<< HEAD
-                    while (rs.next()) {
-                        //count++;
-                        model.addRow(new Object[]{rs.getString("Account_Number"), formatFloat(rs.getString("transaction_amount")),
-=======
                     double totalWithdraw = 0.0;
                     double totalDeposit = 0.0;
                     double totalCharges = 0.0;
@@ -722,7 +594,6 @@ public class Transaction extends javax.swing.JFrame {
                         
                         model.addRow(new Object[]{rs.getString("Account_Number"), 
                             formatFloat(rs.getString("transaction_amount")),
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                             formatFloat(rs.getString("transaction_charge")), formatFloat(rs.getString("transaction_net_amount")),
                             formatFloat(rs.getString("previous_balance")),
                             formatFloat(rs.getString("current_balance")), rs.getString("transaction_type"),
@@ -730,12 +601,9 @@ public class Transaction extends javax.swing.JFrame {
                             rs.getString("firstname") + " " + rs.getString("lastname")
                         });
                     }
-<<<<<<< HEAD
-=======
                     total_deposit.setText(formatFloat(totalDeposit+""));
                     total_withdraw.setText(formatFloat(totalWithdraw+""));
                     total_w_d.setText(formatFloat((totalDeposit - (totalWithdraw +totalCharges))+""));
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -790,11 +658,7 @@ public class Transaction extends javax.swing.JFrame {
     
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-<<<<<<< HEAD
-        int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to print this document");
-=======
         int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to EXPORT");
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         if(dialogResult == JOptionPane.YES_OPTION){
           try {
             String fileName = "Sacco/";
@@ -804,8 +668,6 @@ public class Transaction extends javax.swing.JFrame {
             
             ExcelExporter exp = new ExcelExporter();
             exp.exportTable(list_of_transactions, new File(directoryName+acc_no+"Transactions.xls"));
-<<<<<<< HEAD
-=======
             
             //OPEN FILE
             File tmpDir = new File(directoryName+acc_no+"Transactions.xls");
@@ -814,7 +676,6 @@ public class Transaction extends javax.swing.JFrame {
                   Desktop dt = Desktop.getDesktop();
                   dt.open(new File(directoryName+acc_no+"Transactions.xls"));
               }
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
           } catch (IOException ex) {
                 Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -875,23 +736,16 @@ public class Transaction extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser from_transaction_date;
     private javax.swing.JButton go;
     private javax.swing.JLabel jLabel1;
-<<<<<<< HEAD
-=======
     private javax.swing.JLabel jLabel11;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-<<<<<<< HEAD
-    private javax.swing.JPanel jPanel1;
-=======
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
@@ -899,12 +753,9 @@ public class Transaction extends javax.swing.JFrame {
     private javax.swing.JTable list_of_transactions;
     private javax.swing.JLabel to_label;
     private com.toedter.calendar.JDateChooser to_transaction_date;
-<<<<<<< HEAD
-=======
     private javax.swing.JLabel total_deposit;
     private javax.swing.JLabel total_w_d;
     private javax.swing.JLabel total_withdraw;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private com.toedter.calendar.JDateChooser transaction_date;
     private javax.swing.JComboBox<String> transaction_type;
     // End of variables declaration//GEN-END:variables

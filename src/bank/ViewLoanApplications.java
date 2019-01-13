@@ -94,7 +94,7 @@ public class ViewLoanApplications extends javax.swing.JFrame {
 
         date_range_label.setText("Date Range:");
 
-        date_choice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select One", "Specific Date", "Date Range" }));
+        date_choice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Specific Date", "Date Range" }));
         date_choice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 date_choiceActionPerformed(evt);
@@ -105,8 +105,6 @@ public class ViewLoanApplications extends javax.swing.JFrame {
 
         to_label.setText("To");
         to_label.setEnabled(false);
-
-        specific_date.setEnabled(false);
 
         jLabel2.setText("Application Status:");
 

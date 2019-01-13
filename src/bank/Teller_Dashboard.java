@@ -98,11 +98,8 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JToolBar.Separator();
         new_withdrawal = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JToolBar.Separator();
-<<<<<<< HEAD
-=======
         new_withdrawal1 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JToolBar.Separator();
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         myinfo = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JToolBar.Separator();
         exit = new javax.swing.JLabel();
@@ -291,22 +288,15 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         jLabel81 = new javax.swing.JLabel();
         customer_id = new javax.swing.JFormattedTextField();
         saveupdate = new javax.swing.JButton();
-<<<<<<< HEAD
-        view_balance = new javax.swing.JButton();
-=======
         add_expenses = new javax.swing.JButton();
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         view_transactions = new javax.swing.JButton();
         view_part_social = new javax.swing.JButton();
         epargne_obligatoire = new javax.swing.JButton();
         new_savings = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         new_term_deposit = new javax.swing.JButton();
-<<<<<<< HEAD
-=======
         view_balance1 = new javax.swing.JButton();
         add_expense_types = new javax.swing.JButton();
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -346,8 +336,6 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         jToolBar1.add(new_withdrawal);
         jToolBar1.add(jSeparator3);
 
-<<<<<<< HEAD
-=======
         new_withdrawal1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         new_withdrawal1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/charge-icon.png"))); // NOI18N
         new_withdrawal1.setText("CREDIT UNBLOCKING");
@@ -359,7 +347,6 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         jToolBar1.add(new_withdrawal1);
         jToolBar1.add(jSeparator5);
 
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         myinfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         myinfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/user-icon.png"))); // NOI18N
         jToolBar1.add(myinfo);
@@ -594,11 +581,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         emp_country.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RW", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AN", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW", "XK" }));
         emp_country.setEnabled(false);
 
-<<<<<<< HEAD
-        emp_village.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Village" }));
-=======
         emp_village.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Village", "Amajyambere", "Bukinanyana", "Cyimana", "Gataba", "Itetero", "Kabare", "Kamuhire", "Karukamba", "Nyagacyamo", "Rwinzovu", "Urugwiro ", "Uruhongore", "Agasaro", "Gasharu", "Inkingi", "Kanserege", "Kigugu", "Ruganwa", "Umuco", "Umutekano", "Urugero", "Urwibutso", "Amahoro", "Bwiza", "Ihuriro", "Ineza", "Inyange", "Iriba", "Kabagari", "Ubumwe", "Umutako", "Urukundo", "Virunga" }));
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         emp_village.setEnabled(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -731,17 +714,10 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< HEAD
-        perm_village.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Village" }));
-        perm_village.setEnabled(false);
-
-        comm_village.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Village" }));
-=======
         perm_village.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Village", "Amajyambere", "Bukinanyana", "Cyimana", "Gataba", "Itetero", "Kabare", "Kamuhire", "Karukamba", "Nyagacyamo", "Rwinzovu", "Urugwiro ", "Uruhongore", "Agasaro", "Gasharu", "Inkingi", "Kanserege", "Kigugu", "Ruganwa", "Umuco", "Umutekano", "Urugero", "Urwibutso", "Amahoro", "Bwiza", "Ihuriro", "Ineza", "Inyange", "Iriba", "Kabagari", "Ubumwe", "Umutako", "Urukundo", "Virunga" }));
         perm_village.setEnabled(false);
 
         comm_village.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Village", "Amajyambere", "Bukinanyana", "Cyimana", "Gataba", "Itetero", "Kabare", "Kamuhire", "Karukamba", "Nyagacyamo", "Rwinzovu", "Urugwiro ", "Uruhongore", "Agasaro", "Gasharu", "Inkingi", "Kanserege", "Kigugu", "Ruganwa", "Umuco", "Umutekano", "Urugero", "Urwibutso", "Amahoro", "Bwiza", "Ihuriro", "Ineza", "Inyange", "Iriba", "Kabagari", "Ubumwe", "Umutako", "Urukundo", "Virunga" }));
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         comm_village.setEnabled(false);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -1612,11 +1588,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-<<<<<<< HEAD
-                .addContainerGap(220, Short.MAX_VALUE))
-=======
                 .addContainerGap(829, Short.MAX_VALUE))
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1637,11 +1609,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                .addContainerGap(50, Short.MAX_VALUE))
-=======
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
 
         jScrollPane1.setViewportView(jPanel11);
@@ -1654,21 +1622,12 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< HEAD
-        view_balance.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        view_balance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/balance.png"))); // NOI18N
-        view_balance.setText("Current Balance");
-        view_balance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view_balanceActionPerformed(evt);
-=======
         add_expenses.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         add_expenses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/down-icon.png"))); // NOI18N
         add_expenses.setText("ADD EXPENSE");
         add_expenses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_expensesActionPerformed(evt);
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             }
         });
 
@@ -1725,8 +1684,6 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< HEAD
-=======
         view_balance1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         view_balance1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/balance.png"))); // NOI18N
         view_balance1.setText("Current Balance");
@@ -1738,14 +1695,13 @@ public class Teller_Dashboard extends javax.swing.JFrame {
 
         add_expense_types.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         add_expense_types.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/down-icon.png"))); // NOI18N
-        add_expense_types.setText("ADD EXPENSE");
+        add_expense_types.setText("ADD EXPENSE TYPE");
         add_expense_types.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_expense_typesActionPerformed(evt);
             }
         });
 
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -1765,22 +1721,6 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                         .addComponent(new_savings)
                         .addGap(18, 18, 18)
                         .addComponent(new_term_deposit)))
-<<<<<<< HEAD
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(view_balance)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(view_transactions)
-                        .addGap(34, 34, 34)
-                        .addComponent(epargne_obligatoire))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(48, 48, 48)
-                        .addComponent(view_part_social))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(217, Short.MAX_VALUE))
-=======
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
@@ -1798,7 +1738,6 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                             .addComponent(view_balance1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(add_expense_types, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(45, 45, 45))))
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1818,20 +1757,6 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(new_savings)
                             .addComponent(new_term_deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-<<<<<<< HEAD
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(view_part_social, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)))
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(view_balance)
-                    .addComponent(view_transactions)
-                    .addComponent(epargne_obligatoire, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1850,7 +1775,6 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(add_expense_types, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))))
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
                 .addContainerGap())
         );
 
@@ -1861,15 +1785,9 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-<<<<<<< HEAD
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(38, Short.MAX_VALUE))
-=======
                     .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1381, Short.MAX_VALUE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2141,12 +2059,8 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The home telephone field is required!", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (home_telephone.getText().length() != 10) {
             JOptionPane.showMessageDialog(null, "The home telephone field has to be 10 digits", "Error", JOptionPane.ERROR_MESSAGE);
-<<<<<<< HEAD
-        } else if (occupationCodes.get(occupation.getSelectedItem().toString()) == null) {
-=======
         } 
         else if (occupationCodes.get(occupation.getSelectedItem().toString()) == null) {
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             JOptionPane.showMessageDialog(null, "The occupation field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (educationCodes.get(education.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The education field is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2164,44 +2078,28 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The ID number field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (accountStatusCodes.get(account_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The account status field is required", "Error", JOptionPane.ERROR_MESSAGE);
-<<<<<<< HEAD
-        } else if (accountTypeCodes.get(account_type.getSelectedItem().toString()) == null) {
-            JOptionPane.showMessageDialog(null, "The account type field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (freezeStatusCodes.get(freeze_status.getSelectedItem().toString()) == null) {
-            JOptionPane.showMessageDialog(null, "The freeze status is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (interest_rate_credit.getText().isEmpty()) {
-=======
         } else if (accountTypeCodes.get(account_type.getSelectedItem()) == null) {
             JOptionPane.showMessageDialog(null, "The account type field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (freezeStatusCodes.get(freeze_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The freeze status is required", "Error", JOptionPane.ERROR_MESSAGE);
         } 
         else if (interest_rate_credit.getText().isEmpty()) {
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             JOptionPane.showMessageDialog(null, "The interest rate credit field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (interest_rate_debit.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The interest rate debit field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (joint_participation_count.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The joint participation count field is required", "Error", JOptionPane.ERROR_MESSAGE);
-<<<<<<< HEAD
-        } else if (villages.get(emp_village.getSelectedItem().toString()).length() > 10) {
-=======
         } 
         
         else if (villages.get(emp_village.getSelectedItem().toString()).length() > 10) {
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             JOptionPane.showMessageDialog(null, "The Emp Village field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (villages.get(comm_village.getSelectedItem().toString()).length() > 10) {
             JOptionPane.showMessageDialog(null, "The Comm Village field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (villages.get(perm_village.getSelectedItem().toString()).length() > 10) {
             JOptionPane.showMessageDialog(null, "The perm Village field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
-<<<<<<< HEAD
-        } else if (employee_id.getText().length() > 15) {
-=======
         } 
         
         else if (employee_id.getText().length() > 15) {
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             JOptionPane.showMessageDialog(null, "The Employee ID field shoud be at most 15 characters", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (health_insurance_number.getText().length() > 15) {
             JOptionPane.showMessageDialog(null, "The Health Insurance Number field shoud be at most 15 characters", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2213,13 +2111,9 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No account opening date specified!", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (account_status_date.getDate() == null) {
             JOptionPane.showMessageDialog(null, "No accoount status date specified!", "Error", JOptionPane.ERROR_MESSAGE);
-<<<<<<< HEAD
-        } else if (nationality.getSelectedItem().toString().equalsIgnoreCase("Select Nationality")) {
-=======
         } 
         
         else if (nationality.getSelectedItem().toString().equalsIgnoreCase("Select Nationality")) {
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             JOptionPane.showMessageDialog(null, "The nationality field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (social_economic_class.getSelectedItem().toString().equalsIgnoreCase("Select Social Economic Class")) {
             JOptionPane.showMessageDialog(null, "The Social Economic Class field is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2411,16 +2305,8 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             String sql = "UPDATE `account_information` SET `Account_Status` = ?, Account_Status_Date = ?, Account_Type= ?,"
                     + "Account_Open_Date = ?,Freeze_Status = ?,Int_Rate_Dr = ?,Int_Rate_Cr = ?, Economic_Sub_Sector_Code= ?,"
                     + "Public_Sector_Code = ?, Institutional_Sector_Code = ?, Account_Ownership = ?, Joint_Participant_Count= ?,"
-<<<<<<< HEAD
-                    + "Card_Subscription = ?, Performance_Class= ?,Credit_Category= ?,Vision_SBU_Full = ?,Account_Status_Full =?,"
-                    + "Account_Type_Full = ?,Freeze_Status_Full= ?,Economic_Sub_Sector_Code_ISIC_Full= ?,Public_Sector_Code_Full= ?,"
-                    + "Institutional_Sector_Code_Full= ?,Account_Ownership_Full= ?,Performance_Class_Full= ?,"
-                    + "`Date_Last_Modified` = NOW(),"
-                    + "Credit_Category_Full=?,Account_Name=?, Vision_OUC=?, Vision_SBU=?, Customer_ID=?, Country=?, LE_Book=?, Vision_GL=?, Currency=? WHERE Account_Number = ?";
-=======
                     + "Card_Subscription = ?, Performance_Class= ?,Credit_Category= ?"
                     + "`Date_Last_Modified` = NOW(),Account_Name=?, Vision_OUC=?, Vision_SBU=?, Customer_ID=?, Country=?, LE_Book=?, Vision_GL=?, Currency=? WHERE Account_Number = ?";
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
             pst = conn.connection.prepareStatement(sql);
             pst.setInt(1, customerStatusCodes.get(account_status.getSelectedItem().toString()));
@@ -2846,21 +2732,10 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editActionPerformed
 
-<<<<<<< HEAD
-    private void view_balanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_balanceActionPerformed
-        // TODO add your handling code here:
-        if (account_number.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter account number!", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            new ViewBalance(account_number.getText()).setVisible(true);
-        }
-    }//GEN-LAST:event_view_balanceActionPerformed
-=======
     private void add_expensesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_expensesActionPerformed
         // TODO add your handling code here:
         new AddExpense().setVisible(true);
     }//GEN-LAST:event_add_expensesActionPerformed
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 
     private void view_transactionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_transactionsActionPerformed
         // TODO add your handling code here:
@@ -2932,8 +2807,6 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_new_term_depositActionPerformed
 
-<<<<<<< HEAD
-=======
     private void view_balance1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_balance1ActionPerformed
         // TODO add your handling code here:
         if (account_number.getText().isEmpty()) {
@@ -2953,7 +2826,6 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         new DeblockageCredit().setVisible(true);
     }//GEN-LAST:event_new_withdrawal1MouseClicked
 
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     /**
      * @param args the command line arguments
      */
@@ -2998,11 +2870,8 @@ public class Teller_Dashboard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> account_status;
     private com.toedter.calendar.JDateChooser account_status_date;
     private javax.swing.JComboBox<String> account_type;
-<<<<<<< HEAD
-=======
     private javax.swing.JButton add_expense_types;
     private javax.swing.JButton add_expenses;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JComboBox<String> card_subscription;
     private javax.swing.JTextField comm_address_1;
     private javax.swing.JTextField comm_address_2;
@@ -3148,10 +3017,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
-<<<<<<< HEAD
-=======
     private javax.swing.JToolBar.Separator jSeparator5;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTextField joint_participation_count;
     private javax.swing.JComboBox<String> legal_status;
@@ -3168,10 +3034,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton new_savings;
     private javax.swing.JButton new_term_deposit;
     private javax.swing.JLabel new_withdrawal;
-<<<<<<< HEAD
-=======
     private javax.swing.JLabel new_withdrawal1;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JTextField next_of_kin_email;
     private javax.swing.JTextField next_of_kin_id_no;
     private javax.swing.JComboBox<String> next_of_kin_id_type;
@@ -3199,11 +3062,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField spouse_name;
     private javax.swing.JTextField ssn_number;
     private javax.swing.JTextField surname;
-<<<<<<< HEAD
-    private javax.swing.JButton view_balance;
-=======
     private javax.swing.JButton view_balance1;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     private javax.swing.JButton view_part_social;
     private javax.swing.JButton view_transactions;
     private javax.swing.JTextField vision_ouc;

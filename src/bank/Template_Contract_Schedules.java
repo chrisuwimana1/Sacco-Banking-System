@@ -10,10 +10,7 @@ package bank;
  * @author chris
  */
 
-<<<<<<< HEAD
-=======
 import java.awt.Desktop;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 import java.io.File;
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -228,8 +225,6 @@ public class Template_Contract_Schedules extends javax.swing.JFrame {
 
                 ExcelExporter exp = new ExcelExporter();
                 exp.exportTable(contract_schedules, new File(directoryName + year_month + "_CONTSCHE.xls"));
-<<<<<<< HEAD
-=======
                 //OPEN FILE
                 File tmpDir = new File(directoryName + year_month + "_CONTSCHE.xls");
                 boolean exists = tmpDir.exists();
@@ -237,7 +232,6 @@ public class Template_Contract_Schedules extends javax.swing.JFrame {
                       Desktop dt = Desktop.getDesktop();
                       dt.open(new File(directoryName + year_month + "_CONTSCHE.xls"));
                   }
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             } catch (IOException ex) {
                 Logger.getLogger(Template_Account_Information.class.getName()).log(Level.SEVERE, null, ex);
             }

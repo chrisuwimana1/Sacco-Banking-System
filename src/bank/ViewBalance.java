@@ -5,10 +5,7 @@
  */
 package bank;
 
-<<<<<<< HEAD
-=======
 import java.awt.Desktop;
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
 import java.io.File;
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -146,35 +143,17 @@ public class ViewBalance extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-<<<<<<< HEAD
-                .addContainerGap()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-=======
                 .addGap(8, 8, 8)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(8, Short.MAX_VALUE))
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
-        pack();
-=======
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
@@ -184,7 +163,6 @@ public class ViewBalance extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
     }// </editor-fold>//GEN-END:initComponents
 
     private String formatFloat(String s) {
@@ -246,8 +224,6 @@ public class ViewBalance extends javax.swing.JFrame {
 
                 ExcelExporter exp = new ExcelExporter();
                 exp.exportTable(listbalance, new File(directoryName + account_number + "_balance.xls"));
-<<<<<<< HEAD
-=======
                 
                 //OPEN FILE
                 File tmpDir = new File(directoryName + account_number + "_balance.xls");
@@ -256,7 +232,6 @@ public class ViewBalance extends javax.swing.JFrame {
                       Desktop dt = Desktop.getDesktop();
                       dt.open(new File(directoryName + account_number + "_balance.xls"));
                   }
->>>>>>> d48411c8b541cbb001b25c42b3a3a3aa6a82c7a8
             } catch (IOException ex) {
                 Logger.getLogger(ViewBalance.class.getName()).log(Level.SEVERE, null, ex);
             }
