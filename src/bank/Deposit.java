@@ -657,8 +657,8 @@ public class Deposit extends javax.swing.JFrame {
                 initialDepositAmount = rs.getFloat("Initial_Deposit_Amount");
                 remainingAmount = rs.getFloat("Remaining_Amount");
             }
-            //System.out.println(initialDepositAmount);
-            if (initialDepositAmount == 10000) {
+            System.out.println(initialDepositAmount);
+            if (initialDepositAmount >= 10000) {
                 initial_deposit_label.setEnabled(false);
                 initial_deposit.setEnabled(false);
             }

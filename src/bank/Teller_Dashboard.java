@@ -46,7 +46,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
     HashMap<String, Integer> legalStatusCodes;
     HashMap<String, String> incomeFrequencyCodes;
     HashMap<String, Integer> relationshipTypeCodes;
-    Map<String, Integer> educationCodes;
+    HashMap<String, Integer> educationCodes;
     HashMap<String, String> residenceTypeCodes;
     HashMap<String, Integer> nationalIdTypeCodes;
     HashMap<String, String> maritalStatusCodes;
@@ -1811,15 +1811,24 @@ public class Teller_Dashboard extends javax.swing.JFrame {
         return null;
     }
 
-    public static Object getKeyFromValue(Map hm, Object value) {
-        for (Object o : hm.keySet()) {
-            if (hm.get(o).equals(value)) {
-                return o;
-            }
+    public static void valueforDropDownInt(HashMap<String, Integer> map, Integer value, javax.swing.JComboBox<String> dropdownField) {
+
+        if (getKey(map, value) == null) {
+            dropdownField.getModel().setSelectedItem("");
+        } else {
+            dropdownField.getModel().setSelectedItem(getKey(map, value));
         }
-        return null;
     }
-    
+
+    public static void valueforDropDownString(HashMap<String, String> map, String value, javax.swing.JComboBox<String> dropdownField) {
+
+        if (getKey(map, value) == null) {
+            dropdownField.getModel().setSelectedItem("");
+        } else {
+            dropdownField.getModel().setSelectedItem(getKey(map, value));
+        }
+    }
+
     private void addAllHashMaps() {
         //Get all the HashMaps 
         villages = helper.getVillageCodes();
@@ -1907,7 +1916,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                 pst.setString(1, searchAccountField);
                 rs = pst.executeQuery();
                 if (rs.next()) {
-                    
+
                     saveupdate.setVisible(false);
                     customer_id.setText(rs.getString("Customer_ID"));
                     account_number.setText(rs.getString("Account_Number"));
@@ -1918,17 +1927,21 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                     forename_2.setText(rs.getString("Forename_2"));
                     customer_acronym.setText(rs.getString("Customer_Acronym"));
                     vision_ouc.setText(rs.getString("cu.Vision_OUC"));
-                    if (rs.getDate("Date_of_Birth") == null){
+                    if (rs.getDate("Date_of_Birth") == null) {
                         date_of_birth.setCalendar(null);
-                    }else{
+                    } else {
                         date_of_birth.setDate(rs.getDate("Date_of_Birth"));
                     }
                     customer_open_date.setDate(rs.getDate("Customer_Open_Date"));
+                    //customer_gender.getModel().setSelectedItem(getKey(genderCodes, rs.getString));
+                    valueforDropDownString(genderCodes, rs.getString("Customer_Gender"), customer_gender);
 
-                    customer_gender.getModel().setSelectedItem(getKey(genderCodes, rs.getString("Customer_Gender")));
                     place_of_birth.setText(rs.getString("Place_of_Birth"));
                     vision_sbu.getModel().setSelectedItem(getKey(visionSBUCodes, rs.getString("cu.Vision_SBU")));
-                    marital_status.getModel().setSelectedItem(getKey(maritalStatusCodes, rs.getString("Marital_Status")));
+                    valueforDropDownString(visionSBUCodes, rs.getString("cu.Vision_SBU"), vision_sbu);
+
+                    // marital_status.getModel().setSelectedItem(getKey(maritalStatusCodes, rs.getString("Marital_Status")))                  
+                    valueforDropDownString(maritalStatusCodes, rs.getString("Marital_Status"), marital_status);
 
                     spouse_name.setText(rs.getString("Spouse_Name"));
                     social_economic_class.getModel().setSelectedItem(rs.getString("Social_Economic_Class"));
@@ -1947,66 +1960,106 @@ public class Teller_Dashboard extends javax.swing.JFrame {
                     residence.getModel().setSelectedItem(rs.getString("Residence"));
                     comm_address_1.setText(rs.getString("Comm_Address_1"));
                     comm_address_2.setText(rs.getString("Comm_Address_2"));
-                    comm_village.getModel().setSelectedItem(getKey(villages, rs.getString("Comm_Village")));
+                    //comm_village.getModel().setSelectedItem(getKey(villages, rs.getString("Comm_Village")));
+                    valueforDropDownString(villages, rs.getString("Comm_Village"), comm_village);
+
                     comm_country.getModel().setSelectedItem(rs.getString("Comm_Country"));
-                    comm_residence_type.getModel().setSelectedItem(getKey(residenceTypeCodes,rs.getString("Comm_Residence_Type")));
+                    //comm_residence_type.getModel().setSelectedItem(getKey(residenceTypeCodes,rs.getString("Comm_Residence_Type")));
+                    valueforDropDownString(residenceTypeCodes, rs.getString("Comm_Residence_Type"), comm_residence_type);
+
                     perm_address_1.setText(rs.getString("Perm_Address_1"));
                     perm_address_2.setText(rs.getString("Perm_Address_2"));
-                    perm_village.getModel().setSelectedItem(getKey(villages, rs.getString("Perm_Village")));
-                    permanent_country.getModel().setSelectedItem(rs.getString("Perm_Country"));
+                    //perm_village.getModel().setSelectedItem(getKey(villages, rs.getString("Perm_Village")));
+                    valueforDropDownString(villages, rs.getString("Perm_Village"), perm_village);
 
+                    permanent_country.getModel().setSelectedItem(rs.getString("Perm_Country"));
                     email.setText(rs.getString("Email_ID"));
                     work_telephone.setText(rs.getString("Work_Telephone"));
                     home_telephone.setText(rs.getString("Home_Telephone"));
                     fax_number_1.setText(rs.getString("Fax_Number_1"));
                     fax_number_2.setText(rs.getString("Fax_Number_2"));
+                    //education.getModel().setSelectedItem(getKey(educationCodes, Integer.parseInt(rs.getString("Education"))));
+                    valueforDropDownInt(educationCodes, Integer.parseInt(rs.getString("Education")), education);
 
-                    education.getModel().setSelectedItem(getKeyFromValue(educationCodes, Integer.parseInt(rs.getString("Education"))));
                     customer_tin.setText(rs.getString("Customer_TIN"));
-                    naics_code.getModel().setSelectedItem(getKeyFromValue(naicsCodes, Integer.parseInt(rs.getString("NAICS_Code"))));
-                    economic_sub_sector_isic.getModel().setSelectedItem(getKey(economicsubsectorISICCodes, rs.getString("cu.Economic_Sub_Sector_Code_ISIC").trim()));
+                    //naics_code.getModel().setSelectedItem(getKey(naicsCodes, Integer.parseInt(rs.getString("NAICS_Code"))));
+                    valueforDropDownInt(naicsCodes, Integer.parseInt(rs.getString("NAICS_Code")), naics_code);
+
+                    //economic_sub_sector_isic.getModel().setSelectedItem(getKey(economicsubsectorISICCodes, rs.getString("cu.Economic_Sub_Sector_Code_ISIC").trim()));
+                    valueforDropDownString(economicsubsectorISICCodes, rs.getString("cu.Economic_Sub_Sector_Code_ISIC"), economic_sub_sector_isic);
+
                     related_party.getModel().setSelectedItem(rs.getString("Related_Party"));
-                    relationship_type.getModel().setSelectedItem(getKeyFromValue(relationshipTypeCodes, Integer.parseInt(rs.getString("Relationship_Type"))));
+                    //relationship_type.getModel().setSelectedItem(getKey(relationshipTypeCodes, Integer.parseInt(rs.getString("Relationship_Type"))));
+                    valueforDropDownInt(relationshipTypeCodes, Integer.parseInt(rs.getString("Relationship_Type")), relationship_type);
+
                     related_party_name.setText(rs.getString("Related_Party_Name"));
                     local_govt_member.getModel().setSelectedItem(rs.getString("Local_Govt_Member"));
                     internet_banking_subscription.getModel().setSelectedItem(rs.getString("Internet_Banking_Subscription"));
                     mobile_banking_subscription.getModel().setSelectedItem(rs.getString("Mobile_Banking_Subscription"));
                     ssn_number.setText(rs.getString("SSN_Number"));
-                   
-                    
-                    national_id_type.getModel().setSelectedItem(getKeyFromValue(nationalIdTypeCodes,Integer.parseInt(rs.getString("National_ID_Type"))));
+
+                    //national_id_type.getModel().setSelectedItem(getKey(nationalIdTypeCodes,Integer.parseInt(rs.getString("National_ID_Type"))));
+                    valueforDropDownInt(nationalIdTypeCodes, Integer.parseInt(rs.getString("National_ID_Type")), national_id_type);
+
                     national_id_number.setText(rs.getString("National_ID_Number"));
                     health_insurance_number.setText(rs.getString("Health_Insurance_Number"));
 
-                    occupation.getModel().setSelectedItem(getKeyFromValue(occupationCodes, Integer.parseInt(rs.getString("Occupation"))));
+                    //occupation.getModel().setSelectedItem(getKey(occupationCodes, Integer.parseInt(rs.getString("Occupation"))));
+                    valueforDropDownInt(occupationCodes, Integer.parseInt(rs.getString("Occupation")), occupation);
+
                     employer_name.setText(rs.getString("Employer_Name"));
                     employee_id.setText(rs.getString("Employee_ID"));
                     emp_address_1.setText(rs.getString("Emp_Address_1"));
                     emp_address_2.setText(rs.getString("Emp_Address_2"));
-                    emp_village.getModel().setSelectedItem(getKey(villages, rs.getString("Emp_Village")));
+                    //emp_village.getModel().setSelectedItem(getKey(villages, rs.getString("Emp_Village")));
+                    valueforDropDownString(villages, rs.getString("Emp_Village"), emp_village);
+
                     emp_country.getModel().setSelectedItem(rs.getString("Emp_Country"));
 
-                    income.getModel().setSelectedItem(getKeyFromValue(incomeRangesCodes, Integer.parseInt(rs.getString("Income"))));
-                    income_frequency.getModel().setSelectedItem(getKey(incomeFrequencyCodes,rs.getString("Income_Frequency")));
+                    //income.getModel().setSelectedItem(getKey(incomeRangesCodes, Integer.parseInt(rs.getString("Income"))));
+                    valueforDropDownInt(incomeRangesCodes, Integer.parseInt(rs.getString("Income")), income);
+
+                    //income_frequency.getModel().setSelectedItem(getKey(incomeFrequencyCodes,rs.getString("Income_Frequency")));
+                    valueforDropDownString(incomeFrequencyCodes, rs.getString("Income_Frequency"), income_frequency);
+
                     group_name.setText(rs.getString("Group_Name"));
                     group_number.setText(rs.getString("Group_Number"));
-                    legal_status.getModel().setSelectedItem(getKeyFromValue(legalStatusCodes,Integer.parseInt(rs.getString("Legal_Status"))));
-                    customer_status.getModel().setSelectedItem(getKeyFromValue(customerStatusCodes,Integer.parseInt(rs.getString("Customer_Status"))));
+                    //legal_status.getModel().setSelectedItem(getKey(legalStatusCodes,Integer.parseInt(rs.getString("Legal_Status"))));
+                    valueforDropDownInt(legalStatusCodes, Integer.parseInt(rs.getString("Legal_Status")), legal_status);
 
-                    account_status.getModel().setSelectedItem(getKey(accountStatusCodes, Integer.parseInt(rs.getString("ac.Account_Status"))));
-                    account_type.getModel().setSelectedItem(getKey(accountTypeCodes,rs.getString("ac.Account_Type")));
-                    freeze_status.getModel().setSelectedItem(getKey(freezeStatusCodes, rs.getString("ac.Freeze_Status")));
+                    //customer_status.getModel().setSelectedItem(getKey(customerStatusCodes,Integer.parseInt(rs.getString("Customer_Status"))));
+                    valueforDropDownInt(customerStatusCodes, Integer.parseInt(rs.getString("Customer_Status")), customer_status);
+
+                    //account_status.getModel().setSelectedItem(getKey(accountStatusCodes, Integer.parseInt(rs.getString("ac.Account_Status"))));
+                    valueforDropDownInt(accountStatusCodes, Integer.parseInt(rs.getString("ac.Account_Status")), account_status);
+
+                    //account_type.getModel().setSelectedItem(getKey(accountTypeCodes,rs.getString("ac.Account_Type")));
+                    valueforDropDownString(accountTypeCodes, rs.getString("ac.Account_Type"), account_type);
+
+                    //freeze_status.getModel().setSelectedItem(getKey(freezeStatusCodes, rs.getString("ac.Freeze_Status")));
+                    valueforDropDownString(freezeStatusCodes, rs.getString("ac.Freeze_Status"), freeze_status);
+
                     interest_rate_credit.setText(rs.getString("ac.Int_Rate_Cr"));
                     interest_rate_debit.setText(rs.getString("ac.Int_Rate_Dr"));
-                    public_sector_code.getModel().setSelectedItem(getKey(publicSectorCodes, rs.getString("ac.Public_Sector_Code")));
-           
+                    //public_sector_code.getModel().setSelectedItem(getKey(publicSectorCodes, rs.getString("ac.Public_Sector_Code")));
+                    valueforDropDownString(publicSectorCodes, rs.getString("ac.Public_Sector_Code"), public_sector_code);
+
                     economic_sub_sector.getModel().setSelectedItem(rs.getString("ac.Economic_Sub_Sector_Code"));
-                    institutional_sector_code.getModel().setSelectedItem(getKey(institutionalSectorCodes, rs.getString("ac.Institutional_Sector_Code")));
-                    account_ownership.getModel().setSelectedItem(getKey(accountOwnerShipCodes, rs.getString("ac.Account_Ownership")));
+                    //institutional_sector_code.getModel().setSelectedItem(getKey(institutionalSectorCodes, rs.getString("ac.Institutional_Sector_Code")));
+                    valueforDropDownString(institutionalSectorCodes, rs.getString("ac.Institutional_Sector_Code"), institutional_sector_code);
+
+                    //account_ownership.getModel().setSelectedItem(getKey(accountOwnerShipCodes, rs.getString("ac.Account_Ownership")));
+                    valueforDropDownString(accountOwnerShipCodes, rs.getString("ac.Account_Ownership"), account_ownership);
+
                     joint_participation_count.setText(rs.getString("ac.Joint_Participant_Count"));
                     card_subscription.getModel().setSelectedItem(rs.getString("ac.Card_Subscription"));
-                    performance_class.getModel().setSelectedItem(getKey(performanceClassCodes, rs.getString("ac.Performance_Class")));
-                    credit_category.getModel().setSelectedItem(getKey(creditCategoryCodes, Integer.parseInt(rs.getString("ac.Credit_Category"))));
+
+                    //performance_class.getModel().setSelectedItem(getKey(performanceClassCodes, rs.getString("ac.Performance_Class")));
+                    valueforDropDownString(performanceClassCodes, rs.getString("ac.Performance_Class"), performance_class);
+
+                    //credit_category.getModel().setSelectedItem(getKey(creditCategoryCodes, Integer.parseInt(rs.getString("ac.Credit_Category"))));
+                    valueforDropDownInt(creditCategoryCodes, Integer.parseInt(rs.getString("ac.Credit_Category")), credit_category);
+
                     account_status_date.setDate(rs.getDate("ac.Account_Status_Date"));
                 } else {
                     JOptionPane.showMessageDialog(null, "Sorry this account does not exist!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2035,9 +2088,9 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The customer acronym field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (forename_1.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The Sacco Branch field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (visionSBUCodes.get(vision_sbu.getSelectedItem().toString()) == null) {
+        } else if (vision_sbu.getSelectedItem().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The business segment field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (genderCodes.get(customer_gender.getSelectedItem().toString()) == null) {
+        } else if (customer_gender.getSelectedItem().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The Customer gender field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (number_of_dependants.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The number of dependants field is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2059,47 +2112,41 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The home telephone field is required!", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (home_telephone.getText().length() != 10) {
             JOptionPane.showMessageDialog(null, "The home telephone field has to be 10 digits", "Error", JOptionPane.ERROR_MESSAGE);
-        } 
-        else if (occupationCodes.get(occupation.getSelectedItem().toString()) == null) {
+        } else if ((occupation.getSelectedItem().toString()).isEmpty()) {
             JOptionPane.showMessageDialog(null, "The occupation field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (educationCodes.get(education.getSelectedItem().toString()) == null) {
+        } else if ((education.getSelectedItem().toString()).isEmpty()) {
             JOptionPane.showMessageDialog(null, "The education field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (naicsCodes.get(naics_code.getSelectedItem().toString()) == null) {
+        } else if ((naics_code.getSelectedItem().toString()).isEmpty()) {
             JOptionPane.showMessageDialog(null, "The NAICS Code field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (economicsubsectorISICCodes.get(economic_sub_sector_isic.getSelectedItem().toString()) == null) {
+        } else if ((economic_sub_sector_isic.getSelectedItem().toString()).isEmpty()) {
             JOptionPane.showMessageDialog(null, "The economic sub sector field ISIC is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (nationalIdTypeCodes.get(national_id_type.getSelectedItem().toString()) == 2 && national_id_number.getText().length() != 16) {
             JOptionPane.showMessageDialog(null, "The ID Number field should be 16 digits", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (customerStatusCodes.get(customer_status.getSelectedItem().toString()) == null) {
+        } else if ((customer_status.getSelectedItem().toString()).isEmpty()) {
             JOptionPane.showMessageDialog(null, "The customer status field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (legalStatusCodes.get(legal_status.getSelectedItem().toString()) == null) {
             JOptionPane.showMessageDialog(null, "The legal status field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (national_id_number.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The ID number field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (accountStatusCodes.get(account_status.getSelectedItem().toString()) == null) {
+        } else if (account_status.getSelectedItem().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The account status field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (accountTypeCodes.get(account_type.getSelectedItem()) == null) {
+        } else if (account_type.getSelectedItem().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The account type field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (freezeStatusCodes.get(freeze_status.getSelectedItem().toString()) == null) {
+        } else if ((freeze_status.getSelectedItem().toString()).isEmpty()) {
             JOptionPane.showMessageDialog(null, "The freeze status is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } 
-        else if (interest_rate_credit.getText().isEmpty()) {
+        } else if (interest_rate_credit.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The interest rate credit field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (interest_rate_debit.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The interest rate debit field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (joint_participation_count.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "The joint participation count field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        } 
-        
-        else if (villages.get(emp_village.getSelectedItem().toString()).length() > 10) {
+        } else if (villages.get(emp_village.getSelectedItem().toString()).length() > 10) {
             JOptionPane.showMessageDialog(null, "The Emp Village field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (villages.get(comm_village.getSelectedItem().toString()).length() > 10) {
             JOptionPane.showMessageDialog(null, "The Comm Village field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (villages.get(perm_village.getSelectedItem().toString()).length() > 10) {
             JOptionPane.showMessageDialog(null, "The perm Village field shoud be at most 10 characters", "Error", JOptionPane.ERROR_MESSAGE);
-        } 
-        
-        else if (employee_id.getText().length() > 15) {
+        } else if (employee_id.getText().length() > 15) {
             JOptionPane.showMessageDialog(null, "The Employee ID field shoud be at most 15 characters", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (health_insurance_number.getText().length() > 15) {
             JOptionPane.showMessageDialog(null, "The Health Insurance Number field shoud be at most 15 characters", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2111,9 +2158,7 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No account opening date specified!", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (account_status_date.getDate() == null) {
             JOptionPane.showMessageDialog(null, "No accoount status date specified!", "Error", JOptionPane.ERROR_MESSAGE);
-        } 
-        
-        else if (nationality.getSelectedItem().toString().equalsIgnoreCase("Select Nationality")) {
+        } else if (nationality.getSelectedItem().toString().equalsIgnoreCase("Select Nationality")) {
             JOptionPane.showMessageDialog(null, "The nationality field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (social_economic_class.getSelectedItem().toString().equalsIgnoreCase("Select Social Economic Class")) {
             JOptionPane.showMessageDialog(null, "The Social Economic Class field is required", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2121,12 +2166,11 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The Customer ID field is required", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (customer_id.getText().length() != 10) {
             JOptionPane.showMessageDialog(null, "The customer ID field is badly formatted", "Error", JOptionPane.ERROR_MESSAGE);
-        } //        else if (helper.getAccountOwnershipCode(account_ownership.getSelectedItem().toString()).isEmpty()) {
-        //            JOptionPane.showMessageDialog(null, "The Account Ownership field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        //        } else if (helper.getIncomeRangeCode(income.getSelectedItem().toString()) == -1) {
-        //            JOptionPane.showMessageDialog(null, "The Income field is required", "Error", JOptionPane.ERROR_MESSAGE);
-        //        } 
-        else {
+        } else if (account_ownership.getSelectedItem().toString().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "The Account Ownership field is required", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (income.getSelectedItem().toString().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "The Income field is required", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
             updateCustomerInformationTable(accountNumber);
         }
     }
@@ -2305,11 +2349,12 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             String sql = "UPDATE `account_information` SET `Account_Status` = ?, Account_Status_Date = ?, Account_Type= ?,"
                     + "Account_Open_Date = ?,Freeze_Status = ?,Int_Rate_Dr = ?,Int_Rate_Cr = ?, Economic_Sub_Sector_Code= ?,"
                     + "Public_Sector_Code = ?, Institutional_Sector_Code = ?, Account_Ownership = ?, Joint_Participant_Count= ?,"
-                    + "Card_Subscription = ?, Performance_Class= ?,Credit_Category= ?"
-                    + "`Date_Last_Modified` = NOW(),Account_Name=?, Vision_OUC=?, Vision_SBU=?, Customer_ID=?, Country=?, LE_Book=?, Vision_GL=?, Currency=? WHERE Account_Number = ?";
+                    + "Card_Subscription = ?, Performance_Class= ?,Credit_Category= ?,"
+                    + "Account_Name=?, Vision_OUC=?, Vision_SBU=?, Customer_ID=?, Country=?, "
+                    + "LE_Book=?, Vision_GL=?, Currency=?, Date_Last_Modified = NOW()  WHERE Account_Number = ?";
 
             pst = conn.connection.prepareStatement(sql);
-            pst.setInt(1, customerStatusCodes.get(account_status.getSelectedItem().toString()));
+            pst.setInt(1, accountStatusCodes.get(account_status.getSelectedItem().toString()));
             pst.setString(2, sqlAccountStatusDate.toString());
             pst.setString(3, accountTypeCodes.get(account_type.getSelectedItem().toString()));
             pst.setString(4, sqlOpeningDate.toString());
@@ -2324,26 +2369,16 @@ public class Teller_Dashboard extends javax.swing.JFrame {
             pst.setString(13, card_subscription.getSelectedItem().toString());
             pst.setString(14, performanceClassCodes.get(performance_class.getSelectedItem().toString()));
             pst.setInt(15, creditCategoryCodes.get(credit_category.getSelectedItem().toString()));
-            pst.setString(16, vision_sbu.getSelectedItem().toString());
-            pst.setString(17, account_status.getSelectedItem().toString());
-            pst.setString(18, account_type.getSelectedItem().toString());
-            pst.setString(19, freeze_status.getSelectedItem().toString());
-            pst.setString(20, economic_sub_sector_isic.getSelectedItem().toString());
-            pst.setString(21, public_sector_code.getSelectedItem().toString());
-            pst.setString(22, institutional_sector_code.getSelectedItem().toString());
-            pst.setString(23, account_ownership.getSelectedItem().toString());
-            pst.setString(24, performance_class.getSelectedItem().toString());
-            pst.setString(25, credit_category.getSelectedItem().toString());
-            pst.setString(26, customer_name.getText());
-            pst.setString(27, vision_ouc.getText());
-            pst.setString(28, visionSBUCodes.get((String) vision_sbu.getSelectedItem()));
-            pst.setString(29, customer_id.getText());
-            pst.setString(30, "RW");
-            pst.setString(31, "519");
-            pst.setString(32, "200080");
-            pst.setString(33, "RWF");
-            pst.setString(34, account_number.getText());
+            pst.setString(16, customer_name.getText());
+            pst.setString(17, vision_ouc.getText());
 
+            pst.setString(18, visionSBUCodes.get(vision_sbu.getSelectedItem().toString()));
+            pst.setString(19, customer_id.getText());
+            pst.setString(20, "RW");
+            pst.setString(21, "519");
+            pst.setString(22, "200080");
+            pst.setString(23, "RWF");
+            pst.setString(24, account_number.getText());
             int update = pst.executeUpdate();
             System.out.println(update);
             if (update > 0) {

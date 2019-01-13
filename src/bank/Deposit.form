@@ -134,12 +134,10 @@
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="commission_input" max="32767" attributes="0"/>
-                                          <Component id="clearence_form_input" max="32767" attributes="0"/>
-                                          <Component id="fiche_input" max="32767" attributes="0"/>
-                                          <Component id="tenue_de_compte_input" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="commission_input" max="32767" attributes="0"/>
+                                      <Component id="clearence_form_input" max="32767" attributes="0"/>
+                                      <Component id="fiche_input" max="32767" attributes="0"/>
+                                      <Component id="tenue_de_compte_input" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                                       <Component id="calculate_button" min="-2" pref="102" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>

@@ -108,11 +108,11 @@ public class WithdrawReceipt extends javax.swing.JFrame {
 
         account_number.setText("...............");
 
-        jLabel13.setText("Deposited By:");
+        jLabel13.setText("Withdrawn By:");
 
         deposited_by.setText("...............");
 
-        jLabel15.setText("Amount Deposited:");
+        jLabel15.setText("Amount Withdrawn:");
 
         amount_deposited.setText("...............");
 

@@ -261,7 +261,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Deposited By:"/>
+        <Property name="text" type="java.lang.String" value="Withdrawn By:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="deposited_by">
@@ -271,7 +271,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel15">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Amount Deposited:"/>
+        <Property name="text" type="java.lang.String" value="Amount Withdrawn:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="amount_deposited">

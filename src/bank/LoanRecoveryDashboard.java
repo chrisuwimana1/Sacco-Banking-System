@@ -54,7 +54,7 @@ public class LoanRecoveryDashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
-        new_loan_application = new javax.swing.JLabel();
+        view_loans = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         due_today = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JToolBar.Separator();
@@ -89,15 +89,15 @@ public class LoanRecoveryDashboard extends javax.swing.JFrame {
         jToolBar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jToolBar1.setRollover(true);
 
-        new_loan_application.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        new_loan_application.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/Actions-view-pim-notes-icon.png"))); // NOI18N
-        new_loan_application.setText("VIEW LOANS");
-        new_loan_application.addMouseListener(new java.awt.event.MouseAdapter() {
+        view_loans.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        view_loans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/Actions-view-pim-notes-icon.png"))); // NOI18N
+        view_loans.setText("VIEW LOANS");
+        view_loans.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                new_loan_applicationMouseClicked(evt);
+                view_loansMouseClicked(evt);
             }
         });
-        jToolBar1.add(new_loan_application);
+        jToolBar1.add(view_loans);
         jToolBar1.add(jSeparator1);
 
         due_today.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -181,6 +181,11 @@ public class LoanRecoveryDashboard extends javax.swing.JFrame {
         });
 
         search_field.setText("0000000008L");
+        search_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_fieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -389,10 +394,10 @@ public class LoanRecoveryDashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_search_contract_idActionPerformed
 
-    private void new_loan_applicationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_new_loan_applicationMouseClicked
+    private void view_loansMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_view_loansMouseClicked
         // TODO add your handling code here:
-        new LoanApplication().setVisible(true);
-    }//GEN-LAST:event_new_loan_applicationMouseClicked
+        new ViewAllLoans().setVisible(true);
+    }//GEN-LAST:event_view_loansMouseClicked
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         // TODO add your handling code here:
@@ -419,6 +424,10 @@ public class LoanRecoveryDashboard extends javax.swing.JFrame {
         
      
     }//GEN-LAST:event_due_todayMouseClicked
+
+    private void search_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search_fieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -479,12 +488,12 @@ public class LoanRecoveryDashboard extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton loan_amortization;
     private javax.swing.JLabel myinfo;
-    private javax.swing.JLabel new_loan_application;
     private javax.swing.JTextField outstanding_amount;
     private javax.swing.JTextField principal_amount_due;
     private javax.swing.JTextField principal_amount_paid;
     private javax.swing.JButton search_contract_id;
     private javax.swing.JTextField search_field;
     private javax.swing.JComboBox<String> search_field_choice;
+    private javax.swing.JLabel view_loans;
     // End of variables declaration//GEN-END:variables
 }
