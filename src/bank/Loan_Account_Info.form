@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+                      <Component id="save_account_information" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="524" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane3" min="-2" pref="527" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="save_contract_loan" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jScrollPane3" pref="585" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="save_contract_loan" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="save_account_information" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="save_account_information">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/bank/images/Save-icon 2.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="SAVE ACCOUNT INFORMATION"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="save_account_informationActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Account Information">
+                  <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder roundedCorners="true" thickness="2"/>
+                  </Border>
+                </TitledBorder>
+              </Border>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="institutional_sector_code_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="interest_rate_debit_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="interest_rate_credit_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="public_sector_code_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="account_ownership_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="joint_participant_count_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="card_subscription_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="economic_sub_sector_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="vision_gl_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="economic_sub_sector" min="-2" max="-2" attributes="0"/>
+                                  <Component id="card_subscription" min="-2" pref="55" max="-2" attributes="0"/>
+                                  <Component id="joint_participant_count" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="public_sector_code" alignment="0" pref="222" max="32767" attributes="0"/>
+                                      <Component id="account_ownership" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="institutional_sector_code" alignment="0" min="-2" pref="221" max="-2" attributes="0"/>
+                                  <Component id="vision_gl" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="interest_rate_credit" alignment="0" pref="52" max="32767" attributes="0"/>
+                                      <Component id="interest_rate_debit" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Component id="account_status_date_label" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="economic_sub_sector_isic_label" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="economic_sub_sector_isic" min="-2" pref="223" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="freeze_status_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="performance_class_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="credit_category_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="account_open_date_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="account_status_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="account_type_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="account_status" min="-2" pref="134" max="-2" attributes="0"/>
+                                  <Component id="freeze_status" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="account_status_date" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="account_open_date" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="account_type" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="credit_category" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="performance_class" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="103" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="account_status_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="account_status" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="account_status_date_label" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Component id="account_type_label" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="account_status_date" min="-2" pref="22" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="account_type" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="account_open_date" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="account_open_date_label" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="freeze_status_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="freeze_status" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="performance_class_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="performance_class" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="credit_category_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="credit_category" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="institutional_sector_code_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="institutional_sector_code" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="interest_rate_debit_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="interest_rate_debit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="interest_rate_credit_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="interest_rate_credit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="vision_gl_label" min="-2" max="-2" attributes="0"/>
+                          <Component id="vision_gl" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="public_sector_code_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="public_sector_code" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="account_ownership_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="account_ownership" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="joint_participant_count_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="joint_participant_count" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="card_subscription_label" min="-2" max="-2" attributes="0"/>
+                          <Component id="card_subscription" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="economic_sub_sector_label" min="-2" max="-2" attributes="0"/>
+                          <Component id="economic_sub_sector" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="economic_sub_sector_isic_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="economic_sub_sector_isic" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="108" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="interest_rate_debit_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Interest rate/Debits (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="interest_rate_credit">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="24"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="interest_rate_creditActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="economic_sub_sector_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Economic Sub Sector (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="freeze_status">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Not Freeze"/>
+                    <StringItem index="1" value="Debit Freeze"/>
+                    <StringItem index="2" value="Credit Freeze"/>
+                    <StringItem index="3" value="Debit/Credit Freeze"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="economic_sub_sector">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="76">
+                    <StringItem index="0" value="9900"/>
+                    <StringItem index="1" value="0001"/>
+                    <StringItem index="2" value="1111"/>
+                    <StringItem index="3" value="1112"/>
+                    <StringItem index="4" value="1113"/>
+                    <StringItem index="5" value="1119"/>
+                    <StringItem index="6" value="1190"/>
+                    <StringItem index="7" value="1200"/>
+                    <StringItem index="8" value="1300"/>
+                    <StringItem index="9" value="1400"/>
+                    <StringItem index="10" value="1900"/>
+                    <StringItem index="11" value="2000"/>
+                    <StringItem index="12" value="3110"/>
+                    <StringItem index="13" value="3120"/>
+                    <StringItem index="14" value="3190"/>
+                    <StringItem index="15" value="3210"/>
+                    <StringItem index="16" value="3220"/>
+                    <StringItem index="17" value="3310"/>
+                    <StringItem index="18" value="3320"/>
+                    <StringItem index="19" value="3400"/>
+                    <StringItem index="20" value="3500"/>
+                    <StringItem index="21" value="3610"/>
+                    <StringItem index="22" value="3620"/>
+                    <StringItem index="23" value="3630"/>
+                    <StringItem index="24" value="3640"/>
+                    <StringItem index="25" value="3690"/>
+                    <StringItem index="26" value="3710"/>
+                    <StringItem index="27" value="3720"/>
+                    <StringItem index="28" value="3800"/>
+                    <StringItem index="29" value="3900"/>
+                    <StringItem index="30" value="4100"/>
+                    <StringItem index="31" value="4200"/>
+                    <StringItem index="32" value="4900"/>
+                    <StringItem index="33" value="5100"/>
+                    <StringItem index="34" value="5210"/>
+                    <StringItem index="35" value="5290"/>
+                    <StringItem index="36" value="6111"/>
+                    <StringItem index="37" value="6112"/>
+                    <StringItem index="38" value="6113"/>
+                    <StringItem index="39" value="6121"/>
+                    <StringItem index="40" value="6122"/>
+                    <StringItem index="41" value="6123"/>
+                    <StringItem index="42" value="6129"/>
+                    <StringItem index="43" value="6131"/>
+                    <StringItem index="44" value="6132"/>
+                    <StringItem index="45" value="6133"/>
+                    <StringItem index="46" value="6139"/>
+                    <StringItem index="47" value="6190"/>
+                    <StringItem index="48" value="6200"/>
+                    <StringItem index="49" value="6310"/>
+                    <StringItem index="50" value="6320"/>
+                    <StringItem index="51" value="6330"/>
+                    <StringItem index="52" value="6340"/>
+                    <StringItem index="53" value="6350"/>
+                    <StringItem index="54" value="6360"/>
+                    <StringItem index="55" value="6390"/>
+                    <StringItem index="56" value="6400"/>
+                    <StringItem index="57" value="6900"/>
+                    <StringItem index="58" value="7100"/>
+                    <StringItem index="59" value="7200"/>
+                    <StringItem index="60" value="7300"/>
+                    <StringItem index="61" value="7400"/>
+                    <StringItem index="62" value="7500"/>
+                    <StringItem index="63" value="7600"/>
+                    <StringItem index="64" value="7700"/>
+                    <StringItem index="65" value="7900"/>
+                    <StringItem index="66" value="8100"/>
+                    <StringItem index="67" value="8200"/>
+                    <StringItem index="68" value="8300"/>
+                    <StringItem index="69" value="8400"/>
+                    <StringItem index="70" value="8900"/>
+                    <StringItem index="71" value="9100"/>
+                    <StringItem index="72" value="9200"/>
+                    <StringItem index="73" value="9300"/>
+                    <StringItem index="74" value="9400"/>
+                    <StringItem index="75" value="9500"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="account_type_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Account Type (*): "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="performance_class_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Performance Class (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="public_sector_code_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Public Sector Code (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="institutional_sector_code_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Institutional Sector Code (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="institutional_sector_code">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="6">
+                    <StringItem index="0" value="MFI/SACCO (Deposit Taking)"/>
+                    <StringItem index="1" value="Micro Finance Bank"/>
+                    <StringItem index="2" value="Investment Banks"/>
+                    <StringItem index="3" value="Development Bank"/>
+                    <StringItem index="4" value="Cooperative Bank"/>
+                    <StringItem index="5" value="Housing Bank &amp; Assimilated"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="account_status_date_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Account Status Date (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="credit_category_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Credit Category (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="card_subscription_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Card Subscription (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="joint_participant_count">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="credit_category">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="20">
+                    <StringItem index="0" value="Personal Loan"/>
+                    <StringItem index="1" value="Vehicle Loan"/>
+                    <StringItem index="2" value="Fixed-Asset Loan"/>
+                    <StringItem index="3" value="Equipment Loans"/>
+                    <StringItem index="4" value="Other cash loans"/>
+                    <StringItem index="5" value="Cash Adavance"/>
+                    <StringItem index="6" value="Working Capital Credit"/>
+                    <StringItem index="7" value="Inventory Credit"/>
+                    <StringItem index="8" value="Discount Facility"/>
+                    <StringItem index="9" value="Bridging Credit"/>
+                    <StringItem index="10" value="Season Credit"/>
+                    <StringItem index="11" value="Residential Mortgage Loans"/>
+                    <StringItem index="12" value="Commercial Mortgages/Real Estate Leasing"/>
+                    <StringItem index="13" value="Leasing"/>
+                    <StringItem index="14" value="Undrawn line of credit"/>
+                    <StringItem index="15" value="Documentary Credit"/>
+                    <StringItem index="16" value="Caution"/>
+                    <StringItem index="17" value="Guarantee"/>
+                    <StringItem index="18" value="Acceptance"/>
+                    <StringItem index="19" value="Other Commitments"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="interest_rate_debit">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="account_status_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Account Status (*):"/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="account_status_date">
+            </Component>
+            <Component class="javax.swing.JLabel" name="interest_rate_credit_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Interest rate/Credits (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="public_sector_code">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="18">
+                    <StringItem index="0" value="Other Sectors"/>
+                    <StringItem index="1" value="Treasury"/>
+                    <StringItem index="2" value="Ministries"/>
+                    <StringItem index="3" value="Government Projects"/>
+                    <StringItem index="4" value="Joint Projects"/>
+                    <StringItem index="5" value="Special Funds"/>
+                    <StringItem index="6" value="Counterpart Funds"/>
+                    <StringItem index="7" value="Offices "/>
+                    <StringItem index="8" value="Hospital And Community Health Center "/>
+                    <StringItem index="9" value="Institutes And Research Centers "/>
+                    <StringItem index="10" value="Others"/>
+                    <StringItem index="11" value="Province"/>
+                    <StringItem index="12" value="Districts"/>
+                    <StringItem index="13" value="Sectors"/>
+                    <StringItem index="14" value="RSSB"/>
+                    <StringItem index="15" value="MMI"/>
+                    <StringItem index="16" value="Related Public Companies "/>
+                    <StringItem index="17" value="Public Companies"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="account_type">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="8">
+                    <StringItem index="0" value="Loan Account"/>
+                    <StringItem index="1" value="Current Account"/>
+                    <StringItem index="2" value="Saving Account"/>
+                    <StringItem index="3" value="Term Deposit Account"/>
+                    <StringItem index="4" value="Security Deposit Account"/>
+                    <StringItem index="5" value="Office Account/ Internal Account/ Accounts owned by the stakeholder itself"/>
+                    <StringItem index="6" value="Insurance Policy"/>
+                    <StringItem index="7" value="Trust Account"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="account_status">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="7">
+                    <StringItem index="0" value="Active"/>
+                    <StringItem index="1" value="Inactive"/>
+                    <StringItem index="2" value="Closed"/>
+                    <StringItem index="3" value="Dormant"/>
+                    <StringItem index="4" value="Expired"/>
+                    <StringItem index="5" value="Matured"/>
+                    <StringItem index="6" value="Deleted"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="account_ownership">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="6">
+                    <StringItem index="0" value="Select Ownership"/>
+                    <StringItem index="1" value="Individual or Corporate"/>
+                    <StringItem index="2" value="Joint Application"/>
+                    <StringItem index="3" value="Sole proprietorship in which the owner is account owner"/>
+                    <StringItem index="4" value="By one of the partners"/>
+                    <StringItem index="5" value="Group Owners"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="joint_participant_count_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Joint Participant Count (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="card_subscription">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="N"/>
+                    <StringItem index="1" value="A"/>
+                    <StringItem index="2" value="B"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="account_ownership_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Account Ownership (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="freeze_status_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Freeze Status (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="performance_class">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="6">
+                    <StringItem index="0" value="Normal loans"/>
+                    <StringItem index="1" value="Watch loans"/>
+                    <StringItem index="2" value="Substandards loans"/>
+                    <StringItem index="3" value="Doubtful loans"/>
+                    <StringItem index="4" value="Loss loans"/>
+                    <StringItem index="5" value="Writtern Off"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="economic_sub_sector_isic_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Economic Sub Sector ISIC(*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="economic_sub_sector_isic">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="26">
+                    <StringItem index="0" value="Select Economic Sub Sector ISIC"/>
+                    <StringItem index="1" value="Growing of rice"/>
+                    <StringItem index="2" value="Growing of vegetables and melons, roots and tubers"/>
+                    <StringItem index="3" value="Raising of cattle and buffaloes"/>
+                    <StringItem index="4" value="Raising of sheep and goats"/>
+                    <StringItem index="5" value="Raising of swine/pigs"/>
+                    <StringItem index="6" value="Raising of poultry"/>
+                    <StringItem index="7" value="Mixed farming&quot;"/>
+                    <StringItem index="8" value="Manufacture of dairy products"/>
+                    <StringItem index="9" value="Manufacture of other food products n.e.c."/>
+                    <StringItem index="10" value="Weaving of textiles"/>
+                    <StringItem index="11" value="Repair of machinery"/>
+                    <StringItem index="12" value="Electrical installation"/>
+                    <StringItem index="13" value="Wholesale of food, beverages and tobacco"/>
+                    <StringItem index="14" value="Wholesale of textiles, clothing and footwear"/>
+                    <StringItem index="15" value="Wholesale of other household goods"/>
+                    <StringItem index="16" value="Wholesale of other machinery and equipment"/>
+                    <StringItem index="17" value="Restaurants and mobile food service activities"/>
+                    <StringItem index="18" value="Beverage serving activities"/>
+                    <StringItem index="19" value="Higher education"/>
+                    <StringItem index="20" value="Sports and recreation education"/>
+                    <StringItem index="21" value="Cultural education"/>
+                    <StringItem index="22" value="Other education n.e.c."/>
+                    <StringItem index="23" value="Hospital activities"/>
+                    <StringItem index="24" value="Activities of religious organizations"/>
+                    <StringItem index="25" value="Other personal service activities n.e.c."/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="account_open_date_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Account Open Date (*):"/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="account_open_date">
+            </Component>
+            <Component class="javax.swing.JLabel" name="vision_gl_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Vision GL (*):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="vision_gl">
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="save_contract_loan">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/bank/images/Save-icon 2.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="SAVE CONTRACT LOAN "/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="save_contract_loanActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel2">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder roundedCorners="true" thickness="2"/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="loan_including_interst_label" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="loan_including_interest" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="repayment_frequency_label" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="emi_amount_label" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="due_amount_label" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="repayment_frequency" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="emi_amount" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="due_amount" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="regulatory_provision_label" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="regulatory_provision" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="total_installments_outstanding_label" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="total_installments_outstanding" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="grace_period_accorded_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="instalments_in_arrears_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="number_of_instalments_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="total_installments_paid_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="total_installments_paid" max="32767" attributes="0"/>
+                                      <Component id="number_of_installments" max="32767" attributes="0"/>
+                                      <Component id="instalments_in_arrears" max="32767" attributes="0"/>
+                                      <Component id="grace_period_accorded" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="date_of_provision_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="disbursed_amount_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="principal_amount_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="interest_due_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="other_cr_penalties_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="provision_held_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="other_charges_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="suspense_interest_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="disbursed_amount" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="principal_amount" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="interest_due" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="provision_held" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="other_cr_penalties" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="other_charges" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="suspense_interest" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="date_of_provision" min="-2" pref="134" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="disbursed_amount_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="disbursed_amount" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="principal_amount_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="principal_amount" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="interest_due_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="interest_due" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="regulatory_provision_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="regulatory_provision" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="provision_held_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="provision_held" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="date_of_provision_label" min="-2" max="-2" attributes="0"/>
+                              <Component id="date_of_provision" min="-2" pref="22" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="loan_including_interst_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="loan_including_interest" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="other_cr_penalties_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="other_cr_penalties" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="other_charges_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="other_charges" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="suspense_interest_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="suspense_interest" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="repayment_frequency_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="repayment_frequency" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="emi_amount_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="emi_amount" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="due_amount" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="due_amount_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="grace_period_accorded_label" min="-2" max="-2" attributes="0"/>
+                              <Component id="grace_period_accorded" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="instalments_in_arrears_label" min="-2" max="-2" attributes="0"/>
+                              <Component id="instalments_in_arrears" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="number_of_instalments_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="number_of_installments" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="total_installments_paid_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="total_installments_paid" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="total_installments_outstanding_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="total_installments_outstanding" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JTextField" name="provision_held">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="due_amount">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="date_of_provision">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="total_installments_paid_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Total Instalments Paid (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="disbursed_amount_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Disbursed Amount (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="principal_amount">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="interest_due">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="instalments_in_arrears_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Instalments In Arrears (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="suspense_interest">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="emi_amount">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="total_installments_outstanding">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="suspense_interest_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Suspense Interest (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="repayment_frequency">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="1">
+                        <StringItem index="0" value="MTH"/>
+                      </StringArray>
+                    </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="repayment_frequencyActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="due_amount_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Due Amount (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="provision_held_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Provision Held (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="grace_period_accorded_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Grace Period Accorded (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="date_of_provision_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Date Of Provision (*): "/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="disbursed_amount">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="grace_period_accorded">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="other_cr_penalties_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Other CR Penalties (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="instalments_in_arrears">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="interest_due_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Interest Due (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="principal_amount_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Principal Amount (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="number_of_installments">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="other_charges_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Other Charges (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="regulatory_provision">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="other_charges">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="emi_amount_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="EMI Amount (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="total_installments_outstanding_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Total Instalments Outstanding (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="repayment_frequency_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Repayment Frequency (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="other_cr_penalties">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="number_of_instalments_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Number of Instalments (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="regulatory_provision_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Regulatory Provision (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="total_installments_paid">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="loan_including_interst_label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Loan Including Interest (*):"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="loan_including_interest">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
