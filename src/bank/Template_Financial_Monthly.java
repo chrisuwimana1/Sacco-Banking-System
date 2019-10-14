@@ -27,6 +27,9 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import java.text.DecimalFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.prefs.BackingStoreException;
 
 public class Template_Financial_Monthly extends javax.swing.JFrame {
@@ -63,22 +66,20 @@ public class Template_Financial_Monthly extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         financial_date = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
         generate = new javax.swing.JButton();
         export = new javax.swing.JButton();
-        year_month = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         financial_date.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Country", "LE_Book", "Year_Month", "Customer_ID", "Account_No", "Office_Account", "Vision_OUC", "Vision_GL", "Currency", "Amount_FCY", "Amount_LCY"
+                "Country", "LE_Book", "Customer_ID", "Account_No", "Office_Account", "Vision_OUC", "Vision_GL", "Currency", "Amount_FCY", "Amount_LCY"
             }
         ));
         jScrollPane1.setViewportView(financial_date);
@@ -102,9 +103,6 @@ public class Template_Financial_Monthly extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(jPanel1);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("YEAR MONTH:");
-
         generate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         generate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/images/Generate-tables-icon.png"))); // NOI18N
         generate.setText("GENERATE");
@@ -124,8 +122,6 @@ public class Template_Financial_Monthly extends javax.swing.JFrame {
             }
         });
 
-        year_month.setText("201809");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,12 +131,8 @@ public class Template_Financial_Monthly extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1004, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(year_month, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(generate)
-                        .addGap(44, 44, 44)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(export)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -148,14 +140,11 @@ public class Template_Financial_Monthly extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(export, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(generate)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(year_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(export)
+                    .addComponent(generate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -168,19 +157,19 @@ public class Template_Financial_Monthly extends javax.swing.JFrame {
         return String.valueOf(formatter.format(stringToDouble)).equals(".00") ? "0.0" : String.valueOf(formatter.format(stringToDouble));
     }
 
-    private void generateTemplate(String inputDate) {
+    private void generateTemplate() {
         try {
             DefaultTableModel dtm = (DefaultTableModel) financial_date.getModel();
             dtm.setRowCount(0);
             dtm.setColumnCount(0);
-            String sql = "select Country, LE_Book, Customer_ID, cu.Customer_Name, cu.Account_Number,ba.current_balance from customer_information cu inner join balance ba on cu.Account_Number = ba.Account_Number";
+            String sql = "select Country, LE_Book, Customer_ID, cu.Customer_Name, cu.Account_Number,ba.current_balance from customer_information cu inner join balance ba on cu.Account_Number = ba.Account_Number order by cu.Account_Number";
             pst = conn.connection.prepareStatement(sql);
             rs = pst.executeQuery();
             financial_date.setModel(model);
 
             model.addColumn("Country");
             model.addColumn("LE_Book");
-            model.addColumn("Year_Month");
+//            model.addColumn("Year_Month");
             model.addColumn("Customer_ID");
             model.addColumn("Account_No"); 
             model.addColumn("Customer Name");
@@ -194,13 +183,13 @@ public class Template_Financial_Monthly extends javax.swing.JFrame {
                 model.addRow(new Object[]{
                     rs.getString("Country"), 
                     rs.getString("LE_Book"),
-                    year_month.getText(), 
+//                    inputDate, 
                     rs.getString("Customer_ID"), 
                     rs.getString("Customer_ID"),
                     rs.getString("Customer_Name"),
                     "200080", "001", "RWF", 
-                    formatFloat(rs.getString("ba.current_balance")), 
-                    formatFloat(rs.getString("ba.current_balance"))
+                    formatFloat(rs.getString("current_balance")), 
+                    formatFloat(rs.getString("current_balance"))
                 });
             }
             export.setEnabled(true);
@@ -209,7 +198,7 @@ public class Template_Financial_Monthly extends javax.swing.JFrame {
         }
     }
 
-    public void exportTable() {
+    public void exportTable(String year_month) {
           try {
             String fileName = "Sacco/";
             String directoryName = FileSystemView.getFileSystemView().getDefaultDirectory().getPath()+"/Documents/".concat(fileName);
@@ -217,14 +206,14 @@ public class Template_Financial_Monthly extends javax.swing.JFrame {
              if (!dir.exists()) dir.mkdirs();
             
             ExcelExporter exp = new ExcelExporter();
-            exp.exportTable(financial_date, new File(directoryName+year_month.getText()+"_FINMTH.xls"));
+            exp.exportTable(financial_date, new File(directoryName+year_month+"_FINMTH.xls"));
             
             //OPEN FILE
-            File tmpDir = new File(directoryName+year_month.getText()+"_FINMTH.xls");
+            File tmpDir = new File(directoryName+year_month+"_FINMTH.xls");
             boolean exists = tmpDir.exists();
               if (exists) {
                   Desktop dt = Desktop.getDesktop();
-                  dt.open(new File(directoryName+year_month.getText()+"_FINMTH.xls"));
+                  dt.open(new File(directoryName+year_month+"_FINMTH.xls"));
               }
           } catch (IOException ex) {
             Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
@@ -233,19 +222,18 @@ public class Template_Financial_Monthly extends javax.swing.JFrame {
 
     private void generateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateActionPerformed
         // TODO add your handling code here:
-        if (year_month.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "The YearMonth field is required for this filter!", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            String businessDate = year_month.getText();
-            generateTemplate(businessDate);
-        }
+        generateTemplate();
     }//GEN-LAST:event_generateActionPerformed
 
     private void exportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportActionPerformed
         // TODO add your handling code here:
         int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to export this table?");
         if (dialogResult == JOptionPane.YES_OPTION) {
-            exportTable();
+            Calendar c = new GregorianCalendar();
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.YEAR);
+            String businessDate = year+month+"";
+            exportTable(businessDate);
         }
     }//GEN-LAST:event_exportActionPerformed
 
@@ -289,10 +277,8 @@ public class Template_Financial_Monthly extends javax.swing.JFrame {
     private javax.swing.JButton export;
     private javax.swing.JTable financial_date;
     private javax.swing.JButton generate;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField year_month;
     // End of variables declaration//GEN-END:variables
 }

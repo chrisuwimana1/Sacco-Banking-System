@@ -3,45 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/OtherTransaction.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/TellerBalance.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/AdminDashboard.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/CreateSaccoAccount.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/ButtonColumn.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/CreateSavingsAccount.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/TellerReports.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/LoanRecoveryDashboard.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/Transaction.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/Journal.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/Loan_Account_Info.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/CreateAccount.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/EditLoanApplication.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/Withdraw.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/AllTransactions.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/LoanAmortizationSchedule.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/Transfer.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/ViewExpenses.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/InitialDeposits.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/CreateExpenseType.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/DueToday.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/MoneyBank.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/LoanApplication.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/AddExpense.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/Template_Account_Information.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/CreateNewStartingBalance.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/DeblockageCredit.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/CreateTermDeposit.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/Deposit.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/Banking.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/Teller_Dashboard.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/ShortReport.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/UploadAccountIDs.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/CreateCollateral.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/CreateContractInformation.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/CreateRequestee.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/Adhesion.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/ChangePassword.java</file>
-            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/LoanOfficerDashboard.java</file>
+            <file>file:/C:/Users/User/Documents/Documents/Sacco-Banking-System-master/src/bank/Template_Financial_Monthly.java</file>
         </group>
     </open-files>
 </project-private>
